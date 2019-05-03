@@ -9,8 +9,9 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        // "@schematics/angular:component": {
-        //   "styleExt": "scss"
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
       },
       "architect": {
         "build": {
@@ -127,7 +128,6 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "styleExt": "scss",
             "exclude": [
               "**/node_modules/**"
             ]
