@@ -1,0 +1,10 @@
+{
+	"failed_create_already_exists": "Could not create new record, because it already exists",
+	"failed_update_does_not_exist": "Could not update record, because it does not yet exist",
+	"failed_destroy_does_not_exist": "Could not destroy record, because it does not yet exist",
+	"read_only_change_not_allowed": "Cannot change \"%s\" for an existing record",
+	"invalid_validation_rule": "Malformed validation rule",
+	"unique_key_duplicate_found": "Duplicate entry found for the following field(s): \"%s\"",
+	"foreign_key_model_not_found": "Invalid foreign key: Could not find model",
+	"foreign_key_missing_parent_row": "Missing parent row for foreign key field"
+}

@@ -1,0 +1,7 @@
+{
+	"array_expected": "Array expected",
+	"array_contains_invalid_data_type": "One or more values in array do not match data type",
+	"invalid_data_type": "Does not match data type",
+	"validation_test_not_found": "Validation test not found: \"%s\"",
+	"array_invalid_default_value": "Invalid default value for field \"%s\". Expected an array."
+}
