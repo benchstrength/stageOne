@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(cookieParser());
-
 app.use(passport.initialize());
 
 
@@ -54,7 +53,7 @@ const checkAuthorization = function (req, res, next) {
 passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT,
     clientSecret: process.env.GITHUB_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+    callbackURL: "/auth/github/callback"
 }, 
 // example profile return below
 // ----------------------------
