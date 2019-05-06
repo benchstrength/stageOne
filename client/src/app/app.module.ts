@@ -32,6 +32,7 @@ import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-grap
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
     AdminDashSearchResultsComponent,
     AdminDashGraphContentComponent,
     AdminDashGraphTitleComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

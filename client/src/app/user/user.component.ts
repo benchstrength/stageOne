@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
+  pageTitle: string = "User Page";
+  
   constructor() { }
 
   ngOnInit() {
