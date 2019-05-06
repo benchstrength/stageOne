@@ -12,6 +12,7 @@
     .git-btn {  
         background-color: #3c3c3c;
         color: #ffffff;
+        margin-bottom: 2rem;
     }
     hr {
         margin: 30px 40px;
@@ -26,19 +27,19 @@
     }
     .filler {
         margin: 0;
-        padding: 5px 15px;
+        padding:  3rem;
         color: #acabaa;
     }
-    .remember {
-        margin: 20px 40px;
-        font-size: 12px;
-        text-align: left;
-    }
-    .login-btn {
-        color: #39759a;
-        border: solid 1px #39759a;
-        font-size: 12px;
-        text-align: right !important;
-        margin-bottom: 50px;
-    }
+    // .remember {
+    //     margin: 20px 40px;
+    //     font-size: 12px;
+    //     text-align: left;
+    // }
+    // .login-btn {
+    //     color: #39759a;
+    //     border: solid 1px #39759a;
+    //     font-size: 12px;
+    //     text-align: right !important;
+    //     margin-bottom: 50px;
+    // }
 }
