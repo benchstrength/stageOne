@@ -33,6 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

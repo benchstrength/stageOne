@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $bench-strength-primary: mat-palette($mat-blue-grey);
-$bench-strength-accent: mat-palette($mat-lime, A200, A100, A400);
+$bench-strength-accent: mat-palette($mat-blue-grey, 200, 600, 900);
 
 // The warn palette is optional (defaults to red).
 $bench-strength-warn: mat-palette($mat-amber);

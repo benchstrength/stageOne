@@ -8,7 +8,7 @@
 
 // Define the theme.
 $bench-strength-theme-primary:  mat-palette($mat-blue-grey);
-$bench-strength-theme-accent:   mat-palette($mat-lime, A200, A100, A400);
+$bench-strength-theme-accent:   mat-palette($mat-blue-grey, 200, 600, 900);
 $bench-strength-theme-warn:  mat-palette($mat-amber);
 
 $bench-strength-theme: mat-light-theme($bench-strength-theme-primary, $bench-strength-theme-accent, $bench-strength-theme-warn);
