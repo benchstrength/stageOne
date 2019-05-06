@@ -17,7 +17,7 @@ export class GraphComponent implements OnInit {
     'TypeScript'
   ];
   public polarAreaChartData: SingleDataSet = [73, 89, 71, 43, 22];
-  public polarAreaLegend = false;
+  public polarAreaLegend = true;
 
   public polarAreaChartType: ChartType = 'polarArea';
 
