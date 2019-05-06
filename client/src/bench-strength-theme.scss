@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the theme.
+$bench-strength-theme-primary:  mat-palette($mat-blue-grey);
+$bench-strength-theme-accent:   mat-palette($mat-blue-grey, 200, 600, 900);
+$bench-strength-theme-warn:  mat-palette($mat-amber);
+
+$bench-strength-theme: mat-light-theme($bench-strength-theme-primary, $bench-strength-theme-accent, $bench-strength-theme-warn);
+
+@include angular-material-theme($bench-strength-theme);

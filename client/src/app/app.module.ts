@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { UserDashComponent } from './user/user-dash/user-dash.component';
+import { UserDashComponent } from './user/components/user-dash/user-dash.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserDashImageComponent } from './user/components/user-dash-image/user-dash-image.component';
@@ -30,6 +30,10 @@ import { AdminDashSearchResultsComponent } from './admin/components/admin-dash-s
 import { AdminDashGraphContentComponent } from './admin/components/admin-dash-graph-content/admin-dash-graph-content.component';
 import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-graph-title/admin-dash-graph-title.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { LoginFormComponent } from './login/login-form/login-form.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -60,13 +64,20 @@ import { NavbarComponent } from './navbar/navbar.component';
     AdminDashSearchResultsComponent,
     AdminDashGraphContentComponent,
     AdminDashGraphTitleComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export class PizzaPartyAppModule { }
