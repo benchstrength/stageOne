@@ -31,9 +31,10 @@ import { AdminDashGraphContentComponent } from './admin/components/admin-dash-gr
 import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-graph-title/admin-dash-graph-title.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
-    ChartsModule
+    ChartsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
