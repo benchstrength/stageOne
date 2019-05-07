@@ -30,9 +30,13 @@ import { AdminDashSearchResultsComponent } from './admin/components/admin-dash-s
 import { AdminDashGraphContentComponent } from './admin/components/admin-dash-graph-content/admin-dash-graph-content.component';
 import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-graph-title/admin-dash-graph-title.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule } from '@angular/material';
+
+
+import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
+
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -73,7 +77,9 @@ import { ChartsModule } from 'ng2-charts';
     MatButtonModule, 
     MatCheckboxModule,
     ChartsModule,
-    MatFormFieldModule,
+
+    MatCardModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
