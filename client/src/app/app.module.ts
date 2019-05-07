@@ -29,9 +29,8 @@ import { AdminDashSearchComponent } from './admin/components/admin-dash-search/a
 import { AdminDashSearchResultsComponent } from './admin/components/admin-dash-search-results/admin-dash-search-results.component';
 import { AdminDashGraphContentComponent } from './admin/components/admin-dash-graph-content/admin-dash-graph-content.component';
 import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-graph-title/admin-dash-graph-title.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatFormFieldModule } from '@angular/material';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
 
@@ -64,7 +63,6 @@ import { ChartsModule } from 'ng2-charts';
     AdminDashSearchResultsComponent,
     AdminDashGraphContentComponent,
     AdminDashGraphTitleComponent,
-    NavbarComponent,
     LoginFormComponent,
   ],
   imports: [
@@ -74,7 +72,8 @@ import { ChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
-    ChartsModule
+    ChartsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
