@@ -4,7 +4,18 @@
   <div class="title"><i class="fas fa-dumbbell"></i><br>{{ title }}</div>
 
   <div class="">
-    <button mat-raised-button class="git-btn"><i class="fab fa-github"></i> Log in with GitHub</button>
+    <button mat-raised-button class="git-btn" 
+    *ngIf="!auth.isAuthenticated()"
+    (click)="auth.login()">
+      <i class="fab fa-github"></i> 
+      Log in with GitHub
+    </button>
+    <button mat-raised-button class="git-btn" 
+    *ngIf="auth.isAuthenticated()"
+    (click)="auth.logout()">
+      <i class="fab fa-github"></i> 
+      Log Out
+    </button>
   </div>
 
 
