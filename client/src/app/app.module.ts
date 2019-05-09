@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserDashComponent } from './user/components/user-dash/user-dash.component';
@@ -36,6 +36,9 @@ import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/mate
 
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
+import { AuthService } from './auth/auth.service.spec';
+import { RouterModule } from '@angular/router';
+import { Routes } from '../app/app-routing/app-routes'
 
 
 @NgModule({
@@ -77,11 +80,11 @@ import { ChartsModule } from 'ng2-charts';
     MatButtonModule, 
     MatCheckboxModule,
     ChartsModule,
-
-    MatCardModule
-
+    HttpClientModule,
+    MatCardModule,
+    RouterModule.forRoot(Routes)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
