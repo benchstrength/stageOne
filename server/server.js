@@ -1,10 +1,5 @@
-// require("dotenv").config();
 var express = require("express");
 const path = require("path");
-// const passport = require("passport");
-// const jwt = require("jsonwebtoken");
-// const cookieParser = require("cookie-parser");
-// const GithubStrategy = require("passport-github").Strategy;
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -45,9 +40,9 @@ app.get('/api/private-scoped', checkJwt, checkScopes, function(req, res) {
   });
 });
 
-app.get('/api/semi-private', checkJwt, function(req, res) {
-  console.log(req);
-    res.json({message: "Semi-private endpoint reached!"})
+app.post('/api/semi-private', function(req, res) {
+  console.log(req.body);
+    res.send({message: "Semi-private endpoint reached!"});
 });
 
 app.get("*", (req, res) => {
