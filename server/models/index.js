@@ -4,9 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.js');
 const db = {};
+
+console.log(config);
 
 let sequelize;
 if (config.use_env_variable) {
@@ -33,5 +34,16 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+db.sequelize
+    .authenticate()
+    .then(() => {
+        console.log("Connection to " + config.database + " has been established successfully.");
+    })
+    .catch(err => {
+        console.error('Unable to connect to database: ' + err);
+    });
+
+
 
 module.exports = db;
