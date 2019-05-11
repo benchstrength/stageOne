@@ -1,0 +1,19 @@
+{
+  "name": "stageone",
+  "version": "0.0.1",
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benchstrength/stageOne.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benchstrength/stageOne/issues"
+  },
+  "homepage": "https://github.com/benchstrength/stageOne#readme"
+}
