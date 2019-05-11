@@ -7,17 +7,12 @@ import { UserDashComponent } from './user/components/user-dash/user-dash.compone
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserDashImageComponent } from './user/components/user-dash-image/user-dash-image.component';
-import { UserDashInfoComponent } from './user/components/user-dash-info/user-dash-info.component';
-import { UserDashNotesComponent } from './user/components/user-dash-notes/user-dash-notes.component';
-import { UserDashUpdateComponent } from './user/components/user-dash-update/user-dash-update.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { UserAssessmentExistingComponent } from './user/components/user-assessment-existing/user-assessment-existing.component';
 import { UserAssessmentNewComponent } from './user/components/user-assessment-new/user-assessment-new.component';
 import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
 import { UserDashGraphComponent } from './user/components/user-dash-graph/user-dash-graph.component';
-import { UserDashToggleComponent } from './user/components/user-dash-toggle/user-dash-toggle.component';
-import { UserDashLegendComponent } from './user/components/user-dash-legend/user-dash-legend.component';
 import { AdminDashFocusedGraphComponent } from './admin/components/admin-dash-focused-graph/admin-dash-focused-graph.component';
 import { AdminDashPrimaryGraphComponent } from './admin/components/admin-dash-primary-graph/admin-dash-primary-graph.component';
 import { AdminDashSecondaryGraphComponent } from './admin/components/admin-dash-secondary-graph/admin-dash-secondary-graph.component';
@@ -49,17 +44,12 @@ import { UserDashCardComponent } from './user/components/user-dash-card/user-das
     UserComponent,
     AdminComponent,
     UserDashImageComponent,
-    UserDashInfoComponent,
-    UserDashNotesComponent,
-    UserDashUpdateComponent,
     UserAssessmentComponent,
     UserAssessmentExistingComponent,
     UserAssessmentNewComponent,
     GraphComponent,
     LoginComponent,
     UserDashGraphComponent,
-    UserDashToggleComponent,
-    UserDashLegendComponent,
     AdminDashFocusedGraphComponent,
     AdminDashPrimaryGraphComponent,
     AdminDashSecondaryGraphComponent,
