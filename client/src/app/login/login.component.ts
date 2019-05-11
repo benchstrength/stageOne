@@ -23,7 +23,7 @@ public sendData() {
   this.http.post("/api/semi-private", {
     message: "Sending data from Angular!"
   }).toPromise()
-  .then(data => {debugger})
+  .then(data => console.log(data))
   .catch(err => console.log(err));
 
 };
