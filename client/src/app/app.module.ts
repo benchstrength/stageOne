@@ -38,7 +38,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
 import { AuthService } from './auth/auth.service.spec';
 import { RouterModule } from '@angular/router';
-import { Routes } from '../app/app-routing/app-routes'
+import { Routes } from '../app/app-routing/app-routes';
+import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component'
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { Routes } from '../app/app-routing/app-routes'
     AdminDashGraphContentComponent,
     AdminDashGraphTitleComponent,
     LoginFormComponent,
+    UserDashCardComponent,
   ],
   imports: [
     BrowserModule,
