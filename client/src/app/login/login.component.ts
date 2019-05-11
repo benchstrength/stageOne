@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { HttpClient } from "@angular/common/http"
+import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 // import { ApiCallsService } from '../apiCalls/api-calls.service';
 
 @Component({
@@ -21,11 +22,9 @@ export class LoginComponent implements OnInit {
 public sendData() {
   console.log("Send Data!")
   this.http.post("/api/semi-private", {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`),
     message: "Sending data from Angular!"
-  }).toPromise()
-  .then(data => console.log(data))
-  .catch(err => console.log(err));
-
+  }).subscribe(data => console.log(data))
 };
 
 }
