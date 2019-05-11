@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@syncfusion/ej2-angular-buttons": "^17.1.42",
     "@types/auth0-js": "^9.10.2",
     "auth0-js": "^9.10.2",
     "bootstrap": "^4.3.1",
