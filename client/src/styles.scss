@@ -2,6 +2,20 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+// Imports functions, variables, and mixins that are needed by other Bootstrap files
+@import "variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+//import reboot-->Bootstrap 4 normalize 
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+@import "reset";
+
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+// @import "~font-awesome/css/font-awesome.min.css";
+
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only

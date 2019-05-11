@@ -6,4 +6,32 @@
     border-radius: 5px;
 
 
+}.user-container {
+  // float: left;
+  // text-align: center;
+    margin-right: 0;
+    max-width: 500px;
+    min-height: 300px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 5px;
+    .mat-card-header {
+      min-height: 30%;
+      padding: 0%;
+    }
+    .mat-card-title{
+      padding-left: 3%; 
+    }
+    .mat-card-subtitle{
+      padding-left: 3%; 
+    }
+    .mat-card-content {
+      min-height: 60%;
+      margin-top: 10%;
+      text-align: left;
+      padding: 3%;
+    }
+    
+    
+
+
 }
