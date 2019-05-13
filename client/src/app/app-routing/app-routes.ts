@@ -7,4 +7,5 @@ export const Routes = [
     {path: 'home', component: GraphComponent},
     {path: 'callback', component: UserComponent},
     {path: 'logout', component: LoginComponent},
+    {path: 'login', component: LoginComponent}
   ]
