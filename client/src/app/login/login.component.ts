@@ -21,11 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
 public sendData() {
+  console.log(this.auth.accessToken);
   console.log("Send Data!")
   this.http.post("/api/semi-private", {
-    headers: new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`),
     message: "Sending data from Angular!"
-  }).subscribe(data => console.log(data))
+  }, { headers: new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)})
+  .subscribe(data => console.log(data))
 };
 
 }

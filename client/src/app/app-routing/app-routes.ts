@@ -3,7 +3,7 @@ import { UserComponent } from '../user/user.component';
 import { LoginComponent } from '../login/login.component';
 
 export const Routes = [
-    {path: '', component: UserComponent, GraphComponent},
+    {path: '', component: UserComponent},
     {path: 'home', component: GraphComponent},
     {path: 'callback', component: UserComponent},
     {path: 'logout', component: LoginComponent},
