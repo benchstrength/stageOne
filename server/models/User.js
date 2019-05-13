@@ -46,6 +46,11 @@ module.exports = (sequelize, DataTypes) => {
         endTOD: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        role: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            default: "user"
         }
     },
     { sequelize });

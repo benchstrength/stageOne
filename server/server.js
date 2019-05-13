@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3000;
 const db = require("./models");
 const router = require('./routes/router');
 
+db.sequelize.sync({force: true});
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -13,11 +15,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist"));
 }
 
-app.use(router);
-
-db.sequelize.sync({force: true});
-
-
+app.use(router(db));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/src/index.html"));
