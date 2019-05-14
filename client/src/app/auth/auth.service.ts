@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -10,17 +11,32 @@ export class AuthService {
   private _accessToken: string;
   private _expiresAt: number;
 
-  auth0 = new auth0.WebAuth({
-    clientID: AUTH_CONFIG.clientID,
-    domain: AUTH_CONFIG.domain,
-    responseType: 'token id_token',
-    redirectUri: AUTH_CONFIG.callbackURL
-  });
+  private _auth0;
 
   constructor(public router: Router) {
-    this._idToken = '';
-    this._accessToken = '';
+    let idToken = sessionStorage.getItem("idToken");
+    let accessToken = sessionStorage.getItem("accessToken");
+    if(idToken && accessToken) {
+      console.log("adding tokens");
+    this._idToken = idToken;
+    this._accessToken = accessToken;
     this._expiresAt = 0;
+    } else {
+      console.log("not adding tokens");
+      this._idToken = '';
+      this._accessToken = '';
+      this._expiresAt = 0;
+    }
+
+    const { AuthConfig } = environment;
+
+    this._auth0 = new auth0.WebAuth({
+      clientID: AUTH_CONFIG.clientID,
+      domain: AUTH_CONFIG.domain,
+      responseType: 'token id_token',
+      redirectUri: AUTH_CONFIG.callbackURL,
+      audience: 'benchstrengthapi'
+    });
   }
 
   get accessToken(): string {
@@ -32,16 +48,16 @@ export class AuthService {
   }
 
   public login(): void {
-    this.auth0.authorize();
+    this._auth0.authorize();
   }
 
   public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
+    this._auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
         this.router.navigate(['/']);
       } else if (err) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -54,10 +70,13 @@ export class AuthService {
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
+
+    sessionStorage.setItem("accessToken", authResult.accessToken);
+    sessionStorage.setItem("idToken", authResult.idToken);
   }
 
   public renewTokens(): void {
-    this.auth0.checkSession({}, (err, authResult) => {
+    this._auth0.checkSession({}, (err, authResult) => {
        if (authResult && authResult.accessToken && authResult.idToken) {
          this.localLogin(authResult);
        } else if (err) {
@@ -72,9 +91,9 @@ export class AuthService {
     this._accessToken = '';
     this._idToken = '';
     this._expiresAt = 0;
-
-    this.auth0.logout({
-      returnTo: window.location.origin
+    sessionStorage.clear();
+    this._auth0.logout({
+      returnTo: "http://localhost:4200/logout"
     });
   }
 
@@ -83,5 +102,7 @@ export class AuthService {
     // access token's expiry time
     return this._accessToken && Date.now() < this._expiresAt;
   }
+
+  
 
 }

@@ -1,39 +1,41 @@
+<div class="background">
 
-<div class="login-container">
-  
-  <div class="title"><i class="fas fa-dumbbell"></i><br>{{ title }}</div>
-
-  <div class="">
-    <button mat-raised-button class="git-btn" 
-    *ngIf="!auth.isAuthenticated()"
-    (click)="auth.login()">
+  <div class="login-container">
+    
+    <div class="title"><i class="fas fa-dumbbell"></i><br>{{ title }}</div>
+    
+    <div class="">
+      <button mat-raised-button class="git-btn" 
+      *ngIf="!auth.isAuthenticated()"
+      (click)="auth.login()">
       <i class="fab fa-github"></i> 
       Log in with GitHub
     </button>
     <button mat-raised-button class="git-btn" 
     *ngIf="auth.isAuthenticated()"
     (click)="auth.logout()">
-      <i class="fab fa-github"></i> 
-      Log Out
-    </button>
-  </div>
-
-
-    <!-- <hr>
-
-    <div class="mock-form">
-      <h3 class="filler">User Name</h3>
-    </div>
-    <div class="mock-form">
-      <h3 class="filler">Password</h3>
-    </div>
-
-    <div class="remember">
-      <mat-checkbox color="primary"> Remember me on this computer</mat-checkbox>
-    </div>-->
-
-  <button mat-raised-button class="btn" (click)="this.sendData()">Data Time!</button> 
-
+    <i class="fab fa-github"></i> 
+    Log Out
+  </button>
 </div>
 
+
+<!-- <hr>
+  
+  <div class="mock-form">
+    <h3 class="filler">User Name</h3>
+  </div>
+  <div class="mock-form">
+    <h3 class="filler">Password</h3>
+  </div>
+  
+  <div class="remember">
+    <mat-checkbox color="primary"> Remember me on this computer</mat-checkbox>
+  </div>-->
+  
+  <button mat-raised-button class="btn" (click)="this.sendData()">Data Time!</button> 
+  
+</div>
+
+</div>
 
