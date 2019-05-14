@@ -48,15 +48,15 @@
     <mat-card-header class="row">
       <div class="col-md-left">
         <img  mat-card-md-image  
-         [src]='picture' > 
+         [src]='userInfo.picture' > 
          <!-- Will need to connect image from database  -->
           <!-- [style.width.px]='imageWidth'
           [style.margin.px]='imageMargin'>  -->
       
         </div>
       <div class="col-lg text-left" >
-        <mat-card-title >Name: {{ name }}</mat-card-title>
-      <mat-card-subtitle >Email: {{ email }}</mat-card-subtitle>
+        <mat-card-title >Name: {{ userInfo.name }}</mat-card-title>
+      <mat-card-subtitle >Email: {{ userInfo.email }}</mat-card-subtitle>
       </div>
     </mat-card-header>
 

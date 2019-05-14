@@ -14,13 +14,16 @@ export class AuthService {
   private _auth0;
 
   constructor(public router: Router) {
+
     let idToken = sessionStorage.getItem("idToken");
     let accessToken = sessionStorage.getItem("accessToken");
+    let expiresAt = sessionStorage.getItem("expiresAt");
+
     if(idToken && accessToken) {
       console.log("adding tokens");
     this._idToken = idToken;
     this._accessToken = accessToken;
-    this._expiresAt = 0;
+    this._expiresAt = parseInt(expiresAt);    
     } else {
       console.log("not adding tokens");
       this._idToken = '';
@@ -73,6 +76,7 @@ export class AuthService {
 
     sessionStorage.setItem("accessToken", authResult.accessToken);
     sessionStorage.setItem("idToken", authResult.idToken);
+    sessionStorage.setItem("expiresAt", expiresAt.toString());
   }
 
   public renewTokens(): void {
@@ -93,7 +97,7 @@ export class AuthService {
     this._expiresAt = 0;
     sessionStorage.clear();
     this._auth0.logout({
-      returnTo: "http://localhost:4200/logout"
+      returnTo: "http://localhost:4200/login"
     });
   }
 
