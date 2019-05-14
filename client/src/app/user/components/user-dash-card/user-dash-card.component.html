@@ -41,21 +41,22 @@
   </div> -->
 
     <mat-card-header class="d-flex justify-content-end">
-       <div class="btn"><button mat-raised-button class="log-btn">Log out</button></div>
+       <div class="btn"><button mat-raised-button class="log-btn" (click)="auth.logout()">Log out</button></div>
     </mat-card-header>
 
 
     <mat-card-header class="row">
       <div class="col-md-left">
-        <img  mat-card-md-image   >  
-          <!-- [src]='db.imageUrl'  Will need to connect image from database 
-          [style.width.px]='imageWidth'
+        <img  mat-card-md-image  
+         [src]='picture' > 
+         <!-- Will need to connect image from database  -->
+          <!-- [style.width.px]='imageWidth'
           [style.margin.px]='imageMargin'>  -->
       
         </div>
       <div class="col-lg text-left" >
-        <mat-card-title >Name: </mat-card-title>
-      <mat-card-subtitle >Email: </mat-card-subtitle>
+        <mat-card-title >Name: {{ name }}</mat-card-title>
+      <mat-card-subtitle >Email: {{ email }}</mat-card-subtitle>
       </div>
     </mat-card-header>
 

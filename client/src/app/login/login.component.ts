@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
 public sendData() {
-  console.log(this.auth.accessToken);
   console.log("Send Data!")
   this.http.post("/api/semi-private", {
     message: "Sending data from Angular!"

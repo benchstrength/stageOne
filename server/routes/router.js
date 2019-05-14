@@ -10,7 +10,7 @@ router.get('/api/private-scoped', auth.checkJwt, auth.checkScopes, function(req,
     });
 });
   
-router.post('/api/semi-private', auth.checkJwt, function(req, res) {
+router.post('/api/semi-private', function(req, res) {
     console.log(req.body);
         res.send({message: "Semi-private endpoint reached!"});
 });

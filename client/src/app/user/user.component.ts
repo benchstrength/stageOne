@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service.spec';
 // import { MaterialModule } from "../material.module";
+
+
 
 @Component({
   selector: 'app-user',
@@ -9,9 +12,11 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
   pageTitle: string = "User Page";
   
-  constructor() { }
+  constructor(public auth: AuthService) { }
+
 
   ngOnInit() {
+    
   }
 
 }
