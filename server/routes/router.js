@@ -6,18 +6,18 @@ let router = Express.Router();
 
 module.exports = (db) => {
 
-    router.use((req, res, next) => {
-        db.User.findOne({
-            where: {
-                email: req.email
-            },
-            include: [ Role ]
+    // router.use((req, res, next) => {
+    //     db.User.findOne({
+    //         where: {
+    //             email: req.email
+    //         },
+    //         include: [ Role ]
                         
-        }).then(result => {
-            req.role = result.role;
-            next();
-        });
-    });
+    //     }).then(result => {
+    //         req.role = result.role;
+    //         next();
+    //     });
+    // });
 
     router.get('/api/private-scoped', auth.checkJwt, auth.checkScopes, function(req, res) {
         res.json({
@@ -28,6 +28,10 @@ module.exports = (db) => {
     router.post('/api/semi-private', function(req, res) {
         console.log(req.body);
             res.send({message: "Semi-private endpoint reached!"});
+    });
+
+    router.post('/api/newUser', (req, res) => {
+        db.User.create(req.body).then(result => res.send(result));
     });
 
     return router;

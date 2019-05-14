@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        parent: 
-    })
+    }, {sequelize});
+
+    return Role;
 }

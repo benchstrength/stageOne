@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
-        }
+        },
     },
     { sequelize });
 
@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         Skill.belongsToMany(models.User, {
             through: models.UserSkill
         });
+
+        Skill.belongsToMany(Skill, { as: 'reliesOn', through: 'SkillReliesOn'});
+
+        Skill.belongsToMany(models.ProgrammingArea, {through: 'Skill_ProgrammingArea'});
     }
 
     return Skill;
