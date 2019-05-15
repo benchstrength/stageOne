@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { HttpClient } from "@angular/common/http"
+import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 // import { ApiCallsService } from '../apiCalls/api-calls.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   pageTitle: string = "Login Page";
@@ -22,10 +24,8 @@ public sendData() {
   console.log("Send Data!")
   this.http.post("/api/semi-private", {
     message: "Sending data from Angular!"
-  }).toPromise()
-  .then(data => console.log(data))
-  .catch(err => console.log(err));
-
+  }, { headers: new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)})
+  .subscribe(data => console.log(data))
 };
 
 }

@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  AuthConfig: {
+    clientID: 'yuZNRDB5Uc3rt5womQAlrw6KS8dOXUaq',
+    domain: 'bench-strength.auth0.com',
+    callbackURL: '/callback'
+  }
 };
 
 /*
