@@ -27,7 +27,7 @@ import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-grap
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatCardModule, MatGridList, MatGridTile } from '@angular/material';
 
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
@@ -69,6 +69,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component'
     UserPageComponent,
     AdminPageComponent,
     LoginPageComponent,
+    MatGridList,
+    MatGridTile
   ],
   imports: [
     BrowserModule,
