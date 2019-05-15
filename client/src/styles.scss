@@ -13,8 +13,8 @@
 @import "~bootstrap/scss/utilities";
 @import "reset";
 
-// @import "~bootstrap/dist/css/bootstrap.min.css";
-// @import "~font-awesome/css/font-awesome.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
 
 // Plus imports for other components in your app.
 
@@ -51,4 +51,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 5px;
     padding: 5%;
+}
+.flxrow {
+    display: flex;
+    flex-direction: row;
+}
+.flxcol {
+    display: flex;
+    flex-direction: column;
+}
+.box {
+    border: solid 1px black;
+}
+.h {
+    width: 50%;
+}
+.w {
+    width: 100%;
+}
+.s {
+    width: 75%;
+}
+.q {
+    width: 25%;
 }
