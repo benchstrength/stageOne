@@ -34,7 +34,10 @@ import { ChartsModule } from 'ng2-charts';
 import { AuthService } from './auth/auth.service.spec';
 import { RouterModule } from '@angular/router';
 import { Routes } from '../app/app-routing/app-routes';
-import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component'
+import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component'
 
 
 @NgModule({
@@ -63,6 +66,9 @@ import { UserDashCardComponent } from './user/components/user-dash-card/user-das
     AdminDashGraphTitleComponent,
     LoginFormComponent,
     UserDashCardComponent,
+    UserPageComponent,
+    AdminPageComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
