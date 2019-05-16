@@ -1,3 +1,4 @@
+'use strict'
 module.exports = (sequelize, DataTypes) => {
 
     class User extends sequelize.Sequelize.Model {}
@@ -20,16 +21,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        isAdmin: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-            allowNull: false
-        },
-        isSuperAdmin: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-            allowNull: false
-        },
         isActive: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
@@ -46,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         endTOD: {
             type: DataTypes.STRING,
             allowNull: true
-        }
+        },
     },
     { sequelize });
 
@@ -55,6 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         User.belongsToMany(models.Skill, {
             through: models.UserSkill
         });
+        User.hasOne(models.Role);
     }
 
     return User;
