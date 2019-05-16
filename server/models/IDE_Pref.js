@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
 
     class IDE_Pref extends sequelize.Sequelize.Model {}
