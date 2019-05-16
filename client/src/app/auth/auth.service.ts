@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
   private _idToken: string;
@@ -58,7 +60,7 @@ export class AuthService {
     this._auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
-        this.router.navigate(['/']);
+        this.router.navigate(['/user']);
       } else if (err) {
         this.router.navigate(['/login']);
         console.log(err);

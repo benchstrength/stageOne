@@ -3,13 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { UserDashComponent } from './user/components/user-dash/user-dash.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserDashImageComponent } from './user/components/user-dash-image/user-dash-image.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
-import { UserAssessmentExistingComponent } from './user/components/user-assessment-existing/user-assessment-existing.component';
-import { UserAssessmentNewComponent } from './user/components/user-assessment-new/user-assessment-new.component';
 import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
 import { UserDashGraphComponent } from './user/components/user-dash-graph/user-dash-graph.component';
@@ -37,19 +34,16 @@ import { Routes } from '../app/app-routing/app-routes';
 import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component'
-
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserDashComponent,
     UserComponent,
     AdminComponent,
     UserDashImageComponent,
     UserAssessmentComponent,
-    UserAssessmentExistingComponent,
-    UserAssessmentNewComponent,
     GraphComponent,
     LoginComponent,
     UserDashGraphComponent,
@@ -70,7 +64,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component'
     AdminPageComponent,
     LoginPageComponent,
     MatGridList,
-    MatGridTile
+    MatGridTile,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +76,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component'
     ChartsModule,
     HttpClientModule,
     MatCardModule,
+    FlexLayoutModule,
     RouterModule.forRoot(Routes)
   ],
   providers: [AuthService],

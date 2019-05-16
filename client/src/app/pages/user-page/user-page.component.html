@@ -1,11 +1,21 @@
-<mat-grid-list cols="4">
-  <mat-grid-tile class="userTile" colspan="2">
-      <app-user-dash></app-user-dash>
-  </mat-grid-tile>
-  <mat-grid-tile class="userTile" colspan="2">
+<!-- <div flex fxLayout="row" fxLayoutWrap fxLayout.lt-md="column" class="gridList">
+  <div class="userTile" fxFlex="50" fxFlex.lt-md="100">
+      <app-user-dash-card></app-user-dash-card>
+  </div>
+  <div class="userTile" fxFlex="50" fxFlex.lt-md="100">
       <app-user-assessment></app-user-assessment>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div> -->
+
+<div class="flex-container">
+    <div class="flex-item">
+        <app-user-dash-card></app-user-dash-card>
+    </div>
+    <div class="flex-item">
+        <app-user-assessment></app-user-assessment>
+    </div>
+</div>
+
 <!-- <mat-grid-list cols="4">
   <mat-grid-tile colspan="4">
       <app-graph></app-graph>
