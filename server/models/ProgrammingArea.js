@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
 
     class ProgrammingArea extends sequelize.Sequelize.Model {}

@@ -1,14 +1,15 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-    class Role extends sequelize.Sequelize.Model {}
+  class Role extends sequelize.Sequelize.Model {}
 
-    Role.init({
+  Role.init({
 
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-    }, {sequelize});
+      name: {
+          type: DataTypes.STRING,
+          allowNull: false
+      },
+  }, {sequelize});
 
-    return Role;
+  return Role;
 }

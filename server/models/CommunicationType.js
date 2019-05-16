@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (sequelize, DataTypes) => {
 
     class CommunicationType extends sequelize.Sequelize.Model {}
