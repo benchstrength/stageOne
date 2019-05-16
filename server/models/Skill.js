@@ -1,37 +1,38 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-  const Skill = Skill.define('Skill', {
-      name: {
-          type: DataTypes.STRING,
-          allowNull: false
-      },
-      description: {
-          type: DataTypes.STRING(1000),
-          allowNull: true
-      },
-      isActive: {
-          type: DataTypes.BOOLEAN,
-          allowNull: false,
-          defaultValue: true
-      },
-      required: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          defaultValue: 0
-      },
-  },
-  {});
+    class Skill extends sequelize.Sequelize.Model{}
 
-  Skill.associate = (models) => {
-      Skill.belongsToMany(models.User, {
-          through: models.UserSkill
-      });
+    Skill.init({
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING(1000),
+            allowNull: false
+        },
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        },
+        required: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
+    },
+    { sequelize });
 
-      Skill.belongsToMany(Skill, { as: 'reliesOn', through: 'SkillReliesOn'});
+    Skill.associate = (models) => {
+        Skill.belongsToMany(models.User, {
+            through: 'user_skill'
+        });
 
-      Skill.belongsToMany(models.ProgrammingArea, {through: 'Skill_ProgrammingArea'});
-  }
+        Skill.belongsToMany(Skill, { as: 'reliesOn', through: 'SkillReliesOn'});
 
-  return Skill;
+        Skill.belongsToMany(models.ProgrammingArea, {through: 'Skill_ProgrammingArea'});
+    }
+
+    return Skill;
 }
