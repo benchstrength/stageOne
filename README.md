@@ -1,10 +1,13 @@
 # BenchStrength
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
-
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  Add environment variables to access database from shell
+   
+>    `db_user=`*yourUsername*
+>    `db_password=`*yourPassword*
+>    `db_database=`*yourDatabase*
+>    `db_host=`*hostURL*
 
 ## Code scaffolding
 
