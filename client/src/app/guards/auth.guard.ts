@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
   
   checkLogin(url: string) {
     // console.log(this.auth.isAuthenticated());
-    console.log(this.auth.isAuthenticated);
     if (this.auth.isAuthenticated()) {
       return true;
     } else {

@@ -22,12 +22,12 @@ export class AuthService {
     let expiresAt = sessionStorage.getItem("expiresAt");
 
     if(idToken && accessToken) {
-      console.log("adding tokens");
+      // console.log("adding tokens");
     this._idToken = idToken;
     this._accessToken = accessToken;
     this._expiresAt = parseInt(expiresAt);    
     } else {
-      console.log("not adding tokens");
+      // console.log("not adding tokens");
       this._idToken = '';
       this._accessToken = '';
       this._expiresAt = 0;
@@ -63,7 +63,7 @@ export class AuthService {
         this.router.navigate(['/user']);
       } else if (err) {
         this.router.navigate(['/login']);
-        console.log(err);
+        // console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });

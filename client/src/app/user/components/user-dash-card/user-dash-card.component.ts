@@ -28,10 +28,6 @@ if (sessionStorage.getItem("idToken")) {
     picture: "https://via.placeholder.com/200"
       }
     }
-    console.log(this.userInfo);
-    console.log(this.auth.isAuthenticated())
-    console.log(this.auth.idToken);
-    console.log(jwt_decode(this.auth.accessToken));
 
   }
 
