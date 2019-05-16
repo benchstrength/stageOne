@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import * as $ from "jquery";
 
 
 @Component({
@@ -11,6 +12,7 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
   title = 'Bench Strength';
 
+
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
@@ -20,5 +22,4 @@ export class AppComponent implements OnInit {
       this.auth.renewTokens();
     }
   }
-
 }

@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
+import { UserDashGraphComponent } from './user/components/user-dash-graph/user-dash-graph.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
@@ -19,6 +20,11 @@ import { Routes } from '../app/app-routing/app-routes';
 import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component';
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 
+import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
+import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
+import { UsersGraphComponent } from './admin/components/users-graph/users-graph.component';
+import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
+import { FiltersComponent } from './admin/components/filters/filters.component';
 
 
 @NgModule({
@@ -31,11 +37,17 @@ import { UserAddskillComponent } from './user-addskill/user-addskill.component';
     LoginComponent,
     UserDashCardComponent,
     UserAddskillComponent,
-  ],
+    UserDashGraphComponent,
+    LoginFormComponent,
+    AdminGraphComponent,
+    SkillsGraphComponent,
+    UsersGraphComponent,
+    SearchbarComponent,
+    FiltersComponent,
+  ]
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
