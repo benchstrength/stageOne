@@ -65,7 +65,7 @@ export class GraphComponent implements OnInit {
   public chartLegend = false;
 
   public chartType: ChartType = 'bar';
-  public options: ChartOptions = { 
+  public options: ChartOptions = {
     maintainAspectRatio: false
   };
 

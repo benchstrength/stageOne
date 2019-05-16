@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
   private _idToken: string;
@@ -14,15 +16,18 @@ export class AuthService {
   private _auth0;
 
   constructor(public router: Router) {
+
     let idToken = sessionStorage.getItem("idToken");
     let accessToken = sessionStorage.getItem("accessToken");
+    let expiresAt = sessionStorage.getItem("expiresAt");
+
     if(idToken && accessToken) {
-      console.log("adding tokens");
+      // console.log("adding tokens");
     this._idToken = idToken;
     this._accessToken = accessToken;
-    this._expiresAt = 0;
+    this._expiresAt = parseInt(expiresAt);    
     } else {
-      console.log("not adding tokens");
+      // console.log("not adding tokens");
       this._idToken = '';
       this._accessToken = '';
       this._expiresAt = 0;
@@ -55,10 +60,10 @@ export class AuthService {
     this._auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
-        this.router.navigate(['/']);
+        this.router.navigate(['/user']);
       } else if (err) {
         this.router.navigate(['/login']);
-        console.log(err);
+        // console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
@@ -73,6 +78,7 @@ export class AuthService {
 
     sessionStorage.setItem("accessToken", authResult.accessToken);
     sessionStorage.setItem("idToken", authResult.idToken);
+    sessionStorage.setItem("expiresAt", expiresAt.toString());
   }
 
   public renewTokens(): void {
@@ -93,7 +99,7 @@ export class AuthService {
     this._expiresAt = 0;
     sessionStorage.clear();
     this._auth0.logout({
-      returnTo: "http://localhost:4200/logout"
+      returnTo: "http://localhost:4200/login"
     });
   }
 
