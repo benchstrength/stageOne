@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SingleDataSet, Label } from 'ng2-charts';
-import { ChartType } from 'chart.js';
+import { ChartType, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-graph',
@@ -9,7 +9,7 @@ import { ChartType } from 'chart.js';
 })
 export class GraphComponent implements OnInit {
   // PolarArea
-  public polarAreaChartLabels: Label[] = [
+  public chartLabels: Label[] = [
     "HTML/CSS",
     "JQuery",
     "Angular",
@@ -61,12 +61,15 @@ export class GraphComponent implements OnInit {
     "Vagrant",
     "Javascript",
   ];
-  public polarAreaChartData: SingleDataSet = [73, 89, 71, 43, 22, 34, 45, 56, 67, 78, 89, 98, 98, 65, 54, 43, 32, 32, 21, 53, 63, 62, 74, 24, 35, 73, 89, 71, 43, 22, 34, 45, 56, 67, 78, 89, 98, 98, 65, 54, 43, 32, 32, 21, 53, 63, 62, 74, 24, 34];
-  public polarAreaLegend = true;
+  public chartData: SingleDataSet = [20, 15, 10,73, 89, 71, 43, 22, 34, 45, 56, 67, 78, 89, 98, 98, 65, 54, 43, 32, 32, 21, 53, 63, 62, 74, 24, 35, 73, 89, 71, 43, 22, 34, 45, 56, 67, 78, 89, 98, 98, 65, 54, 43, 32, 32, 21, 53, 63, 62, 74, 24, 34];
+  public chartLegend = false;
 
-  public polarAreaChartType: ChartType = 'polarArea';
+  public chartType: ChartType = 'bar';
+  public options: ChartOptions = {
+    maintainAspectRatio: false
+  };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

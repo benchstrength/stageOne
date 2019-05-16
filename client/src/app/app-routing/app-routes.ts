@@ -6,7 +6,7 @@ import { UserPageComponent } from '../pages/user-page/user-page.component'
 import { AuthGuard } from '../guards/auth.guard'
  //AuthGuard only allows authenticated users onto the site.
 export const Routes = [
-    {path: '',component: UserComponent},
+    {path: '',component: GraphComponent},
     {path: 'admin', canActivate: [AuthGuard], component: AdminPageComponent},
     {path: 'callback', component: UserComponent},
     {path: 'home', canActivate: [AuthGuard], component: GraphComponent},

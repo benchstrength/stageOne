@@ -1,32 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
-import { UserDashImageComponent } from './user/components/user-dash-image/user-dash-image.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
-import { UserDashGraphComponent } from './user/components/user-dash-graph/user-dash-graph.component';
-import { AdminDashFocusedGraphComponent } from './admin/components/admin-dash-focused-graph/admin-dash-focused-graph.component';
-import { AdminDashPrimaryGraphComponent } from './admin/components/admin-dash-primary-graph/admin-dash-primary-graph.component';
-import { AdminDashSecondaryGraphComponent } from './admin/components/admin-dash-secondary-graph/admin-dash-secondary-graph.component';
-import { AdminDashToggleComponent } from './admin/components/admin-dash-toggle/admin-dash-toggle.component';
-import { AdminDashSwapComponent } from './admin/components/admin-dash-swap/admin-dash-swap.component';
-import { AdminDashBackBtnComponent } from './admin/components/admin-dash-back-btn/admin-dash-back-btn.component';
-import { AdminDashFilterComponent } from './admin/components/admin-dash-filter/admin-dash-filter.component';
-import { AdminDashSearchComponent } from './admin/components/admin-dash-search/admin-dash-search.component';
-import { AdminDashSearchResultsComponent } from './admin/components/admin-dash-search-results/admin-dash-search-results.component';
-import { AdminDashGraphContentComponent } from './admin/components/admin-dash-graph-content/admin-dash-graph-content.component';
-import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-graph-title/admin-dash-graph-title.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { MatButtonModule, MatCheckboxModule, MatCardModule, MatGridList, MatGridTile } from '@angular/material';
 
-import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ChartsModule } from 'ng2-charts';
 import { AuthService } from './auth/auth.service.spec';
 import { RouterModule } from '@angular/router';
@@ -36,40 +24,38 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { UserAddskillComponent } from './user-addskill/user-addskill.component';
+import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
+import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
+import { UsersGraphComponent } from './admin/components/users-graph/users-graph.component';
+import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
+import { FiltersComponent } from './admin/components/filters/filters.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     AdminComponent,
-    UserDashImageComponent,
     UserAssessmentComponent,
     GraphComponent,
     LoginComponent,
-    UserDashGraphComponent,
-    AdminDashFocusedGraphComponent,
-    AdminDashPrimaryGraphComponent,
-    AdminDashSecondaryGraphComponent,
-    AdminDashToggleComponent,
-    AdminDashSwapComponent,
-    AdminDashBackBtnComponent,
-    AdminDashFilterComponent,
-    AdminDashSearchComponent,
-    AdminDashSearchResultsComponent,
-    AdminDashGraphContentComponent,
-    AdminDashGraphTitleComponent,
-    LoginFormComponent,
     UserDashCardComponent,
     UserPageComponent,
     AdminPageComponent,
     LoginPageComponent,
     MatGridList,
     MatGridTile,
+    UserAddskillComponent,
+    AdminGraphComponent,
+    SkillsGraphComponent,
+    UsersGraphComponent,
+    SearchbarComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
@@ -77,7 +63,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     HttpClientModule,
     MatCardModule,
     FlexLayoutModule,
-    RouterModule.forRoot(Routes)
+    RouterModule.forRoot(Routes),
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
