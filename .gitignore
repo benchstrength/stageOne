@@ -51,4 +51,4 @@ Thumbs.db
 
 # Other
 notes.txt
-.env
+/server/.env
