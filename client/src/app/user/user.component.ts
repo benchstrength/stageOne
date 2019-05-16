@@ -19,4 +19,9 @@ export class UserComponent implements OnInit {
     
   }
 
+getNotes() {
+  //Function to get data from DB and return notes information
+
+}
+
 }
