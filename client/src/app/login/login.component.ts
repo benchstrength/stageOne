@@ -2,22 +2,29 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
-// import { ApiCallsService } from '../apiCalls/api-calls.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   pageTitle: string = "Login Page";
   title: string = "Bench Strength";
 
   constructor(public auth: AuthService,
-              public http: HttpClient) { }
+              public http: HttpClient,
+              private router: Router) { }
 
   ngOnInit() {
+    // this.auth.handleAuthentication();
+    console.log(this.auth.isAuthenticated());
+    if (this.auth.isAuthenticated()) {
+        this.router.navigate([ '/user' ])
+    }
+
+
   }
 
 public sendData() {

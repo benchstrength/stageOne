@@ -1,0 +1,28 @@
+// .userTile {
+//     padding-top: 10em;
+//     padding-bottom: 10em;
+//     margin: 2em;
+//     display: flex;
+//     flex: 1 1 auto;
+//     align-self: flex-start;
+//     flex-direction: column;
+// }
+// .gridList {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-items: stretch;
+//     align-content: stretch;
+// }
+
+.flex-item {
+    flex: 1 0 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 5px;
+    margin: 2em;
+}
+.flex-container {
+   display: flex;
+   flex-wrap: wrap;
+}
