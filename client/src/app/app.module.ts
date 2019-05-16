@@ -13,17 +13,6 @@ import { UserAssessmentNewComponent } from './user/components/user-assessment-ne
 import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
 import { UserDashGraphComponent } from './user/components/user-dash-graph/user-dash-graph.component';
-import { AdminDashFocusedGraphComponent } from './admin/components/admin-dash-focused-graph/admin-dash-focused-graph.component';
-import { AdminDashPrimaryGraphComponent } from './admin/components/admin-dash-primary-graph/admin-dash-primary-graph.component';
-import { AdminDashSecondaryGraphComponent } from './admin/components/admin-dash-secondary-graph/admin-dash-secondary-graph.component';
-import { AdminDashToggleComponent } from './admin/components/admin-dash-toggle/admin-dash-toggle.component';
-import { AdminDashSwapComponent } from './admin/components/admin-dash-swap/admin-dash-swap.component';
-import { AdminDashBackBtnComponent } from './admin/components/admin-dash-back-btn/admin-dash-back-btn.component';
-import { AdminDashFilterComponent } from './admin/components/admin-dash-filter/admin-dash-filter.component';
-import { AdminDashSearchComponent } from './admin/components/admin-dash-search/admin-dash-search.component';
-import { AdminDashSearchResultsComponent } from './admin/components/admin-dash-search-results/admin-dash-search-results.component';
-import { AdminDashGraphContentComponent } from './admin/components/admin-dash-graph-content/admin-dash-graph-content.component';
-import { AdminDashGraphTitleComponent } from './admin/components/admin-dash-graph-title/admin-dash-graph-title.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -34,7 +23,12 @@ import { ChartsModule } from 'ng2-charts';
 import { AuthService } from './auth/auth.service.spec';
 import { RouterModule } from '@angular/router';
 import { Routes } from '../app/app-routing/app-routes';
-import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component'
+import { UserDashCardComponent } from './user/components/user-dash-card/user-dash-card.component';
+import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
+import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
+import { UsersGraphComponent } from './admin/components/users-graph/users-graph.component';
+import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
+import { FiltersComponent } from './admin/components/filters/filters.component';
 
 
 @NgModule({
@@ -50,19 +44,13 @@ import { UserDashCardComponent } from './user/components/user-dash-card/user-das
     GraphComponent,
     LoginComponent,
     UserDashGraphComponent,
-    AdminDashFocusedGraphComponent,
-    AdminDashPrimaryGraphComponent,
-    AdminDashSecondaryGraphComponent,
-    AdminDashToggleComponent,
-    AdminDashSwapComponent,
-    AdminDashBackBtnComponent,
-    AdminDashFilterComponent,
-    AdminDashSearchComponent,
-    AdminDashSearchResultsComponent,
-    AdminDashGraphContentComponent,
-    AdminDashGraphTitleComponent,
     LoginFormComponent,
     UserDashCardComponent,
+    AdminGraphComponent,
+    SkillsGraphComponent,
+    UsersGraphComponent,
+    SearchbarComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +62,7 @@ import { UserDashCardComponent } from './user/components/user-dash-card/user-das
     ChartsModule,
     HttpClientModule,
     MatCardModule,
-    RouterModule.forRoot(Routes)
+    RouterModule.forRoot(Routes),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
