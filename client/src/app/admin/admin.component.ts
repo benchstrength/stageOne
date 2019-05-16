@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service.spec';
+
 
 @Component({
   selector: 'app-admin',
@@ -8,8 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   pageTitle: string = "Admin Page";
 
+  onClickMe() {
+    console.log("click");
+  }
 
-  constructor() { }
+  
+  
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }
