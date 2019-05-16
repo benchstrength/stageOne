@@ -10,7 +10,6 @@ import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
-import { UserDashGraphComponent } from './user/components/user-dash-graph/user-dash-graph.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
@@ -37,14 +36,12 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
     LoginComponent,
     UserDashCardComponent,
     UserAddskillComponent,
-    UserDashGraphComponent,
-    LoginFormComponent,
     AdminGraphComponent,
     SkillsGraphComponent,
     UsersGraphComponent,
     SearchbarComponent,
     FiltersComponent,
-  ]
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,7 +52,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
     HttpClientModule,
     MatCardModule,
     RouterModule.forRoot(Routes),
-    FormsModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
