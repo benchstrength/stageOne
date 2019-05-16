@@ -15,7 +15,7 @@ export class AdminGraphComponent implements OnInit {
             responsive: true,
             legend: {
               display: true,
-              position: 'right',
+              position: 'top',
               fullWidth: true,
               labels: {
                 fontColor: 'rgb(255, 99, 132)'
@@ -45,7 +45,7 @@ export class AdminGraphComponent implements OnInit {
             responsive: true,
             legend: {
               display: true,
-              position: 'right',
+              position: 'top',
               fullWidth: true,
               labels: {
                 fontColor: 'rgb(255, 99, 132)'

@@ -13,6 +13,8 @@ export class AdminComponent implements OnInit {
   onClickMe() {
     console.log("click");
   }
+
+  
   
   constructor(public auth: AuthService) { }
 

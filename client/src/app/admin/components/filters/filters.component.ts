@@ -8,7 +8,6 @@ import { AdminGraphComponent } from '../admin-graph/admin-graph.component';
 export class FiltersComponent implements OnInit {
   onClick() {
     console.log("click");
-    console.log(AdminGraphComponent[1]);
   }
   constructor() { }
 
