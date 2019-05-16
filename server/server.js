@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 const db = require("./models");
 const router = require('./routes/router');
 
-db.sequelize.sync({force: false});
+db.sequelize.sync({force: true});
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
