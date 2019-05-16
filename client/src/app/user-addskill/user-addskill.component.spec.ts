@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserDashComponent } from './user-dash.component';
+import { UserAddskillComponent } from './user-addskill.component';
 
-describe('UserDashComponent', () => {
-  let component: UserDashComponent;
-  let fixture: ComponentFixture<UserDashComponent>;
+describe('UserAddskillComponent', () => {
+  let component: UserAddskillComponent;
+  let fixture: ComponentFixture<UserAddskillComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserDashComponent ]
+      declarations: [ UserAddskillComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserDashComponent);
+    fixture = TestBed.createComponent(UserAddskillComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
