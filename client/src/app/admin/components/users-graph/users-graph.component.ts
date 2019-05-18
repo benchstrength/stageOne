@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersGraphComponent implements OnInit {
   public chartOptions = {
-    responsive: false,
-    aspectRatio: 2,
+    responsive: true,
+    aspectRatio: 1.25,
     maintainAspectRatio: false,
 
 
