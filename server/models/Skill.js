@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Skill.associate = (models) => {
         Skill.belongsToMany(models.User, {
-            through: 'user_skill'
+            through: 'user_skills'
         });
 
         Skill.belongsToMany(Skill, { as: 'reliesOn', through: 'SkillReliesOn'});
