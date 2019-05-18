@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { UserComponent } from './user/user.component';
+// import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { GraphComponent } from './graph/graph.component';
@@ -23,7 +23,7 @@ import { UserDashCardComponent } from './user/components/user-dash-card/user-das
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { FlexLayoutModule } from '@angular/flex-layout'
+// import { FlexLayoutModule } from '@angular/flex-layout'
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
 import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
@@ -35,7 +35,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    // UserComponent,
     AdminComponent,
     UserAssessmentComponent,
     GraphComponent,
@@ -62,7 +62,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
     ChartsModule,
     HttpClientModule,
     MatCardModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     RouterModule.forRoot(Routes),
     FormsModule
   ],

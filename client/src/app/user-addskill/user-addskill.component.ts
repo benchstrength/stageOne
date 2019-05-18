@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddskillComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit() {
+
   }
 
 }
