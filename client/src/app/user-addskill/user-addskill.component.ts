@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserAddskillComponent implements OnInit {
 
   constructor() { 
-    
+    //injectable service goes here
   }
 
   ngOnInit() {
