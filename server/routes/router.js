@@ -27,7 +27,7 @@ module.exports = (db) => {
     
     router.post('/api/semi-private', function(req, res) {
         console.log(req.body);
-            res.send({message: "Semi-private endpoint reached!"});
+            res.json({message: "Semi-private endpoint reached!"});
     });
 
     router.post('/api/newUser', (req, res) => {

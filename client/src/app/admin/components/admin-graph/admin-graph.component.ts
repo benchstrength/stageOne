@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetDataService } from 'src/app/dataService/get-data.service';
 
 
 @Component({
@@ -99,6 +100,15 @@ export class AdminGraphComponent implements OnInit {
     "React",
   ];
 
-  constructor() { }
-  ngOnInit() {}
+info;
+
+  constructor(private data: GetDataService) { }
+  ngOnInit() {
+// Use this function to get data for graph
+this.data.getAdminGraph({skill: ["jquery"]}).then(data => {
+  this.info = data
+  console.log(this.info);
+})
+  }
+  
 }
