@@ -105,7 +105,7 @@ info;
   constructor(private data: GetDataService) { }
   ngOnInit() {
 // Use this function to get data for graph
-this.data.getAdminGraph({skill: ["jquery"]}).then(data => {
+ this.data.getAdminGraph({skill: ["jquery"]}).then(data => {
   this.info = data
   console.log(this.info);
 })
