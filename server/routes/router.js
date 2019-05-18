@@ -24,6 +24,31 @@ module.exports = (db) => {
             message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.'
         });
     });
+
+    router.post('/api/graph', (req, res) => {
+        db.Skill.findAll({
+            through: {
+                attributes: [ '$db.user_skills_SkillId$' ]
+            },
+            include: [{
+                model: db.User,
+            }]
+        }).then(response => {
+            console.log("here");
+            response.forEach(element => {
+                if(element.dataValues)
+                    console.log(element.dataValues);
+            });
+            res.sendStatus(200);
+        });
+    });
+
+    router.post('/api/getallusers', (req, res) => {
+        db.User.findAll({}).then(result => {
+            console.log(result);
+            res.json(result)
+        });
+    });
     
     router.post('/api/semi-private', function(req, res) {
         console.log(req.body);
