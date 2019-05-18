@@ -30,6 +30,7 @@ import { SkillsGraphComponent } from './admin/components/skills-graph/skills-gra
 import { UsersGraphComponent } from './admin/components/users-graph/users-graph.component';
 import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
 import { FiltersComponent } from './admin/components/filters/filters.component';
+import { UserAreaComponent } from './user-area/user-area.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
     UsersGraphComponent,
     SearchbarComponent,
     FiltersComponent,
+    UserAreaComponent,
   ],
   imports: [
     BrowserModule,
