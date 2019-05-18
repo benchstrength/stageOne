@@ -10,7 +10,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of users">
-            <td>{{ user.name }}</td>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
               <td><button class="btn btn-secondary user-button"><a routerLink="/user/{{ user.email }}">{{ user.email }}</a></button></td>
             <td><p *ngFor="let skill of user.skills">{{ skill }}</p></td>
           </tr>

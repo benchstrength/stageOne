@@ -33,9 +33,10 @@ export class UserAreaComponent implements OnInit {
   ngOnInit() {
     if (this.searchType = "allusers") {
       console.log(this.searchType)
-    //   this.data.getAllUsers({searchItem: "all"}).then(data => {
-    //   this.users = data
-    // });
+      this.data.getAllUsers({searchItem: "all"}).then(data => {
+      this.users = data
+      console.log(this.users);
+    });
     } else if (this.searchType = "skills") {
       console.log(this.searchType)
       // this.data.getUserBySkill({skill: ["jQuery"]}).then(data => {
