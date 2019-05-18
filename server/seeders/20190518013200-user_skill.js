@@ -11,6 +11,8 @@ module.exports = {
         self_rating: 3,
         employer_rating: 3,
         interest: 4,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ])
   },

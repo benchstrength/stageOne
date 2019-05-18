@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service.spec';
+import { InternalFormsSharedModule } from '@angular/forms/src/directives';
 
 //Retrieve data
 const getAllUsersUrl = "/api/getallusers";
 const getUserBySkillUrl = "/api/usersbyskill";
-const getAdminGraphUrl = "/api/graphdata";
+const getAdminGraphUrl = "/api/semi-private";
 //Send Data
 const addUserUrl = "/api/newuser";
 const addSkillUrl = "/api/newskill";
@@ -39,72 +41,40 @@ interface AddSkill {
 })
 export class GetDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private auth: AuthService) { }
+
+//Set authorization header based off the access token of logged in user
+headers = new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)
 
 //Get all users from the database
 
-public getAllUsers(searchBody: GetAllUsers | 'all', headers: object) {
-  
-  if(searchBody && headers) {
-    this.http.post(getAllUsersUrl, searchBody, headers).subscribe(data => {
-      return data;
-    });
-  } 
-  else {
-    return console.error("Invalid database get. Include body and headers");
-  };
-}
+public async getAllUsers(searchBody: GetAllUsers | 'all') {
+  return this.http.post(getAllUsersUrl, searchBody, {headers: this.headers}).toPromise();
+};
 
 //Get users by skill
 
-public getUserBySkill(searchBody: UsersBySkill, headers: object) {
-  if(searchBody && headers) {
-    this.http.post(getUserBySkillUrl, searchBody, headers).subscribe(data => {
-      return data;
-    });
-  } 
-  else {
-    return console.error("Invalid database get. Include body, and headers");
-  };
-}
+public getUserBySkill(searchBody: UsersBySkill) {
+  return this.http.post(getUserBySkillUrl, searchBody, {headers: this.headers}).toPromise();
+};
 
 //Get admin graph data
 
-public getAdminGraph(searchBody: GetAdminGraph, headers: object) {
-  if(searchBody && headers) {
-    this.http.post(getAdminGraphUrl, searchBody, headers).subscribe(data => {
-      return data;
-    });
-  } 
-  else {
-    return console.error("Invalid database get. Include body and headers");
-  };
+public getAdminGraph(searchBody: GetAdminGraph) {
+  return this.http.post(getAdminGraphUrl, searchBody, {headers: this.headers}).toPromise();
 }
   
 
 //Add user to the database
-public sendDatabase(sendBody: AddUser, headers: object) {
-  if(sendBody && headers) {
-    this.http.post(addSkillUrl, sendBody, headers).subscribe(data => {
-      return data
-    })
-  } 
-  else {
-    return console.error("Invalid database post. Include body and headers");
-  }
-}
+public sendDatabase(sendBody: AddUser) {
+  return this.http.post(addSkillUrl, sendBody, {headers: this.headers}).toPromise();
+};
 
 //Add skill to database
 
-public addSkill(sendBody: AddSkill, headers: object) {
-  if(sendBody && headers) {
-    this.http.post(addUserUrl, sendBody, headers).subscribe(data => {
-      return data
-    })
-  } 
-  else {
-    return console.error("Invalid database post. Include body and headers");
-  }
-}
+public addSkill(sendBody: AddSkill) {
+  return this.http.post(addUserUrl, sendBody, {headers: this.headers}).toPromise();
+};
 
 }

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     self_rating: DataTypes.INTEGER,
     employer_rating: DataTypes.INTEGER,
     interest: DataTypes.INTEGER,
-    userId: DataTypes.STRING,
+    UserEmail: DataTypes.STRING,
     skillId: DataTypes.INTEGER
   }, {});
   user_skill.associate = function(models) {
