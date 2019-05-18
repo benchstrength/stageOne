@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { UserComponent } from './user/user.component';
+// import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { GraphComponent } from './graph/graph.component';
@@ -35,7 +35,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    // UserComponent,
     AdminComponent,
     UserAssessmentComponent,
     GraphComponent,
