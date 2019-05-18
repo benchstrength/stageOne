@@ -23,7 +23,7 @@ import { UserDashCardComponent } from './user/components/user-dash-card/user-das
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { FlexLayoutModule } from '@angular/flex-layout'
+// import { FlexLayoutModule } from '@angular/flex-layout'
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
 import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
@@ -62,7 +62,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
     ChartsModule,
     HttpClientModule,
     MatCardModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     RouterModule.forRoot(Routes),
     FormsModule
   ],

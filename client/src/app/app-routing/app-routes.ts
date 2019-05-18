@@ -1,4 +1,4 @@
-import { AdminGraphComponent } from '../admin/components/admin-graph/admin-graph.component';
+// import { AdminGraphComponent } from '../admin/components/admin-graph/admin-graph.component';
 // import { FiltersComponent} from '../admin/components/filters/filters.component';
 import { UserComponent } from '../user/user.component';
 import { LoginPageComponent } from '../pages/login-page/login-page.component'
