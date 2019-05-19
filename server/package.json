@@ -14,7 +14,8 @@
     "jwks-rsa": "^1.4.0",
     "mysql2": "^1.6.5",
     "path": "^0.12.7",
-    "sequelize": "^5.8.5"
+    "sequelize": "^5.8.5",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {},
   "scripts": {

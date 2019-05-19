@@ -28,8 +28,7 @@ import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
 import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
 import { UsersGraphComponent } from './admin/components/users-graph/users-graph.component';
-import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
-import { FiltersComponent } from './admin/components/filters/filters.component';
+import { SearchComponent } from './admin/components/search/search.component';
 
 
 @NgModule({
@@ -50,8 +49,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
     AdminGraphComponent,
     SkillsGraphComponent,
     UsersGraphComponent,
-    SearchbarComponent,
-    FiltersComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

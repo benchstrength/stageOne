@@ -1,0 +1,89 @@
+<div class='card'>
+    <div class='card-header'>
+      {{pageTitle}}
+    </div>
+
+<app-skills-graph></app-skills-graph>
+
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <input type='text'
+            style="width: 300px; margin: 20px;"
+            placeholder="search for a skill eg: angular"
+            [(ngModel)]='skillFilter' />
+        </div>
+      </div>
+   
+      <div class='table-responsive'>
+        <table class='table'
+               *ngIf='skills && skills.length'>
+          <thead>
+            <tr>
+              <th>
+              </th>
+              <th>Skill</th>
+              <th>Perceived</th>
+              <th>Accurate</th>
+              <th>Interest</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let skill of filteredSkills'>
+              <td>
+              </td>
+              <td>{{ skill.skillName }}</td>
+              <td>{{ skill.perceived }}</td>
+              <td>{{ skill.accurate }}</td>
+              <td>{{ skill.interest }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="search-container">
+  <div class="search-input">
+    <input type="text" placeholder="search for a skill or user" style="width: 300px;" [(ngModel)]="searchInput" />
+  </div>
+  <h4>Searching for: {{ searchInput | uppercase }} </h4>
+  <div class="search-results box">
+    <h5>Search Results</h5>
+    <table>
+      <thead>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let skill of filteredSkills">
+          <td>
+            <img src="" alt="img">
+          </td>
+          <td>{{ skill.skillName }}</td>
+          <td>{{ skill.skillID }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
