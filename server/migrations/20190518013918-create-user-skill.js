@@ -9,10 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       UserEmail: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'email'
+        }
       },
       SkillId: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Skills',
+          key: 'id'
+        }
       },
       self_rating: {
         type: Sequelize.INTEGER

@@ -1,26 +1,27 @@
-<!-- <div flex fxLayout="row" fxLayoutWrap fxLayout.lt-md="column" class="gridList">
-  <div class="userTile" fxFlex="50" fxFlex.lt-md="100">
-      <app-user-dash-card></app-user-dash-card>
-  </div>
-  <div class="userTile" fxFlex="50" fxFlex.lt-md="100">
-      <app-user-assessment></app-user-assessment>
-  </div>
-</div> -->
 
-<div class="flex-container">
-    <div class="flex-6">
-        <app-user-dash-card></app-user-dash-card>
+
+<div>
+    <div class="row">
+        <div class="col dashCard">
+            <app-user-dash-card></app-user-dash-card>
+        </div>
+        <div class="col userSkill">
+            <app-user-assessment></app-user-assessment>
+        </div>
     </div>
-    <div class="flex-8">
-        <app-user-assessment></app-user-assessment>
-    </div>
-     <div class="flex-8">
-      <app-user-addskill></app-user-addskill>
+     <div class="row justify-content-center">
+         <app-user-addskill class="mt-3" *ngIf="showSkills"></app-user-addskill>
+            <div class="col-10 text-center">
+                <button 
+                class="btn btn-lg btn-dark my-5"
+                *ngIf="!showSkills"
+                (click)="showForm()">Add Skills</button>
+                <button
+                class="btn btn-lg btn-dark"
+                *ngIf="showSkills"
+                (click)="showForm()">Close</button>
+            </div>
     </div>
 </div>
 
-<!-- <mat-grid-list cols="4">
-  <mat-grid-tile colspan="4">
-      <app-graph></app-graph>
-  </mat-grid-tile>
-</mat-grid-list> -->
+

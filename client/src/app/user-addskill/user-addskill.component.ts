@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GetDataService } from '../dataService/get-data.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-addskill',
@@ -7,12 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddskillComponent implements OnInit {
 
-  constructor() { 
-    
+  skillName = new FormControl('');
+  skillValue = new FormControl('');
+
+  constructor(private data: GetDataService) { 
+    //injectable service goes here
   }
 
+  
+
+
+  
   ngOnInit() {
 
   }
+sendForm() {
+  let formData = [{
+    userEmail: sessionStorage.getItem("userEmail"),
+    skillName: this.skillName.value,
+    skillValue: this.skillValue.value
+  }]
+  console.log(formData);
+  // this.data.addSkill({skill: this.formData}).then(sentForm => console.log(sentForm));
+}
+
 
 }

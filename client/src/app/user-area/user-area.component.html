@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Skills</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+              <td><button class="btn btn-secondary user-button"><a routerLink="/user/{{ user.email }}">{{ user.email }}</a></button></td>
+            <td><p *ngFor="let skill of user.skills">{{ skill }}</p></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

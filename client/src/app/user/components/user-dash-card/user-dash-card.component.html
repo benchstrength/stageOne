@@ -1,19 +1,23 @@
-<mat-card class="user-container">
-    <mat-card-header class="d-flex justify-content-end">
-       <div class="btn"><button mat-raised-button class="log-btn" (click)="auth.logout()">Log out</button></div>
-    </mat-card-header>
-    <mat-card-header class="row">
-      <div class="col-md-left">
-        <img  mat-card-md-image  
-         [src]='userInfo.picture'> 
+
+<div class="user card ">
+  <div class="card-header">
+      <h5> Your Information: </h5>
+  </div>
+
+  <div class="card" >
+    <div class="row">
+        <div class="col-md-4">
+          <img *ngIf="userInfo.picture" [src]='userInfo.picture' class="card-img" alt="...">
+          <img *ngIf="!userInfo" src='https://via.placeholder.com/100' class="card-img" alt="...">
         </div>
-      <div class="text-left" >
-        <mat-card-title >Name: {{ userInfo.name }}</mat-card-title>
-      <mat-card-subtitle >Email: {{ userInfo.email }}</mat-card-subtitle>
-      </div>
-    </mat-card-header>
-    <mat-card-content class="text-left">
-      <mat-card-subtitle>Notes: </mat-card-subtitle>
-      <p>Bacon ipsum dolor amet dolor eu irure in corned beef, boudin cupidatat deserunt ut tail porchetta kielbasa. Lorem jowl hamburger beef shank ad andouille t-bone ribeye kevin ham hock ullamco. </p>
-    </mat-card-content>
-</mat-card>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">Name: {{ userInfo?.name }}</p>
+            <p class="card-text"><small class="text-muted">Email: {{ userInfo?.email }}</small></p>
+        </div>
+    </div>
+  </div>
+</div>
+  <div class="card-header"><button  class="btn btn-dark" (click)="auth.logout()">Log out</button></div>
+</div>

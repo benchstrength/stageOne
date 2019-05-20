@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     User.associate = (models) => {
         User.hasMany(models.IDE_Pref);
         User.belongsToMany(models.Skill, {
-            through: 'user_skills'
+            through: models.user_skill
         });
         User.hasOne(models.Role);
     }
