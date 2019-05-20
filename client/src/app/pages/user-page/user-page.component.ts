@@ -9,7 +9,13 @@ export class UserPageComponent implements OnInit {
 
   constructor() { }
 
+showSkills = false;
+
   ngOnInit() {
+  }
+
+  showForm() {
+    this.showSkills = !this.showSkills;
   }
 
 }
