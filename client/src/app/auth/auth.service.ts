@@ -3,6 +3,14 @@ import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
+import * as jwt_decode from 'jwt-decode';
+
+interface UserInfo {
+  nickname: string,
+  name: string,
+  email: string,
+  picture: string
+};
 
 @Injectable({
   providedIn: 'root'
@@ -79,6 +87,14 @@ export class AuthService {
     sessionStorage.setItem("accessToken", authResult.accessToken);
     sessionStorage.setItem("idToken", authResult.idToken);
     sessionStorage.setItem("expiresAt", expiresAt.toString());
+
+    let decoded: UserInfo = jwt_decode(authResult.idToken);
+    if (decoded.nickname) {
+      sessionStorage.setItem('userName', decoded.name);
+      sessionStorage.setItem('userEmail', decoded.email);
+      sessionStorage.setItem('userPicture', decoded.picture)
+    }
+
   }
 
   public renewTokens(): void {

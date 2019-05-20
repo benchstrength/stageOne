@@ -14,21 +14,19 @@ export class UserDashCardComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
- userInfo = {}
+ userInfo: object;
 
   ngOnInit() {
-
-if (sessionStorage.getItem("idToken")) {
-  this.userInfo = jwt_decode(sessionStorage.getItem("idToken"));
-  // access = jwt_decode(sessionStorage.getItem("accessToken"));
-} else {
-  this.userInfo = {
-    email: "",
-    name: "",
-    picture: "https://via.placeholder.com/200"
-      }
+    
+    // load user data if it exists
+  if (sessionStorage.getItem('userEmail')) {
+    this.userInfo = {
+      name: sessionStorage.getItem('userName'),
+      email: sessionStorage.getItem('userEmail'),
+      picture: sessionStorage.getItem('userPicture')
     }
-
   }
+  
+}
 
 }

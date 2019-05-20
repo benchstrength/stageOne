@@ -8,33 +8,58 @@
   </form>
 
 <div class="row">
-  <div class="form-group col-3" >
+  <div class="form-group col-4" >
     <label for="subType"> Making Choices</label>
-    <select class="form-control" id="subType">
+    <select class="form-control" id="subType" [formControl]="skillName">
+      <option>jQuery</option>
+      <option>Angular</option>
+      <option>React</option>
+    </select>
+    <!-- <button class="btn btn-primary">Send</button> -->
+  </div>
+  <div class="form-group col-4" >
+    <label for="subType"> Making Choices</label>
+    <select class="form-control" id="subType" [formControl]="skillValue">
       <option>Interested</option>
       <option>Neutral as Switzerland</option>
       <option>Not Interested</option>
     </select>
     <!-- <button class="btn btn-primary">Send</button> -->
   </div>
-  <div class="form-group col-3" >
+  <div class="form-group col-4" >
     <label for="subType"> Making Choices</label>
     <select class="form-control" id="subType">
       <option>Interested</option>
       <option>Neutral as Switzerland</option>
       <option>Not Interested</option>
     </select>
-    <!-- <button class="btn btn-primary">Send</button> -->
   </div>
-  <div class="form-group col-3" >
-    <label for="subType"> Making Choices</label>
-    <select class="form-control" id="subType">
-      <option>Interested</option>
-      <option>Neutral as Switzerland</option>
-      <option>Not Interested</option>
-    </select>
-   
+</div>
+<div class="row justify-content-center">
+  <div class="col">
+    <div>
+      <button (click)="sendForm()" class="btn btn-primary">Send</button>
+    </div>
   </div>
-   <button class="btn btn-primary">Send</button>
 </div>
 </div>
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

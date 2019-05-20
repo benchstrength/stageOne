@@ -33,7 +33,7 @@ interface AddUser {
 
 //Should this be an array for the ability to add multiple skills in one request?
 interface AddSkill {
-  skill: string[],
+  skill: object[],
 }
 
 @Injectable({

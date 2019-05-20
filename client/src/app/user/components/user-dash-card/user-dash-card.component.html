@@ -7,17 +7,17 @@
   <div class="card" >
     <div class="row">
         <div class="col-md-4">
-          <img [src]='userInfo.picture'class="card-img" alt="...">
+          <img *ngIf="userInfo.picture" [src]='userInfo.picture' class="card-img" alt="...">
+          <img *ngIf="!userInfo" src='https://via.placeholder.com/100' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text">Name: {{ userInfo.name }}</p>
-            <p class="card-text"><small class="text-muted">Email: {{ userInfo.email }}</small></p>
+            <p class="card-text">Name: {{ userInfo?.name }}</p>
+            <p class="card-text"><small class="text-muted">Email: {{ userInfo?.email }}</small></p>
         </div>
     </div>
   </div>
 </div>
-
-<div class="card-header"><button  class="btn btn-dark" (click)="auth.logout()">Log out</button></div>
+  <div class="card-header"><button  class="btn btn-dark" (click)="auth.logout()">Log out</button></div>
 </div>
