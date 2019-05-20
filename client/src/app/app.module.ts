@@ -25,9 +25,7 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 // import { FlexLayoutModule } from '@angular/flex-layout'
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
-import { AdminGraphComponent } from './admin/components/admin-graph/admin-graph.component';
-import { SkillsGraphComponent } from './admin/components/skills-graph/skills-graph.component';
-import { UsersGraphComponent } from './admin/components/users-graph/users-graph.component';
+import { AdminGraphComponent } from './admin/components/graphs/admin-graph.component';
 import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
 import { FiltersComponent } from './admin/components/filters/filters.component';
 import { UserAreaComponent } from './user-area/user-area.component';
@@ -51,8 +49,6 @@ import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.
     MatGridTile,
     UserAddskillComponent,
     AdminGraphComponent,
-    SkillsGraphComponent,
-    UsersGraphComponent,
     SearchbarComponent,
     FiltersComponent,
     UserAreaComponent,

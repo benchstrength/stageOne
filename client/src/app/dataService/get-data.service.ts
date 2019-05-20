@@ -6,7 +6,7 @@ import { InternalFormsSharedModule } from '@angular/forms/src/directives';
 //Retrieve data
 const getAllUsersUrl = "/api/getallusers";
 const getUserBySkillUrl = "/api/usersbyskill";
-const getAdminGraphUrl = "/api/semi-private";
+const getAdminGraphUrl = "/api/graph";
 //Send Data
 const addUserUrl = "/api/newuser";
 const addSkillUrl = "/api/newskill";
@@ -66,7 +66,7 @@ public getUserBySkill(searchBody: UsersBySkill) {
 
 //Get admin graph data
 
-public getAdminGraph(searchBody: GetAdminGraph) {
+public getAdminGraph(searchBody: GetAdminGraph): any {
   return this.http.post(getAdminGraphUrl, searchBody, {headers: this.headers}).toPromise();
 }
   

@@ -27,19 +27,11 @@ module.exports = (db) => {
 
     router.post('/api/graph', (req, res) => {
         db.Skill.findAll({
-            through: {
-                attributes: [ '$db.user_skills_SkillId$' ]
-            },
             include: [{
                 model: db.User,
             }]
-        }).then(response => {
-            console.log("here");
-            response.forEach(element => {
-                if(element.dataValues)
-                    console.log(element.dataValues);
-            });
-            res.sendStatus(200);
+        }).then(result => {
+            res.json(result);
         });
     });
 
