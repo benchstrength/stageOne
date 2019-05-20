@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminGraphComponent } from '../admin-graph/admin-graph.component';
+
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
