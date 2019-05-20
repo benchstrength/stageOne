@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-// import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { GraphComponent } from './graph/graph.component';
@@ -26,9 +25,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 // import { FlexLayoutModule } from '@angular/flex-layout'
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 import { AdminGraphComponent } from './admin/components/graphs/admin-graph.component';
-import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
-import { FiltersComponent } from './admin/components/filters/filters.component';
 import { UserAreaComponent } from './user-area/user-area.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -47,9 +45,8 @@ import { UserAreaComponent } from './user-area/user-area.component';
     MatGridTile,
     UserAddskillComponent,
     AdminGraphComponent,
-    SearchbarComponent,
-    FiltersComponent,
     UserAreaComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
