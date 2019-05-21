@@ -37,7 +37,7 @@ module.exports = (db) => {
     });
 
 
-    // takes an object with Skills property assigned array of Skills names (String)
+    // takes an object with skills property assigned array of Skills names (String)
     // returns only users with each of the required skills
     router.post('/api/usersBySkill', (req, res) => {
         db.User.findAll({
@@ -53,7 +53,11 @@ module.exports = (db) => {
     });
 
     router.post('/api/getallusers', (req, res) => {
-        db.User.findAll({}).then(result => {
+        db.User.findAll({
+            include: [{
+                model: db.Skill
+            }]
+        }).then(result => {
             res.json(result)
         });
     });
