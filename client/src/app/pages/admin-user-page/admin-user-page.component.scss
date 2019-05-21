@@ -1,0 +1,38 @@
+// nav {
+//     background-color: whitesmoke;
+//     padding: 1.5em;
+// }
+
+div.col {
+    margin: 0;
+}
+
+.activeRoute {
+    color: orange;
+    background-color: purple;
+    z-index: 5;
+
+}
+
+nav > div {
+    background: green;
+}
+
+// .activeRoute h2 {
+//     background-color: rgba(0, 0, 0, 0);
+// }
+
+// .bench .strength {
+//     padding: 2em;
+//     margin-top: 1em;
+// }
+// .bench {
+//     color: white;
+//     background-color: blue;
+// }
+
+.link {
+    color: blue;
+    background-color: black;
+    z-index: 5;
+}

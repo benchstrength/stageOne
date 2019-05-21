@@ -29,6 +29,8 @@ import { AdminGraphComponent } from './admin/components/graphs/admin-graph.compo
 import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
 import { FiltersComponent } from './admin/components/filters/filters.component';
 import { UserAreaComponent } from './user-area/user-area.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.component';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { UserAreaComponent } from './user-area/user-area.component';
     SearchbarComponent,
     FiltersComponent,
     UserAreaComponent,
+    UnauthorizedComponent,
+    AdminUserPageComponent,
   ],
   imports: [
     BrowserModule,

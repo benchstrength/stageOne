@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
 import { GetDataService } from '../dataService/get-data.service';
-import { MAT_DIALOG_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/material';
 
 @Component({
   selector: 'app-user-area',
