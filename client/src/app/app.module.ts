@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 // import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
-import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -39,7 +38,6 @@ import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.
     // UserComponent,
     AdminComponent,
     UserAssessmentComponent,
-    GraphComponent,
     LoginComponent,
     UserDashCardComponent,
     UserPageComponent,
