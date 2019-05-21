@@ -16,7 +16,7 @@ export class AdminGraphComponent implements OnInit {
   
   public chartOptions = {
     responsive: true,
-    aspectRatio: 1,
+    aspectRatio: .8,
     maintainAspectRatio: false,
 
     legend: {
@@ -37,8 +37,13 @@ export class AdminGraphComponent implements OnInit {
         id: 'left-y-axis',
         type: 'linear',
         position: 'left',
+        ticks: {
+          beginAtZero: true,
+          min: 0,
+          max: 100
+        },
         scaleLabel: {
-          labelString: 'Team Strength %',
+          labelString: 'Team Strength (100 point scale)',
           display: true
         }
       }, {
@@ -49,7 +54,7 @@ export class AdminGraphComponent implements OnInit {
           beginAtZero: true
         },
         scaleLabel: {
-          labelString: '# of Users',
+          labelString: '# of Developers',
           display: true
         }
       }]
@@ -91,7 +96,7 @@ export class AdminGraphComponent implements OnInit {
       this.chartLabels = response.map(skill => skill.name);
       this.chartData = [
         { data: response.map(skill => this.getQuant(skill.Users)),
-          label: 'Quant',
+          label: 'Developers',
           type: 'line',
           yAxisID: 'right-y-axis',
           fill: false,
