@@ -1,3 +1,22 @@
+<nav class="row justify-content-center align-items-center">
+<div class="col text-center">
+  <a routerLink="/admin/users" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+    <!-- <div class="my-auto"> -->
+      <h2>BENCH</h2>
+    <!-- </div> -->
+  </a>
+</div>
+
+    <a routerLink="/admin" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+      <div class="col text-center">
+      <!-- <div class="my-auto"> -->
+        <h2>STRENGTH</h2>
+      <!-- </div> -->
+    </div>
+    </a>
+</nav>
+
+
 <div 
 *ngIf="showForm"
 class="row align-items-center justify-content-center">
