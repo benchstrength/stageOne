@@ -31,6 +31,7 @@ import { FiltersComponent } from './admin/components/filters/filters.component';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.component';
+import { AdminNavComponent } from './admin-nav/admin-nav.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.
     UserAreaComponent,
     UnauthorizedComponent,
     AdminUserPageComponent,
+    AdminNavComponent,
   ],
   imports: [
     BrowserModule,
