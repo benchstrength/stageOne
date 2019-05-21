@@ -30,6 +30,8 @@ export class UserAreaComponent implements OnInit {
     this.filteredSkills = this.skillFilter ? this.performFilter(this.skillFilter) : this.skills;
   }
 
+  userData;
+
   filteredSkills: Skill[];
   skills: Skill[] = [
     {
@@ -111,12 +113,12 @@ export class UserAreaComponent implements OnInit {
     //   this.skills.filter((user: Skill) => user.skillName.toLocaleLowerCase().indexOf(elem) !== -1)
     // })
 
-    let filterfy: any[] = this.skills.filter((user: Skill) => {
-      searchArr.forEach((elem) => user.skillName.toLocaleLowerCase().indexOf(elem) !== -1)
-    })
-    let filterfy = 
+    // let filterfy: any[] = this.skills.filter((user: Skill) => {
+    //   searchArr.forEach((elem) => user.skillName.toLocaleLowerCase().indexOf(elem) !== -1)
+    // })
+    // let filterfy = 
     // console.log(filtered);
-    console.log(filterfy)
+    // console.log(filterfy)
     return this.skills.filter((product: Skill) =>
       product.skillName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
@@ -150,7 +152,10 @@ export class UserAreaComponent implements OnInit {
       // this.users = data
       // });
     }
-
+this.data.getUserBySkill({skill: [""]}).then(users => {
+  this.userData = users;
+  console.log(this.userData);
+})
 
   }
 
