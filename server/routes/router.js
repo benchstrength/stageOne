@@ -6,6 +6,7 @@ let router = Express.Router();
 
 module.exports = (db) => {
 
+    const Op = db.Sequelize.Op;
     // router.use((req, res, next) => {
     //     db.User.findOne({
     //         where: {
@@ -35,9 +36,21 @@ module.exports = (db) => {
         });
     });
 
+    router.post('/api/usersBySkill', (req, res) => {
+        db.User.findAll({
+            include: [{
+                model: db.Skill,
+                where: {
+                    name: {
+                        [Op.in]: req.body.skills
+                    }
+                }
+            }]
+        }).then(response => res.json(response));
+    });
+
     router.post('/api/getallusers', (req, res) => {
         db.User.findAll({}).then(result => {
-            console.log(result);
             res.json(result)
         });
     });
