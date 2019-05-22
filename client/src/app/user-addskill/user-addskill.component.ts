@@ -17,7 +17,8 @@ export class UserAddskillComponent implements OnInit {
   constructor(private data: GetDataService) { 
     //injectable service goes here getAllUsers may have a security vulnerability 
     }
-  
+    // /api/graph map over res.map(skill => skill.name
+  // this.data.getAdminGraph({skills:''})
   ngOnInit() {
 
   }

@@ -7,17 +7,22 @@ import { GetDataService } from 'src/app/dataService/get-data.service';
   styleUrls: ['./user-assessment.component.scss']
 })
 export class UserAssessmentComponent implements OnInit {
-skills;
+user;
   constructor(private data: GetDataService) { }
   userFilter() {
-      this.data.getAllUsers({searchItem: 'all'}).then(data => {
-        this.skills = data;
+      this.data.getOneUser({ email:'vanillaThunder@himym.com' }).then(data => {
+        this.user = data;
         // switch statement to 
         console.log(data)
-
-
         });
     }
+  skills;
+  skillFilter() {
+    this.data.getAllUsers({searchItem: 'all'}).then(data => {
+      this.skills = data;
+      console.log(data);
+    })
+  }
   ngOnInit() {
     this.userFilter();
   }
