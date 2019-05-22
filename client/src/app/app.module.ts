@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
-import { GraphComponent } from './graph/graph.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -26,7 +25,10 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 import { AdminGraphComponent } from './admin/components/graphs/admin-graph.component';
 import { UserAreaComponent } from './user-area/user-area.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.component';
 import { SearchComponent } from './search/search.component';
+
 
 
 @NgModule({
@@ -35,7 +37,6 @@ import { SearchComponent } from './search/search.component';
     // UserComponent,
     AdminComponent,
     UserAssessmentComponent,
-    GraphComponent,
     LoginComponent,
     UserDashCardComponent,
     UserPageComponent,
@@ -46,7 +47,10 @@ import { SearchComponent } from './search/search.component';
     UserAddskillComponent,
     AdminGraphComponent,
     UserAreaComponent,
+    UnauthorizedComponent,
+    AdminUserPageComponent,
     SearchComponent,
+
   ],
   imports: [
     BrowserModule,

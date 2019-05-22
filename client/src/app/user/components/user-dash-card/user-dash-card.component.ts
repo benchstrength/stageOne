@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import { AuthService } from 'src/app/auth/auth.service';
+// import { userInfo } from 'os';
 
 
 
@@ -14,11 +15,16 @@ export class UserDashCardComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
- userInfo: object;
+ userInfo = {
+   name: "",
+   email: "",
+   picture: ""
+ };
 
   ngOnInit() {
     
     // load user data if it exists
+    console.log(this.userInfo)
   if (sessionStorage.getItem('userEmail')) {
     this.userInfo = {
       name: sessionStorage.getItem('userName'),
