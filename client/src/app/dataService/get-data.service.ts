@@ -10,6 +10,7 @@ const getAdminGraphUrl = "/api/graph";
 //Send Data
 const addUserUrl = "/api/newuser";
 const addSkillUrl = "/api/newskill";
+const checkPermsUrl = "/api/checkperms"
 
 interface GetAllUsers {
   searchItem: string, //this can probably just be hard-coded to always return all the users
@@ -36,6 +37,10 @@ interface AddSkill {
   skill: object[],
 }
 
+interface CheckPerms {
+  email: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,7 +54,7 @@ headers = new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken
 
 //Get all users from the database
 
-public async getAllUsers(searchBody: GetAllUsers | 'all') {
+public getAllUsers(searchBody: GetAllUsers | 'all') {
   return this.http.post(getAllUsersUrl, searchBody, {headers: this.headers}).toPromise();
 };
 
@@ -67,7 +72,7 @@ public getAdminGraph(searchBody: GetAdminGraph): any {
   
 
 //Add user to the database
-public sendDatabase(sendBody: AddUser) {
+public addUser(sendBody: AddUser) {
   return this.http.post(addSkillUrl, sendBody, {headers: this.headers}).toPromise();
 };
 
@@ -76,5 +81,9 @@ public sendDatabase(sendBody: AddUser) {
 public addSkill(sendBody: AddSkill) {
   return this.http.post(addUserUrl, sendBody, {headers: this.headers}).toPromise();
 };
+
+public checkPermissions(sendBody: CheckPerms) {
+  return this.http.post(checkPermsUrl, sendBody, {headers: this.headers}).toPromise();
+}
 
 }

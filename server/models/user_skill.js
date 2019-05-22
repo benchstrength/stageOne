@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     employer_rating: DataTypes.INTEGER,
     interest: DataTypes.INTEGER,
     UserEmail: DataTypes.STRING,
-    skillId: DataTypes.INTEGER
+    SkillId: DataTypes.INTEGER
   }, {});
   user_skill.associate = function(models) {
     // associations can be defined here
