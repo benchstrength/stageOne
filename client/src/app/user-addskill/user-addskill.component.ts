@@ -12,13 +12,11 @@ export class UserAddskillComponent implements OnInit {
   skillName = new FormControl('');
   skillValue = new FormControl('');
 
-  constructor(private data: GetDataService) { 
-    //injectable service goes here
-  }
-
   
-
-
+  skills;
+  constructor(private data: GetDataService) { 
+    //injectable service goes here getAllUsers may have a security vulnerability 
+    }
   
   ngOnInit() {
 

@@ -16,18 +16,19 @@
     </thead>
     <tbody>
       <!-- test example -->
-      <tr>
+      <!-- <tr>
       <th scope="row"></th>
       <td>Node.js</td>
       <td>Yes</td>
       <td>Beginner</td>
-    </tr>
-    <!-- test example -->
-    <tr>
+    </tr> -->
+    <!-- test example skill of skill.Skills for a single--> 
+    <tr *ngFor="let skills of skills[0].Skills">
       <th scope="row"></th>
-      <td>JavaScript</td>
-      <td>Yes</td>
-      <td>Beginner</td>
+      <td >{{ skills.name }}</td>
+      <!-- *ngIf="user.email === sessionStorage.getItem('userEmail')" -->
+      <td>{{skills.user_skill.interest}}</td>
+      <td>{{skills.user_skill.self_rating}}</td>
     </tr>
     <!-- WHERE THE INFO FROM DB SHOULD GO -->
     <tr>
