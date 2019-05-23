@@ -56,6 +56,7 @@ module.exports = {
       { name: 'Kotlin', createdAt: new Date(), updatedAt: new Date() },
       { name: 'VirtualBox', createdAt: new Date(), updatedAt: new Date() },
       { name: 'Vagrant', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'JavaScript', createdAt: new Date(), updatedAt: new Date() },
     ]);
   },
 
