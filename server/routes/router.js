@@ -71,6 +71,15 @@ module.exports = (db) => {
         db.User.create(req.body).then(result => res.send(result));
     });
 
+    router.post('/api/getoneuser', (req, res) => {
+        db.User.findOne({
+            where: {email: req.body.email},
+            include: [{
+                model: db.Skill
+            }]
+        }).then(result => res.json(result));
+    });
+
     return router;
     
 }
