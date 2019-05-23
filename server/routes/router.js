@@ -68,7 +68,7 @@ module.exports = (db) => {
     });
 
     router.post('/api/newUser', (req, res) => {
-        db.User.create(req.body).then(result => res.send(result));
+        db.User.create({email: req.body.email}).then(result => res.send(result));
     });
 
     router.post('/api/getoneuser', (req, res) => {
@@ -78,6 +78,49 @@ module.exports = (db) => {
                 model: db.Skill
             }]
         }).then(result => res.json(result));
+    });
+
+    router.patch('/api/addprogrammingareastoskill', (req, res) => {
+
+        db.Skill.findOne({
+            where: { id: req.body.skillId }
+        }).then( skill => {
+            console.log(Object.getPrototypeOf(skill));
+            db.ProgrammingArea.findAll({
+                where: { 
+                    id: {
+                        [Op.or]: req.body.areaIds 
+                    }
+                }
+            }).then( programmingAreas => {
+                skill.addProgrammingAreas(programmingAreas)
+                    .then(response => {
+                        res.json(response);
+                        return;
+                    });
+            });   
+        });
+    });
+
+    router.patch('/api/addskillstoprogrammingarea', (req, res) => {
+
+        db.ProgrammingArea.findOne({
+            where: { id: req.body.areaId}
+        }).then( programmingArea => {
+            db.Skill.findAll({
+                where: {
+                    id: {
+                        [Op.or]: req.body.skillIds
+                    }
+                }
+            }).then( skills => {
+                programmingArea.addSkills( skills )
+                    .then(response => {
+                        res.json(response);
+                        return
+                    });
+            });
+        });
     });
 
     return router;
