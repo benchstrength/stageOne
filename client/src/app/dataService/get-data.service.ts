@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service.spec';
-import { InternalFormsSharedModule } from '@angular/forms/src/directives';
+import { Observable, of } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 
 //Retrieve data
 const getAllUsersUrl = "/api/getallusers";
 const getUserBySkillUrl = "/api/usersbyskill";
 const getAdminGraphUrl = "/api/graph";
+const getUserByNameUrl = "/api/usersbyname"
 const getOneUserUrl = "/api/getoneuser"
 //Send Data
 const addUserUrl = "/api/newuser";
@@ -19,7 +21,7 @@ interface GetAllUsers {
 
 //Skill to search for - does this need to be an array for multiple skill search option?
 interface UsersBySkill {
-  skill: string[],
+  skills: string[],
 }
 
 //What data does this need to return/search for? Hard code to return all data needed for the entire graph?
@@ -42,6 +44,11 @@ interface CheckPerms {
   email: string
 }
 
+interface UserByName {
+    firstName: string,
+    lastName: string
+}
+
 interface GetOneUser {
   email: string
 }
@@ -51,8 +58,24 @@ interface GetOneUser {
 })
 export class GetDataService {
 
+log;
+
   constructor(private http: HttpClient,
               private auth: AuthService) { }
+
+private handleError<T> (operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+  
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+  
+    // TODO: better job of transforming error for user consumption
+    this.log(`${operation} failed: ${error.message}`);
+  
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
+}
 
 //Set authorization header based off the access token of logged in user
 headers = new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)
@@ -66,7 +89,7 @@ public getAllUsers(searchBody: GetAllUsers | 'all') {
 //Get users by skill
 
 public getUserBySkill(searchBody: UsersBySkill) {
-  return this.http.post(getUserBySkillUrl, searchBody, {headers: this.headers}).toPromise();
+  return this.http.post(getUserBySkillUrl, searchBody, {headers: this.headers});
 };
 
 //Get admin graph data
@@ -78,21 +101,37 @@ public getAdminGraph(searchBody: GetAdminGraph): any {
 
 //Add user to the database
 public addUser(sendBody: AddUser) {
-  return this.http.post(addSkillUrl, sendBody, {headers: this.headers}).toPromise();
+  return this.http.post(addUserUrl, sendBody, {headers: this.headers}).toPromise();
 };
 
 //Add skill to database
 
 public addSkill(sendBody: AddSkill) {
-  return this.http.post(addUserUrl, sendBody, {headers: this.headers}).toPromise();
+  return this.http.post(addSkillUrl, sendBody, {headers: this.headers}).toPromise();
 };
 
 public checkPermissions(sendBody: CheckPerms) {
   return this.http.post(checkPermsUrl, sendBody, {headers: this.headers}).toPromise();
 }
 
-public getOneUser(sendBody: GetOneUser) {
-  return this.http.post(getOneUserUrl, sendBody, {headers: this.headers}).toPromise();
+public getUsersByName(searchBody: UserByName) {
+  return this.http.post(getUserByNameUrl, searchBody, {headers: this.headers}).toPromise();
+};
+
+searchHeroes(term: string): Observable<any> {
+  if (!term.trim()) {
+    // if not search term, return empty hero array.
+    return of([]);
+  }
+  return this.http.post(getUserBySkillUrl, {skills: [term]}, {headers: this.headers}).pipe(
+    tap(_ => console.log(`found heroes matching "${term}"`)),
+    tap(res => console.log(res)),
+    catchError(this.handleError<any>('searchHeroes', []))
+  );
+}
+
+  public getOneUser(sendBody: GetOneUser) {
+  return this.http.post(getOneUserUrl, sendBody, {headers: this.headers}).toPromise()
 }
 
 }

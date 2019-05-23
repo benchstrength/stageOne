@@ -31,7 +31,7 @@ sendForm() {
     lastName: this.lastName.value
   }
   console.log(formData);
-  // this.data.addUser(formData).then(sentForm => console.log(sentForm))
+  this.data.addUser(formData).then(sentForm => console.log(sentForm))
   this.userEmail.setValue('')
   this.firstName.setValue('')
   this.lastName.setValue('')

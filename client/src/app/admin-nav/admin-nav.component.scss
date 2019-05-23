@@ -1,0 +1,36 @@
+div.col.text-center {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    border-bottom: 3px solid black;
+}
+
+.logoArea {
+    border-bottom: 3px solid black;
+    padding: 0.25em 0;
+
+}
+
+.linkButton {
+    margin: 0;
+    padding: 0.25em 0;
+
+}
+
+a {
+    color: blue;
+}
+
+.activeRoute > h2{
+    color: white;
+    background-color: blue;
+    z-index: 5;
+    padding: 0.25em 0;
+}
+
+.link {
+    color: blue;
+    z-index: 5;
+}
