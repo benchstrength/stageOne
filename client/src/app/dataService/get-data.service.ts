@@ -7,6 +7,7 @@ import { InternalFormsSharedModule } from '@angular/forms/src/directives';
 const getAllUsersUrl = "/api/getallusers";
 const getUserBySkillUrl = "/api/usersbyskill";
 const getAdminGraphUrl = "/api/graph";
+const getOneUserUrl = "/api/getoneuser"
 //Send Data
 const addUserUrl = "/api/newuser";
 const addSkillUrl = "/api/newskill";
@@ -38,6 +39,10 @@ interface AddSkill {
 }
 
 interface CheckPerms {
+  email: string
+}
+
+interface GetOneUser {
   email: string
 }
 
@@ -84,6 +89,10 @@ public addSkill(sendBody: AddSkill) {
 
 public checkPermissions(sendBody: CheckPerms) {
   return this.http.post(checkPermsUrl, sendBody, {headers: this.headers}).toPromise();
+}
+
+public getOneUser(sendBody: GetOneUser) {
+  return this.http.post(getOneUserUrl, sendBody, {headers: this.headers}).toPromise();
 }
 
 }
