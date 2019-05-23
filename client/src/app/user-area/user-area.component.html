@@ -17,38 +17,96 @@
       </table>
 </div> -->
 
+
 <div class='card-body'>
-    <div class='row'>
+  <div class='row'>
+      <!-- Search Box for skills -->
       <div class='col-md-4'>
-        <input type='text'
-          style="width: 300px; margin: 20px;"
+        <input *ngIf="searchType === 'skills' "
+          type='text'
           placeholder="search for a skill eg: angular"
-          [(ngModel)]='skillFilter' />
+          #searchBox id="search-box" 
+          (input)="search(searchBox.value)"/>
+          <ul class="search-result">
+              <li *ngFor="let search of search$ | async" >
+                  {{ search.firstName }}
+              </li>
+            </ul>
+      </div>
+  </div>
+</div>
+      <!-- Search Box for users -->
+<div class='card-body'>
+      <div class='col-md-4'>
+          <input *ngIf="searchType === 'users' "
+            type='text'
+            style="width: 300px; margin: 20px;"
+            placeholder="search for a user by name"
+            [formControl]="searchWords"
+            (blur)='performFilter()' />
       </div>
     </div>
-
-<div class='table-responsive'>
-    <table class='table'
-            *ngIf='skills && skills.length'>
-      <thead>
-        <tr>
-          <th>
-          </th>
-          <th>Skill</th>
-          <th>Perceived</th>
-          <th>Accurate</th>
-          <th>Interest</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor='let skill of filteredSkills'>
-          <td>
-          </td>
-          <td>{{ skill.skillName }}</td>
-          <td>{{ skill.perceived }}</td>
-          <td>{{ skill.accurate }}</td>
-          <td>{{ skill.interest }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>   
+<!-- Table for users searched by skills -->
+<div class="container" *ngIf="searchType === 'skills' ">
+  <div class='table-responsive' >
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th class="text-center">Skill</th>
+            <th class="text-center">Perceived</th>
+            <th class="text-center">Accurate</th>
+            <th class="text-center">Interest</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let skill of search$ | async'>
+            <td>{{ skill.firstName }} {{ skill.lastName }}</td>
+            <td>
+                <p *ngFor="let userSkill of search$ | async">
+                {{ userSkill.Skills.name }}
+                </p>
+            </td>
+            <td>
+                <p *ngFor="let user of search$.Skills | async">
+                    {{ user.user_skill.self_rating }}
+                </p>
+            </td>
+            <td>
+              <p *ngFor="let user of search$.Skills | async">
+                  {{ user.user_skill.employer_rating }}
+              </p>
+            </td>
+            <td>
+              <p *ngFor="let user of search$.Skills | async">
+                  {{ user.user_skill.interest }}
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+   
+<!-- Table for users searched by user name -->
+<div class="container"  *ngIf="searchType === 'users' ">
+    <div class='table-responsive'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th class="text-center">Email</th>
+              <!-- <th class="text-center">Perceived</th>
+              <th class="text-center">Accurate</th>
+              <th class="text-center">Interest</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let user of filteredList'>
+              <td>{{ user.firstName }} {{ user.lastName }}</td>
+              <td class="text-center">{{ user.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>   
