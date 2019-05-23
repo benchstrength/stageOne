@@ -1,10 +1,9 @@
 <div class="user-assessment card">
   <div class="card-header">
     Skills List: 
-    <!-- {header... add skill button before or after header} -->
   </div>
   <hr>
-  <div >
+  <div *ngIf="skills">
   <table class="table">
     <thead>
       <tr>
@@ -15,34 +14,14 @@
       </tr>
     </thead>
     <tbody>
-      <!-- test example -->
-      <!-- <tr>
-      <th scope="row"></th>
-      <td>Node.js</td>
-      <td>Yes</td>
-      <td>Beginner</td>
-    </tr> -->
-    <!-- test example -->
     <tr *ngFor="let skill of skills.Skills">
       <th scope="row"></th>
       <td >{{ skill.name }}</td>
-      <!-- *ngIf="user.email === sessionStorage.getItem('userEmail')" -->
+      
       <td>{{ skill.user_skill.interest }}</td>
       <td>{{ skill.user_skill.self_rating }}</td>
     </tr>
-    <!-- WHERE THE INFO FROM DB SHOULD GO -->
-    <tr>
-      <th scope="row"></th>
-      <td>
-        <!-- {{userSkill}} -->
-      </td>
-      <td>
-        <!-- {{InterestLevel 1-3}} -->
-      </td>
-      <td>
-        <!-- {{AbilityLevel 1-3}} -->
-      </td>
-    </tr>
+    
     </tbody>
   </table>
   </div>
@@ -50,6 +29,4 @@
 </div>
 
 
-<!-- First we'll need a header/navbar describing the table 
-An Add Skill button with modal to describe skill and skill level
-Then a table with Skill Name and Skill Level, maybe Years In Practice.   -->
+

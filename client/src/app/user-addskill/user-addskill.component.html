@@ -1,53 +1,46 @@
 <div class="container">
   <h2>Add Your Skills</h2>
-  <!-- <form>
-    <div class="form-group">
-      <label for="name"> Name </label>
-      <input id="name" name="name" class="form-control"  />
-    </div>
-  </form> -->
-<!-- template variables #form = "ngForm" ---- {{ form | json }} in the html -->
-<!-- <form #form="ngForm"> -->
+  
 <div class="row">
   <div class="form-group col-4" >
     <label for="subType"> Choose Skill:</label>
-    <select class="form-control" id="subType" name="skillname"[(ngModel)]="getuserdata.skillname" >
-      <option>jQuery</option>
-      <option>Angular</option>
-      <option>React</option>
-    </select>
-    <!-- <button class="btn btn-primary">Send</button> ###### -->
+
+      <select class="form-control" id="subType" name="skillName" >
+        <option *ngFor="let skill of skills">{{skill.name}}</option>
+      </select>
   </div>
+
   <div class="form-group col-4" >
     <label for="subType"> Interest Level:</label>
-    <select class="form-control" id="subType" name="skillinterest" >
-      <option>Interested</option>
+    
+    <select class="form-control" id="subType" name="skillInterest" >
+      <option value="1">Not Interested</option>
       <option>Neutral as Switzerland</option>
-      <option>Not Interested</option>
+      <option>Interested</option>
+      <option>Very Interested</option>
     </select>
-    <!-- <button class="btn btn-primary">Send</button> -->
   </div>
+
   <div class="form-group col-4" >
     <label for="subType"> Ability Level: </label>
-    <!-- [formControl]="skillLevel" -->
-    <select class="form-control" id="subType" name="skillevel">
-      <option>Beginner</option>
-      <option>Intermediate</option>
+
+    <select class="form-control" id="subType" name="skillSelfRating">
+      <option>Familiar</option>
+      <option>Beginner/Intermediate</option>
       <option>Advanced</option>
+      <option>Master/Teacher</option>
     </select>
   </div>
 </div>
 <div class="row justify-content-center">
   <div class="col">
     <div>
-      <button (click)="sendForm()" class="btn btn-primary">Add Skill</button>
+      <button (click)="sendForm()" class="btn btn-info btn-block">Add Skill</button>
     </div>
   </div>
 </div>
 
-<!-- </form> -->
 </div>
-{{ user-addskill | json }}
 
 <div class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
