@@ -9,6 +9,7 @@ const getAllUsersUrl = "/api/getallusers";
 const getUserBySkillUrl = "/api/usersbyskill";
 const getAdminGraphUrl = "/api/graph";
 const getUserByNameUrl = "/api/usersbyname"
+const getOneUserUrl = "/api/getoneuser"
 //Send Data
 const addUserUrl = "/api/newuser";
 const addSkillUrl = "/api/newskill";
@@ -46,6 +47,10 @@ interface CheckPerms {
 interface UserByName {
     firstName: string,
     lastName: string
+}
+
+interface GetOneUser {
+  email: string
 }
 
 @Injectable({
@@ -123,6 +128,10 @@ searchHeroes(term: string): Observable<any> {
     tap(res => console.log(res)),
     catchError(this.handleError<any>('searchHeroes', []))
   );
+}
+
+  public getOneUser(sendBody: GetOneUser) {
+  return this.http.post(getOneUserUrl, sendBody, {headers: this.headers}).toPromise()
 }
 
 }
