@@ -29,7 +29,6 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
