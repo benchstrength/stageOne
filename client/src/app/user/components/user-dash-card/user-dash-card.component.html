@@ -1,4 +1,30 @@
 
+
+
+
+<div class="newCon flxrow">
+  <div class="one">
+      <img *ngIf="userInfo.picture" src='{{ userInfo.picture }}' class="cardImg" alt="...">
+      <div class="wrapper">
+          <p class="name">{{ userInfo?.name }}</p>
+          <button class="emailbtn" ><i class="far fa-paper-plane"></i> seamusmurchadh</button>
+          <br>
+          <!-- {{ userInfo?.email }} - also, regex to drop everything starting form '@'-->
+          <button class="gitbtn" target="_blank" href="https://github.com/turntShramp"><i class="fab fa-github"></i> turntShramp</button>
+          <!-- {{ userInfo?.github }} - where be dis? -->
+      </div>
+  </div>
+  <div class="two">
+    <div class="three">
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <div class="user card ">
   <div class="card-header">
       <h5> Your Information: </h5>

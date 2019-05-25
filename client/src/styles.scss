@@ -52,26 +52,26 @@
     border-radius: 5px;
     padding: 5%;
 }
-// .flxrow {
-//     display: flex;
-//     flex-direction: row;
-// }
-// .flxcol {
-//     display: flex;
-//     flex-direction: column;
-// }
-// .box {
-//     border: solid 1px black;
-// }
-// .h {
-//     width: 50%;
-// }
-// .w {
-//     width: 100%;
-// }
-// .s {
-//     width: 75%;
-// }
-// .q {
-//     width: 25%;
-// }
+.newCon {
+    background-color: #262626;
+    margin:  2rem 8rem;
+    border: solid 1px black;
+    border-radius: 5px;
+    p {
+        color: #a5a7a9;
+    }
+}
+.flxrow {
+    display: flex;
+    flex-direction: row;
+}
+.flxcol {
+    display: flex;
+    flex-direction: column;
+}
+.box {
+    border: solid 1px black;
+}
+.wbox {
+    border: solid 1px white;
+}
