@@ -10,7 +10,7 @@ module.exports = (db) => {
     // router.use((req, res, next) => {
     //     db.User.findOne({
     //         where: {
-    //             email: req.body.email
+    //             email: req.headers.permissions
     //         },
     //         include: [ Role ]
                         

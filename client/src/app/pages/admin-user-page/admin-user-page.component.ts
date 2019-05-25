@@ -39,6 +39,7 @@ sendForm() {
     lastName: this.lastName.value,
     isEmployee: employeeStatus
   };
+  console.log(formData);
   this.data.addUser(formData).then(sentForm => {
     if (sentForm == formData){
       console.log('it is a match')
