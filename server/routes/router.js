@@ -10,7 +10,7 @@ module.exports = (db) => {
     // router.use((req, res, next) => {
     //     db.User.findOne({
     //         where: {
-    //             email: req.email
+    //             email: req.body.email
     //         },
     //         include: [ Role ]
                         
@@ -68,6 +68,7 @@ module.exports = (db) => {
     });
 
     router.post('/api/newUser', (req, res) => {
+        console.log(req.body)
         db.User.create(req.body).then(result => res.send(result));
     });
 

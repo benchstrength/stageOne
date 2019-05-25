@@ -30,9 +30,10 @@ interface GetAdminGraph {
 }
 
 interface AddUser {
-  userEmail: string, //email would go here to add that email
+  email: string, //email would go here to add that email
   firstName: string,
-  lastName: string
+  lastName: string,
+  isEmployee: string
 }
 
 //Should this be an array for the ability to add multiple skills in one request?

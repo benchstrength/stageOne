@@ -11,9 +11,10 @@ export class AdminUserPageComponent implements OnInit {
 
   constructor(private data: GetDataService) { }
 
-userEmail = new FormControl('');
+email = new FormControl('');
 firstName = new FormControl('');
 lastName = new FormControl('');
+isEmployee = new FormControl('');
 
 showForm = false;
 
@@ -25,16 +26,31 @@ toggleForm() {
 }
 
 sendForm() {
+  let employeeStatus;
+  console.log(this.isEmployee.value)
+  if (this.isEmployee.value === 'Contractor') {
+    employeeStatus = false
+  } else if (this.isEmployee.value === 'Employee') {
+    employeeStatus = true
+  };
   let formData = {
-    userEmail: this.userEmail.value,
+    email: this.email.value,
     firstName: this.firstName.value,
-    lastName: this.lastName.value
-  }
-  console.log(formData);
-  this.data.addUser(formData).then(sentForm => console.log(sentForm))
-  this.userEmail.setValue('')
+    lastName: this.lastName.value,
+    isEmployee: employeeStatus
+  };
+  this.data.addUser(formData).then(sentForm => {
+    if (sentForm == formData){
+      console.log('it is a match')
+    } else {
+      console.log("no match, error!")
+    }
+    console.log(sentForm)
+  })
+  this.email.setValue('')
   this.firstName.setValue('')
   this.lastName.setValue('')
-}
+  this.isEmployee.setValue('Please select')
+};
 
 }
