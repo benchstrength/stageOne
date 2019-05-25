@@ -22,13 +22,18 @@ export class UserAddskillComponent implements OnInit {
     this.data.getAdminGraph({skill: []}).then(data => {
       this.skills = data;
       // console.log(data.map(skill => skill.name));
+
+      // match any skills that have been previously rated and remove from skills list
       });
     }
     // /api/graph map over res.map(skill => skill.name
   // this.data.getAdminGraph({skills:''})
+
+
   ngOnInit() {
     this.listSkills();
   }
+  
 sendForm() {
   let formData = [{
     userEmail: sessionStorage.getItem("userEmail"),

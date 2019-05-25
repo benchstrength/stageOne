@@ -13,8 +13,16 @@ module.exports = (sequelize, DataTypes) => {
 
     ProgrammingArea.associate = (models) => {
         ProgrammingArea.belongsToMany(models.Skill, {
-            through: "Skill_ProgrammingArea"
+            through: 'Skill_ProgrammingArea'
         });
+        ProgrammingArea.hasMany(ProgrammingArea, {
+            as: 'Sub-Type',
+            foreignKey: 'superId'
+        });
+        ProgrammingArea.hasOne(ProgrammingArea, {
+            as: 'Super-Type',
+            foreignKey: 'superId'
+        })
     }
 
     return ProgrammingArea;
