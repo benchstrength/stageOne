@@ -71,6 +71,10 @@ module.exports = (db) => {
         db.User.create(req.body).then(result => res.send(result));
     });
 
+    router.post ('/api/add-skill', function (req, res) {
+            res.json({message: "Add Skill endpoint reached!"});
+    });
+
     router.post('/api/getoneuser', (req, res) => {
         db.User.findOne({
             where: {email: req.body.email},

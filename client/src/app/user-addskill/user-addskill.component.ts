@@ -22,7 +22,11 @@ export class UserAddskillComponent implements OnInit {
     this.data.getAdminGraph({skill: []}).then(data => {
       this.skills = data;
       // console.log(data.map(skill => skill.name));
-
+      // var words = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
+      // var tests = ["limit", "spray", "elite"];
+      // const result = words.filter(word => tests.includes(word));
+      // console.log(result);
+//Maybe will need to ping db ????????????????
       // match any skills that have been previously rated and remove from skills list
       });
     }
@@ -43,6 +47,8 @@ sendForm() {
 
   }]
   console.log(formData);
+
+  //Capture Data and post to DB.... /api/add-skill
   // this.data.addSkill({skill: this.formData}).then(sentForm => console.log(sentForm));
 }
 
