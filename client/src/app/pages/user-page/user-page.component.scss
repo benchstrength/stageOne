@@ -1,7 +1,24 @@
+html, body {
+    max-width: 100%;
+}
+
+.content {
+    max-width: 100%;
+}
+
 .navbar.row {
    margin: 0;
    padding: 0;
-   border-bottom: 3px black solid;
+   box-shadow: 0 0 2em -0.5em black;
+   z-index: 5;
+}
+
+.card {
+    border-radius: none;
+}
+
+nav h2 {
+    background-color: #34A5DA
 }
 
 .navbar.col.text-center {
@@ -16,7 +33,7 @@
 
 .navbar > div > h2{
     color: white;
-    background-color: blue;
+    background-color:#34A5DA;
     padding: 0.25em 0;
     margin: 0
     
