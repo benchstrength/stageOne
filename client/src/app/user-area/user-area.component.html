@@ -22,16 +22,7 @@
   <div class='row'>
       <!-- Search Box for skills -->
       <div class='col-md-4'>
-        <input *ngIf="searchType === 'skills' "
-          type='text'
-          placeholder="search for a skill eg: angular"
-          #searchBox id="search-box" 
-          (input)="search(searchBox.value)"/>
-          <ul class="search-result">
-              <li *ngFor="let search of search$ | async" >
-                  {{ search.firstName }}
-              </li>
-            </ul>
+        <app-skill-search></app-skill-search>
       </div>
   </div>
 </div>

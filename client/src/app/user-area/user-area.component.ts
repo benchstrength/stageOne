@@ -24,7 +24,7 @@ export class UserAreaComponent implements OnInit {
 
   // searchInput: string = "";
 
-  searchWords = new FormControl('') 
+  searchWords = new FormControl('');
 
   filteredList: any;
 

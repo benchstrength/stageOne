@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service.spec';
 import { Observable, of } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, map } from 'rxjs/operators';
+import { ISkill } from 'models/skill.model';
 
 //Retrieve data
 const getAllUsersUrl = "/api/getallusers";
@@ -128,6 +129,14 @@ searchHeroes(term: string): Observable<any> {
     tap(res => console.log(res)),
     catchError(this.handleError<any>('searchHeroes', []))
   );
+}
+
+public getAllSkills(): Observable<ISkill[]> {
+
+  return this.http.post(getAdminGraphUrl, {}, {headers: this.headers})
+    .pipe(
+      map(res => res as ISkill[])
+    )
 }
 
   public getOneUser(sendBody: GetOneUser) {

@@ -7,6 +7,7 @@ let router = Express.Router();
 module.exports = (db) => {
 
     const Op = db.Sequelize.Op;
+
     // router.use((req, res, next) => {
     //     db.User.findOne({
     //         where: {
@@ -32,6 +33,7 @@ module.exports = (db) => {
                 model: db.User,
             }]
         }).then(result => {
+            console.log(result);
             res.json(result);
         });
     });
@@ -80,6 +82,12 @@ module.exports = (db) => {
         }).then(result => res.json(result));
     });
 
+    /* takes object
+    {
+        skillId: id of skill to assign to programming areas
+        areaIds: ids of programming areas to add skill to
+    }
+    */
     router.patch('/api/addprogrammingareastoskill', (req, res) => {
 
         db.Skill.findOne({
@@ -102,6 +110,12 @@ module.exports = (db) => {
         });
     });
 
+    /* takes object 
+    {
+        areaId: id of programming area,
+        skillIds: array of skill ids to be added to referenced programming area
+    }
+    */
     router.patch('/api/addskillstoprogrammingarea', (req, res) => {
 
         db.ProgrammingArea.findOne({
