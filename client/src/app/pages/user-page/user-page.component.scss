@@ -1,54 +1,27 @@
-// .userTile {
-//     padding-top: 10em;
-//     padding-bottom: 10em;
-//     margin: 2em;
-//     display: flex;
-//     flex: 1 1 auto;
-//     align-self: flex-start;
-//     flex-direction: column;
-// }
-// .gridList {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-items: stretch;
-//     align-content: stretch;
-// }
-
-// .flex-item {
-//     flex: 1 0 40%;
-//     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-//     border-radius: 5px;
-//     margin: 2em;
-// }
-// .flex-container {
-//    display: flex;
-//    flex-wrap: wrap;
-// }
-// .row {
-//     display: flex;
-//     flex-direction: row;
-// }
-// .row > div {
-//     display: flex;
-//     align-items: stretch;
-// }
-
-// .row.display-flex {
-//     display: flex;
-//     flex-wrap: wrap;
-//   }
-//   .row.display-flex > div {
-//     display: flex;
-//     flex-direction: column;
-//   }
-
-.userSkill {
-    background-color: green;
+.navbar.row {
+   margin: 0;
+   padding: 0;
+   border-bottom: 3px black solid;
 }
 
-.dashCard {
-    background-color: purple;
+.navbar.col.text-center {
+    padding: 0;
+    margin: 0;
 }
 
+.navbar > div.col.text-center {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar > div > h2{
+    color: white;
+    background-color: blue;
+    padding: 0.25em 0;
+    margin: 0
+    
+}
+
+.close {
+    padding-right: 15%;
+}

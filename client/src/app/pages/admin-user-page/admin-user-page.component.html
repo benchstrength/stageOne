@@ -1,21 +1,29 @@
-<nav class="row justify-content-center align-items-center">
-<div class="col text-center">
-  <a routerLink="/admin/users" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-    <!-- <div class="my-auto"> -->
-      <h2>BENCH</h2>
-    <!-- </div> -->
-  </a>
-</div>
+<app-admin-nav></app-admin-nav>
 
-    <a routerLink="/admin" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-      <div class="col text-center">
-      <!-- <div class="my-auto"> -->
-        <h2>STRENGTH</h2>
-      <!-- </div> -->
+<div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-    </a>
-</nav>
-
+<div class="row">
+  <div class="col">
+    <app-user-area class="userList" searchType="users"></app-user-area>
+  </div>
+</div>
 
 <div 
 *ngIf="showForm"
@@ -58,27 +66,3 @@ class="row align-items-center justify-content-center">
     (click)="toggleForm()" 
     class="btn btn-lg btn-dark mb-5">Close</button>
 </div>
-
-
-
-  <div class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<app-user-area></app-user-area>
