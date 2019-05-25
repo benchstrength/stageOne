@@ -24,12 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     { sequelize });
 
-    Skill.user_skill = {
-        self_rating: null,
-        employer_rating: null,
-        interest: null
-    }
-
     Skill.associate = (models) => {
         Skill.belongsToMany(models.User, {
             through: models.user_skill
