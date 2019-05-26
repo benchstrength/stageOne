@@ -122,8 +122,8 @@ public addSkill(sendBody: AddSkill) {
   return this.http.post(addSkillUrl, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
-public checkPermissions(sendBody: CheckPerms) {
-  return this.http.post(checkPermsUrl, sendBody, {headers: this.addHeader()}).toPromise();
+public checkPermissions() {
+  return this.http.post(checkPermsUrl, {}, {headers: this.addHeader()}).toPromise();
 }
 
 public getUsersByName(searchBody: UserByName) {

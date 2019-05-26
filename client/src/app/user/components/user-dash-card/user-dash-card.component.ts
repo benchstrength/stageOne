@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import { AuthService } from 'src/app/auth/auth.service';
 // import { userInfo } from 'os';
@@ -12,8 +12,16 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./user-dash-card.component.scss']
 })
 export class UserDashCardComponent implements OnInit {
-
+  
   constructor(private auth: AuthService) { }
+
+  @Input() adminData: object;
+  
+// adminData = {
+//   name: "",
+//   email: "",
+//   picture: ""
+// };
 
  userInfo = {
    name: "",

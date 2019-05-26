@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
+
+interface UserData {
+  firstName: string,
+  lastName: string,
+  email: string,
+  picture: string
+  }
 
 @Component({
   selector: 'app-user-assessment',
@@ -9,12 +16,23 @@ import { GetDataService } from 'src/app/dataService/get-data.service';
 export class UserAssessmentComponent implements OnInit {
 skills;
   constructor(private data: GetDataService) { }
+  
+@Input() adminData: UserData;
+
   userFilter() {
     //######## NEED to add this next line for Session storage match
     // let email = sessionStorage.getItem("userEmail") 
     //###### Need to put in:  ({email: email}) as well
-    
-      this.data.getOneUser({ email: 'vanillaThunder@himym.com' }).then(data => {
+    let email: string;
+    if (this.adminData) {
+      email = this.adminData.email
+      console.log(email)  
+    } else {
+      email = sessionStorage.getItem("userEmail")
+      console.log(email)  
+    }
+    this.data.getOneUser({ email: email }).then(data => {
+      console.log(email)  
         this.skills = data;
         // switch statement to 
         console.log(data)
