@@ -9,21 +9,29 @@ html, body {
 .navbar.row {
    margin: 0;
    padding: 0;
-   box-shadow: 0 0 2em -0.5em black;
+   box-shadow: 0 0 2em -0.5em #222222;
    z-index: 5;
+   background-color:#34A5DA;
+
 }
 
 .card {
     border-radius: none;
 }
 
-nav h2 {
-    background-color: #34A5DA
-}
+// nav h2 button{
+//     background-color: #34A5DA
+// }
 
 .navbar.col.text-center {
     padding: 0;
     margin: 0;
+}
+
+button {
+    color: #34A5DA;
+    font-weight: 00;
+
 }
 
 .navbar > div.col.text-center {
@@ -31,7 +39,12 @@ nav h2 {
     margin: 0;
 }
 
-.navbar > div > h2{
+// .navbar > button {
+//     background-color:#34A5DA;
+//     color: white;
+// }
+
+.navbar > div > h2 {
     color: white;
     background-color:#34A5DA;
     padding: 0.25em 0;

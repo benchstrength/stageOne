@@ -20,8 +20,8 @@ export class PermissionGuard implements  CanActivate {
 
   checkLogin(url: string): any {
     // console.log(this.auth.isAuthenticated());
-    this.data.checkPermissions({email: sessionStorage.getItem("userEmail")}).then(perm => {
-       if (perm) {
+    this.data.checkPermissions().then(res => {
+       if (res) {
         return true
        } else {
          this.router.navigate(["/unauthorized"])

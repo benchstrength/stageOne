@@ -5,9 +5,16 @@
       </a>
     </div>
     <div class="col text-center">
-        <a routerLink="/admin" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-            <h2 class="linkButton">STRENGTH</h2>
-        </a>
+        <div class="row justify-content-center align-items-center" routerLinkActive="activeRoute">
+            <div class="col">
+                <a routerLink="/admin" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+                    <h2 class="linkButton">STRENGTH</h2>
+                </a>
+            </div>
+            <div class="col">
+                <button  class="btn btn-light mr-5" (click)="auth.logout()">Log out</button>
+            </div>
+        </div>
     </div>
 </nav>
 

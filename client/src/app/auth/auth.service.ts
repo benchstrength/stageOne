@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
 import * as jwt_decode from 'jwt-decode';
+import { GetDataService } from '../dataService/get-data.service';
 
 interface UserInfo {
   nickname: string,
@@ -23,7 +24,8 @@ export class AuthService {
 
   private _auth0;
 
-  constructor(public router: Router) {
+  constructor(public router: Router,
+              private data: GetDataService) {
 
     let idToken = sessionStorage.getItem("idToken");
     let accessToken = sessionStorage.getItem("accessToken");
@@ -92,7 +94,16 @@ export class AuthService {
     if (decoded.nickname) {
       sessionStorage.setItem('userName', decoded.name);
       sessionStorage.setItem('userEmail', decoded.email);
-      sessionStorage.setItem('userPicture', decoded.picture)
+      sessionStorage.setItem('userPicture', decoded.picture);
+      let user = {
+        email: decoded.email,
+        firstName: decoded.name.split(" ")[0],
+        lastName: decoded.name.split(" ")[1],
+        imageUrl: decoded.picture
+      }
+      this.data.authUser(user).then(added => {
+        console.log(added)
+      })
     }
 
   }

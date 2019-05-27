@@ -12,7 +12,7 @@ module.exports = (db) => {
     //         where: {
     //             email: req.headers.permissions
     //         },
-    //         include: [ Role ]
+    //         include: [ db.Role ]
                         
     //     }).then(result => {
     //         req.role = result.role;
@@ -122,6 +122,22 @@ module.exports = (db) => {
             });
         });
     });
+
+    router.patch('/api/authuser', (req, res) => {
+        //add/update user here please
+    });
+
+    router.post("/api/checkperms", (req, res) => {
+        db.User.findOne({
+            where: {
+                email: req.headers.permissions
+            },
+            include: [ db.Role ]
+        }).then(result => {
+            console.log(result.role);
+            res.json({ role: result.role });
+        });
+    })
 
     return router;
     
