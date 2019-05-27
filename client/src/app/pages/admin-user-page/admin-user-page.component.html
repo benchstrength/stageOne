@@ -21,6 +21,8 @@
     </div>
 <div class="row">
   <div class="col">
+    <h1 class="text-center mt-5 title">Employee Management</h1>
+    <hr>
     <app-user-area class="userList" searchType="users"></app-user-area>
   </div>
 </div>
@@ -41,7 +43,13 @@ class="row align-items-center justify-content-center">
             <label > Last Name </label>
             <input name="name" class="form-control"  [formControl]="lastName"/>
             <label for="name"> Github Email</label>
-            <input id="name" name="name" class="form-control"  [formControl]="userEmail"/>
+            <input id="name" name="name" class="form-control"  [formControl]="email"/>
+            <label>Employee or Contractor</label>
+            <select class="form-control" [formControl]="isEmployee">
+              <option>Please select</option>
+              <option>Employee</option>
+              <option>Contractor</option>
+            </select>
           </div>
         </form>
       </div>

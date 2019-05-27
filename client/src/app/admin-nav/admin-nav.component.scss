@@ -3,14 +3,18 @@ div.col.text-center {
     margin: 0;
 }
 
-h2 {
-    border-bottom: 3px solid black;
+// h2 {
+//     border-bottom: 3px solid black;
+// }
+
+nav h2 {
+    box-shadow: 0 0 2em -0.5em black;
+
 }
 
 .logoArea {
     border-bottom: 3px solid black;
     padding: 0.25em 0;
-
 }
 
 .linkButton {
@@ -20,17 +24,18 @@ h2 {
 }
 
 a {
-    color: blue;
+    color: #34A5DA;
 }
 
-.activeRoute > h2{
+.activeRoute > h2 {
     color: white;
-    background-color: blue;
+    background-color:#34A5DA;
     z-index: 5;
     padding: 0.25em 0;
+    box-shadow: 0 1 1em #34A5DA;
 }
 
 .link {
-    color: blue;
+    color: #34A5DA;
     z-index: 5;
 }

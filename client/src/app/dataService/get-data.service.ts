@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service.spec';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { headersToString } from 'selenium-webdriver/http';
 
 //Retrieve data
 const getAllUsersUrl = "/api/getallusers";
@@ -14,6 +15,7 @@ const getOneUserUrl = "/api/getoneuser"
 const addUserUrl = "/api/newuser";
 const addSkillUrl = "/api/newskill";
 const checkPermsUrl = "/api/checkperms"
+const authUser = "/api/authuser"
 
 interface GetAllUsers {
   searchItem: string, //this can probably just be hard-coded to always return all the users
@@ -30,9 +32,11 @@ interface GetAdminGraph {
 }
 
 interface AddUser {
-  userEmail: string, //email would go here to add that email
+  email: string, //email would go here to add that email
   firstName: string,
-  lastName: string
+  lastName: string,
+  isEmployee?: string,
+  imageUrl?: string
 }
 
 //Should this be an array for the ability to add multiple skills in one request?
@@ -78,44 +82,52 @@ private handleError<T> (operation = 'operation', result?: T) {
 }
 
 //Set authorization header based off the access token of logged in user
-headers = new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`)
+headers = new HttpHeaders().set('Authorization', `Bearer ${this.auth.accessToken}`);
 
+private addHeader(): any {
+  return this.headers.append('Permissions', `${sessionStorage.getItem('userEmail')}`) 
+}
 //Get all users from the database
 
 public getAllUsers(searchBody: GetAllUsers | 'all') {
-  return this.http.post(getAllUsersUrl, searchBody, {headers: this.headers}).toPromise();
+  return this.http.post(getAllUsersUrl, searchBody, {headers: this.addHeader()}).toPromise();
 };
 
 //Get users by skill
 
 public getUserBySkill(searchBody: UsersBySkill) {
-  return this.http.post(getUserBySkillUrl, searchBody, {headers: this.headers});
+  return this.http.post(getUserBySkillUrl, searchBody, {headers: this.addHeader()});
 };
 
 //Get admin graph data
 
 public getAdminGraph(searchBody: GetAdminGraph): any {
-  return this.http.post(getAdminGraphUrl, searchBody, {headers: this.headers}).toPromise();
+  return this.http.post(getAdminGraphUrl, searchBody, {headers: this.addHeader()}).toPromise();
 }
   
 
 //Add user to the database
 public addUser(sendBody: AddUser) {
-  return this.http.post(addUserUrl, sendBody, {headers: this.headers}).toPromise();
+  return this.http.post(addUserUrl, sendBody, {headers: this.addHeader()}).toPromise();
+};
+
+//Add user upon Auth
+public authUser(sendBody: AddUser) {
+  return this.http.post(authUser, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
 //Add skill to database
 
 public addSkill(sendBody: AddSkill) {
-  return this.http.post(addSkillUrl, sendBody, {headers: this.headers}).toPromise();
+  return this.http.post(addSkillUrl, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
-public checkPermissions(sendBody: CheckPerms) {
-  return this.http.post(checkPermsUrl, sendBody, {headers: this.headers}).toPromise();
+public checkPermissions() {
+  return this.http.post(checkPermsUrl, {}, {headers: this.addHeader()}).toPromise();
 }
 
 public getUsersByName(searchBody: UserByName) {
-  return this.http.post(getUserByNameUrl, searchBody, {headers: this.headers}).toPromise();
+  return this.http.post(getUserByNameUrl, searchBody, {headers: this.addHeader()}).toPromise();
 };
 
 searchHeroes(term: string): Observable<any> {
@@ -123,7 +135,7 @@ searchHeroes(term: string): Observable<any> {
     // if not search term, return empty hero array.
     return of([]);
   }
-  return this.http.post(getUserBySkillUrl, {skills: [term]}, {headers: this.headers}).pipe(
+  return this.http.post(getUserBySkillUrl, {skills: [term]}, {headers: this.addHeader()}).pipe(
     tap(_ => console.log(`found heroes matching "${term}"`)),
     tap(res => console.log(res)),
     catchError(this.handleError<any>('searchHeroes', []))
@@ -131,7 +143,7 @@ searchHeroes(term: string): Observable<any> {
 }
 
   public getOneUser(sendBody: GetOneUser) {
-  return this.http.post(getOneUserUrl, sendBody, {headers: this.headers}).toPromise()
+  return this.http.post(getOneUserUrl, sendBody, {headers: this.addHeader()}).toPromise()
 }
 
 }
