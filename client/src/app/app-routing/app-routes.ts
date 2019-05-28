@@ -10,6 +10,7 @@ import { UserAreaComponent } from '../user-area/user-area.component';
 import { UnauthorizedComponent } from '../unauthorized/unauthorized.component';
 import { PermissionGuard } from '../guards/permission.guard';
 import { AdminUserPageComponent } from '../pages/admin-user-page/admin-user-page.component';
+import { AdminUserProfileComponent } from '../pages/admin-user-profile/admin-user-profile.component';
 
  //AuthGuard only allows authenticated users onto the site.
 export const Routes = [
@@ -22,4 +23,5 @@ export const Routes = [
     {path: 'test', component: UserAreaComponent},
     {path: 'unauthorized', component: UnauthorizedComponent},
     {path: 'admin/users', canActivate: [AuthGuard], component: AdminUserPageComponent},
+    {path: 'admin/users/:id', component: AdminUserProfileComponent}
   ]
