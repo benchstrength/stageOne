@@ -13,7 +13,7 @@ const getUserByNameUrl = "/api/usersbyname"
 const getOneUserUrl = "/api/getoneuser"
 //Send Data
 const addUserUrl = "/api/newuser";
-const addSkillUrl = "/api/newskill";
+const addSkillUrl = "/api/add-skill";
 const checkPermsUrl = "/api/checkperms"
 
 interface GetAllUsers {

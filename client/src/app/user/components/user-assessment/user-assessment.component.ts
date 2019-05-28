@@ -10,11 +10,12 @@ export class UserAssessmentComponent implements OnInit {
 skills;
   constructor(private data: GetDataService) { }
   userFilter() {
-    //######## NEED to add this next line for Session storage match
-    // let email = sessionStorage.getItem("userEmail") 
-    //###### Need to put in:  ({email: email}) replacing vanillaThunder as well
+    //######## NEED this next line for Session storage match
+    let email = sessionStorage.getItem("userEmail") 
+    //###### Need to put in:  ({email: email}) replacing vanillaThunder@himym.com as well
+    //
     
-      this.data.getOneUser({ email: 'vanillaThunder@himym.com' }).then(data => {
+      this.data.getOneUser({ email: email }).then(data => {
         this.skills = data;
         // switch statement to 
         console.log(data)
