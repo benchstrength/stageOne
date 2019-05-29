@@ -72,8 +72,8 @@ module.exports = (db) => {
     });
 
     router.post ('/api/add-skill', function (req, res) {
-            res.json({message: "Add Skill endpoint reached!"});
-        db.user_skills.create({
+            // res.json({message: "Add Skill endpoint reached!"});
+        db.user_skill.create({
             where: 
             {
             self_rating: req.body.skillSelfRating,

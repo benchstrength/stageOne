@@ -48,13 +48,13 @@ export class UserAddskillComponent implements OnInit {
   }
 formData;
 sendForm() {
-  let formData = [{
+  let formData = {
     userEmail: sessionStorage.getItem("userEmail"),
     skillName: this.skillName.value,
     skillInterest: this.skillInterest.value,
     skillSelfRating: this.skillSelfRating.value
 
-  }]
+  }
   console.log(formData);
   //Capture Data and post to DB.... /api/add-skill
   this.data.addSkill({skill: this.formData})
