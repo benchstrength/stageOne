@@ -42,5 +42,10 @@ skills;
   ngOnInit() {
     this.userFilter();
   }
+// public sendData() {
+//   console.log("Send Data!")
+//   this.___("/api/add-user", {
+//   });
+// }
 
 }
