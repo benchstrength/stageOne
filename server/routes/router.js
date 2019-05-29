@@ -80,6 +80,22 @@ module.exports = (db) => {
         }).then(user => res.json(user));
     });
 
+    router.post ('/api/add-skill', function (req, res) {
+            res.json({message: "Add Skill endpoint reached!"});
+        db.user_skills.create({
+            where: 
+            {
+            self_rating: req.body.skillSelfRating,
+            interest: req.body.skillInterest,
+            SkillId: req.body.skillName, 
+            //skillName is string and SkillId is an integer (Not getting SkillId from Skills table as of yet)
+            }
+            
+            }).then(result => res.send(result));
+            console.log(req.sentForm);
+            //Need to get data from add skills form and use this to post to db
+    });
+
     router.post('/api/getoneuser', (req, res) => {
         db.User.findOne({
             where: {email: req.body.email},
@@ -153,6 +169,22 @@ module.exports = (db) => {
             }
         }).then(data => res.json(data));
     });
+
+    router.patch('/api/authuser', (req, res) => {
+        //add/update user here please
+    });
+
+    router.post("/api/checkperms", (req, res) => {
+        db.User.findOne({
+            where: {
+                email: req.headers.permissions
+            },
+            include: [ db.Role ]
+        }).then(result => {
+            console.log(result.role);
+            res.json({ role: result.role });
+        });
+    })
 
     return router;
     

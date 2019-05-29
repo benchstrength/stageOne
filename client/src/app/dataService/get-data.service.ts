@@ -14,8 +14,9 @@ const getUserByNameUrl = "/api/usersbyname"
 const getOneUserUrl = "/api/getoneuser"
 //Send Data
 const addUserUrl = "/api/newuser";
-const addSkillUrl = "/api/newskill";
+const addSkillUrl = "/api/add-skill";
 const checkPermsUrl = "/api/checkperms"
+const authUser = "/api/authuser"
 
 interface GetAllUsers {
   searchItem: string, //this can probably just be hard-coded to always return all the users
@@ -35,7 +36,8 @@ interface AddUser {
   email: string, //email would go here to add that email
   firstName: string,
   lastName: string,
-  isEmployee: string
+  isEmployee?: string,
+  imageUrl?: string
 }
 
 //Should this be an array for the ability to add multiple skills in one request?
@@ -107,7 +109,12 @@ public getAdminGraph(searchBody: GetAdminGraph): any {
 
 //Add user to the database
 public addUser(sendBody: AddUser) {
-  return this.http.post('/api/semi-private', sendBody, {headers: this.addHeader()}).toPromise();
+  return this.http.post(addUserUrl, sendBody, {headers: this.addHeader()}).toPromise();
+};
+
+//Add user upon Auth
+public authUser(sendBody: AddUser) {
+  return this.http.post(authUser, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
 //Add skill to database
@@ -116,8 +123,8 @@ public addSkill(sendBody: AddSkill) {
   return this.http.post(addSkillUrl, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
-public checkPermissions(sendBody: CheckPerms) {
-  return this.http.post(checkPermsUrl, sendBody, {headers: this.addHeader()}).toPromise();
+public checkPermissions() {
+  return this.http.post(checkPermsUrl, {}, {headers: this.addHeader()}).toPromise();
 }
 
 public getUsersByName(searchBody: UserByName) {
