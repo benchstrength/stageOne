@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class UserAddskillComponent implements OnInit {
 
-  skillName = new FormControl('');
+  skillId = new FormControl('');
   skillInterest = new FormControl('');
   skillSelfRating= new FormControl('');
   
@@ -20,11 +20,11 @@ export class UserAddskillComponent implements OnInit {
     }
     // lists skill in Add-Skill dropdown 
     listSkills() {
-    this.data.getAdminGraph({skill: []}).then(data => {
+    this.data.getAdminGraph({skill: []}).then(skillsData => {
       // this.data.getUserBySkill({skills: []}).then(data => {
       //     data.map(skill => skill.name).filter(skills => this.skill.includes(this.skill))
       // }) ### .then doesn't work on an obsevable. If you subscribe, .map doesn't work. ###
-      this.skills = data;
+      this.skills = skillsData;
       
         
       // console.log(data.map(skill => skill.name)); this is the array to filter
@@ -48,25 +48,27 @@ export class UserAddskillComponent implements OnInit {
   }
 formData;
 sendForm() {
-  let formData = [{
+  console.log(this.skillId.value);
+  let formData = {
     userEmail: sessionStorage.getItem("userEmail"),
-    skillName: this.skillName.value,
-    skillInterest: this.skillInterest.value,
-    skillSelfRating: this.skillSelfRating.value
+    skillId: parseInt(this.skillId.value),
+    skillInterest: parseInt(this.skillInterest.value),
+    skillSelfRating: parseInt(this.skillSelfRating.value)
 
-  }]
+  }
   console.log(formData);
   //Capture Data and post to DB.... /api/add-skill
-  this.data.addSkill({skill: this.formData})
+  this.data.addSkill(formData)
   .then(sentForm => console.log(sentForm));
     
   
-  this.skillName.setValue('')
+  this.skillId.setValue('')
   this.skillInterest.setValue('')
   this.skillSelfRating.setValue('')
 // ###  Not writing to the database... Am I missing something with the SkillId?  ####
   
 }
+
 // public () {
 //   console.log("Send Data!")
 //   this.formData.sendForm("/api/add-skill", {

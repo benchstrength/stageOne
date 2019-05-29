@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service.spec';
 import { Observable, of } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, map } from 'rxjs/operators';
+import { ISkill } from 'models/skill.model';
 import { headersToString } from 'selenium-webdriver/http';
 
 //Retrieve data
@@ -23,7 +24,7 @@ interface GetAllUsers {
 
 //Skill to search for - does this need to be an array for multiple skill search option?
 interface UsersBySkill {
-  skills: string[],
+  skills: number[],
 }
 
 //What data does this need to return/search for? Hard code to return all data needed for the entire graph?
@@ -41,7 +42,9 @@ interface AddUser {
 
 //Should this be an array for the ability to add multiple skills in one request?
 interface AddSkill {
-  skill: object[],
+  skillId: number,
+  skillInterest: number,
+  skillSelfRating: number,
 }
 
 interface CheckPerms {
@@ -119,6 +122,7 @@ public authUser(sendBody: AddUser) {
 //Add skill to database
 
 public addSkill(sendBody: AddSkill) {
+  console.log(sendBody);
   return this.http.post(addSkillUrl, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
@@ -136,10 +140,19 @@ searchHeroes(term: string): Observable<any> {
     return of([]);
   }
   return this.http.post(getUserBySkillUrl, {skills: [term]}, {headers: this.addHeader()}).pipe(
-    tap(_ => console.log(`found heroes matching "${term}"`)),
-    tap(res => console.log(res)),
     catchError(this.handleError<any>('searchHeroes', []))
   );
+}
+
+public getSkillMatches(searchFragment: string): Observable<ISkill[]> {
+
+  if(!searchFragment)
+    return new Observable;
+
+  return this.http.get('/api/searchterms/' + searchFragment)
+    .pipe(
+      map(res => res as ISkill[])
+    )
 }
 
   public getOneUser(sendBody: GetOneUser) {
