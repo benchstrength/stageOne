@@ -42,7 +42,9 @@ interface AddUser {
 
 //Should this be an array for the ability to add multiple skills in one request?
 interface AddSkill {
-  skill: object[],
+  skillId: number,
+  skillInterest: number,
+  skillSelfRating: number,
 }
 
 interface CheckPerms {
@@ -120,6 +122,7 @@ public authUser(sendBody: AddUser) {
 //Add skill to database
 
 public addSkill(sendBody: AddSkill) {
+  console.log(sendBody);
   return this.http.post(addSkillUrl, sendBody, {headers: this.addHeader()}).toPromise();
 };
 
@@ -155,12 +158,5 @@ public getSkillMatches(searchFragment: string): Observable<ISkill[]> {
   public getOneUser(sendBody: GetOneUser) {
   return this.http.post(getOneUserUrl, sendBody, {headers: this.addHeader()}).toPromise()
 }
-
-// public searchSkills(term: string): Observable<ISkill[]> {
-//   if(!term.trim()) {
-//     return of([]);
-//   }
-//   return this.http.get<ISkill[]>()
-// }
 
 }

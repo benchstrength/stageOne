@@ -81,18 +81,26 @@ module.exports = (db) => {
     });
 
     router.post ('/api/add-skill', function (req, res) {
-            res.json({message: "Add Skill endpoint reached!"});
-        db.user_skills.create({
-            where: 
-            {
-            self_rating: req.body.skillSelfRating,
-            interest: req.body.skillInterest,
-            SkillId: req.body.skillName, 
-            //skillName is string and SkillId is an integer (Not getting SkillId from Skills table as of yet)
+        console.log(req.body);
+        db.User.findOne({
+            where: {
+                email: req.body.userEmail
             }
-            
-            }).then(result => res.send(result));
-            console.log(req.sentForm);
+        }).then(user => {
+            db.Skill.findOne({
+                where: {id: req.body.skillId}
+            }).then(skill => {
+                user.addSkill(skill, {through: 
+                    {
+                        self_rating: req.body.skillSelfRating,
+                        interest: req.body.skillInterest
+                    }
+                }).then(response => res.json(response));
+            })
+            // res.json(user);
+        });
+        // user.adduser_skills(req.body)
+        //     .then(result => res.send(result));
             //Need to get data from add skills form and use this to post to db
     });
 
