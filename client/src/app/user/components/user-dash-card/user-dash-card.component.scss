@@ -22,8 +22,9 @@
 //     max-width: 300px;
 // }
 .newCon {
-    background-color: #262626;
-    margin:  2rem 8rem;
+    background: transparent;
+    margin:  2rem 2rem;
+    border: none;
     border-radius: 5px;
 }
 .wrapper {
@@ -33,6 +34,7 @@
     font-size: 30px;
     max-width: 300px;
     margin-bottom: 0;
+    color: white;
 }
 .email {
     font-size: 22px;
@@ -49,8 +51,8 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .emailbtn {
-    background-color: #549ab9;
-    border: solid 1px #549ab9; 
+    background-color: #41a6d6;
+    border: solid 1px #41a6d6; 
     color: #f5f5f5;
     text-decoration: none;
     border-radius: 5px;
@@ -58,12 +60,85 @@
     margin: 10px 0;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+.one {
+    background: rgba(232, 232, 232, 0.379);
+    margin-right: 1rem;
+    border-radius: 5px;
+
+}
 .two {
-    background-color: red;
+    background: rgba(232, 232, 232, 0.379);
     flex-grow: 2;
+    border-radius: 5px;
+
 }
 .three {
-    margin: 10px auto;
-    background-color: gray;
-    
+    background: transparent;
+    margin-left: 2rem;
+}
+.card {
+    margin-top: 2rem;
+    margin-right: 2rem;
+    border: none;
+    background: transparent;
+}
+.card-header {
+    background-color: #222a2e;
+    color: white;
+}
+.card-body {
+    margin-bottom: 2rem;
+}
+.scroll {
+    max-height: 325px;
+    overflow-y: auto;
+}
+.skill {
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.blub {
+    background: #41a6d6;
+    margin: 0;
+    padding: 10px 20px 3px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    color: white;
+    width: 150px;
+    text-align: center;
+}
+.delete-skill {
+    color: #fff;
+    background-color: #dc3545;
+    cursor: pointer;
+}
+.new-skill {
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.new-blub {
+    background: gray;
+    margin: 0;
+    padding: 10px 20px 3px 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+    color: white;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+.add-skill {
+    color: #fff;
+    background-color: #30a54a;
+    cursor: pointer;
+}
+.text {
+    flex-grow: 1;
+}
+.space {
+    flex-grow: 5;
+}
+.arrow {
+    flex-grow: 1;
 }

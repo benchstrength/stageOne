@@ -58,11 +58,15 @@
 
 .nav {
     justify-content: space-around;
-    margin: 2rem auto 0 auto;
+    margin: 0;
+    padding: 3rem 2rem 1rem 2rem;
+    background-image: linear-gradient(to bottom, #212121, rgba(255,0,0,0));
+    color: white;
 }
 .icon {
     font-size: 30px;
     cursor: pointer;
+    color: #3ba5d8;
 }
 
 .mystyle {
