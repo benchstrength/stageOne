@@ -1,9 +1,44 @@
-<nav class="row justify-content-center align-items-center navbar">
+<!-- <nav class="row justify-content-center align-items-center navbar">
         <div class="col text-center">
               <h2 class="linkButton">BENCH STRENGTH</h2>
         </div>
         <button  class="btn btn-light mr-5" (click)="auth.logout()">Log out</button>
+</nav> -->
+
+<nav class="nav flxrow">
+    <div class="settings">
+        <i class="fas fa-sliders-h icon" (click)="theme()"></i>
+    </div>
+    <div class="title">
+        <h2 class="">BENCH STRENGTH</h2>
+    </div>
+    <div class="logout">
+        <i class="fas fa-sign-out-alt icon" (click)="auth.logout()"></i>
+    </div>
 </nav>
+
+<!-- <button (click)="myFunction()">Try it</button>
+
+<div id="myDIV">
+  This is a DIV element.
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="content">
     <div class="row justify-content-center">
         <div class="col-12 ">
@@ -23,7 +58,7 @@
                 (click)="showForm()">Add Skills</button>
         </div>
 
-        
+
         <div class="col-12 userSkill">
             <app-user-assessment></app-user-assessment>
         </div>
