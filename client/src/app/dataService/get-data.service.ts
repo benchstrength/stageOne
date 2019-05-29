@@ -23,7 +23,7 @@ interface GetAllUsers {
 
 //Skill to search for - does this need to be an array for multiple skill search option?
 interface UsersBySkill {
-  skills: string[],
+  skills: number[],
 }
 
 //What data does this need to return/search for? Hard code to return all data needed for the entire graph?
@@ -130,15 +130,16 @@ searchHeroes(term: string): Observable<any> {
     return of([]);
   }
   return this.http.post(getUserBySkillUrl, {skills: [term]}, {headers: this.addHeader()}).pipe(
-    tap(_ => console.log(`found heroes matching "${term}"`)),
-    tap(res => console.log(res)),
     catchError(this.handleError<any>('searchHeroes', []))
   );
 }
 
-public getAllSkills(): Observable<ISkill[]> {
+public getSkillMatches(searchFragment: string): Observable<ISkill[]> {
 
-  return this.http.post(getAdminGraphUrl, {}, {headers: this.headers})
+  if(!searchFragment)
+    return new Observable;
+
+  return this.http.get('/api/searchterms/' + searchFragment)
     .pipe(
       map(res => res as ISkill[])
     )
@@ -147,5 +148,12 @@ public getAllSkills(): Observable<ISkill[]> {
   public getOneUser(sendBody: GetOneUser) {
   return this.http.post(getOneUserUrl, sendBody, {headers: this.addHeader()}).toPromise()
 }
+
+// public searchSkills(term: string): Observable<ISkill[]> {
+//   if(!term.trim()) {
+//     return of([]);
+//   }
+//   return this.http.get<ISkill[]>()
+// }
 
 }

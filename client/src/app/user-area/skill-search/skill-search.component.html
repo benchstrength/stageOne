@@ -1,13 +1,17 @@
-<div id="search-component">
+<div id="search-component" class="form-group">
   <h4>Skill Search</h4>
  
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
- 
-  <ul class="search-result">
-    <li *ngFor="let skill of skills$ | async" >
-      <a (click)="addSkillToSearch($event.target.id)" id={{skill.id}}>
-        {{skill.name}}
-      </a>
-    </li>
-  </ul>
+  <input #searchBox [(ngModel)]="searchValue" id="search-box" 
+    (input)="search(searchBox.value)" class="form-control"
+    (focus)="focused=true" (focusout)="delayUnfocus()"/>
+
+  <div *ngIf=focused>
+    <ul class="search-result">
+      <li *ngFor="let skill of skills$ | async" >
+        <a (click)="addSkillToSearch($event.target.id, $event.target.innerText)" id={{skill.id}}>
+          {{skill.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

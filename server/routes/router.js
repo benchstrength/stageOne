@@ -9,11 +9,12 @@ module.exports = (db) => {
     const Op = db.Sequelize.Op;
 
     // router.use((req, res, next) => {
+    //     console.log(req.headers.permissions);
     //     db.User.findOne({
     //         where: {
     //             email: req.headers.permissions
     //         },
-    //         include: [ Role ]
+    //         include: [ db.Role ]
                         
     //     }).then(result => {
     //         req.role = result.role;
@@ -46,7 +47,7 @@ module.exports = (db) => {
             include: [{
                 model: db.Skill,
                 where: {
-                    name: {
+                    id: {
                         [Op.or]: req.body.skills
                     }
                 }
@@ -70,7 +71,13 @@ module.exports = (db) => {
     });
 
     router.post('/api/newUser', (req, res) => {
-        db.User.create({email: req.body.email}).then(result => res.send(result));
+        db.User.create({
+            email: req.body.email,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            isEmployee: req.body.isEmployee,
+            role: req.body.role    
+        }).then(user => res.json(user));
     });
 
     router.post('/api/getoneuser', (req, res) => {
@@ -135,6 +142,16 @@ module.exports = (db) => {
                     });
             });
         });
+    });
+
+    router.get('/api/searchterms/:fragment', (req, res) => {
+        db.Skill.findAll({
+            where: {
+                name: {
+                    [Op.substring]: req.params.fragment
+                }
+            }
+        }).then(data => res.json(data));
     });
 
     return router;

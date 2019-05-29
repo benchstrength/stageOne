@@ -1,44 +1,13 @@
-<!-- <div class="container">
-    <table class="table">
-        <thead class="sticky">
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Skills</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{ user.firstName }} {{ user.lastName }}</td>
-              <td><button class="btn btn-secondary user-button"><a routerLink="admin/user/{{ user.email }}">{{ user.email }}</a></button></td>
-            <td><p *ngFor="let skill of user.skills">{{ skill }}</p></td>
-          </tr>
-        </tbody>
-      </table>
-</div> -->
-
-
-<div class='card-body'>
-  <div class='row'>
-      <!-- Search Box for skills -->
-      <div class='col-md-4'>
-        <app-skill-search></app-skill-search>
-      </div>
-  </div>
-</div>
-      <!-- Search Box for users -->
-<div class='card-body'>
-      <div class='col-md-4'>
-          <input *ngIf="searchType === 'users' "
-            type='text'
-            style="width: 300px; margin: 20px;"
-            placeholder="search for a user by name"
-            [formControl]="searchWords"
-            (blur)='performFilter()' />
-      </div>
-    </div>
 <!-- Table for users searched by skills -->
-<div class="container" *ngIf="searchType === 'skills' ">
+<div class="container">
+  <div class='card-body'>
+    <div class='row'>
+        <!-- Search Box for skills -->
+        <div class='col-md-4'>
+          <app-skill-search (addSearchTerm)="expandSearch($event)"></app-skill-search>
+        </div>
+    </div>
+  </div>
   <div class='table-responsive' >
       <table class='table'>
         <thead>
@@ -51,27 +20,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let skill of search$ | async'>
-            <td>{{ skill.firstName }} {{ skill.lastName }}</td>
+          <tr *ngFor='let user of search'>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
             <td>
-                <p *ngFor="let userSkill of search$ | async">
-                {{ userSkill.Skills.name }}
+                <p *ngFor="let skill of user.Skills">
+                {{ skill.name }}
                 </p>
             </td>
             <td>
-                <p *ngFor="let user of search$.Skills | async">
-                    {{ user.user_skill.self_rating }}
+                  <p *ngFor="let skill of user.Skills">
+                      {{ skill.user_skill.self_rating }}
+                  </p>
+            </td>
+            <td>
+                <p *ngFor="let skill of user.Skills">
+                    {{ skill.user_skill.employer_rating }}
                 </p>
             </td>
             <td>
-              <p *ngFor="let user of search$.Skills | async">
-                  {{ user.user_skill.employer_rating }}
-              </p>
-            </td>
-            <td>
-              <p *ngFor="let user of search$.Skills | async">
-                  {{ user.user_skill.interest }}
-              </p>
+                <p *ngFor="let skill of user.Skills">
+                  {{ skill.user_skill.interest }}
+                </p>
             </td>
           </tr>
         </tbody>
