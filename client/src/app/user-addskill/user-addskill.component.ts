@@ -48,7 +48,7 @@ export class UserAddskillComponent implements OnInit {
   }
 formData;
 sendForm() {
-  console.log(this.skillId.value);
+  console.log(this.skillId.value + "BRUH");
   let formData = {
     userEmail: sessionStorage.getItem("userEmail"),
     skillId: parseInt(this.skillId.value),
