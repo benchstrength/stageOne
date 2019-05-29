@@ -1,38 +1,37 @@
-div.col.text-center {
-    padding: 0;
-    margin: 0;
+
+.logoutBtn {
+    color: white;
+    background-color: #34A5DA;
+    margin-top: 0.25em; 
 }
 
-// h2 {
-//     border-bottom: 3px solid black;
-// }
-
-nav h2 {
-    box-shadow: 0 0 2em -0.5em black;
-
+nav {
+    background-color: white;
+    box-shadow: 0 0 2em -0.5em #34A5DA;
 }
 
-.logoArea {
-    border-bottom: 3px solid black;
-    padding: 0.25em 0;
+.col, .col-1 {
+    padding-top: 0.60em;
+    min-height: 3.5em;
 }
 
-.linkButton {
-    margin: 0;
-    padding: 0.25em 0;
 
+.logoutDiv { 
+    background-color: #222222;
 }
 
 a {
     color: #34A5DA;
+    margin: auto;
 }
 
-.activeRoute > h2 {
+.activeRoute {
     color: white;
     background-color:#34A5DA;
-    z-index: 5;
-    padding: 0.25em 0;
-    box-shadow: 0 1 1em #34A5DA;
+}
+
+.activeRoute > a {
+    color: white
 }
 
 .link {
