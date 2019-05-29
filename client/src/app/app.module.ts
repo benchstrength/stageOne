@@ -31,6 +31,7 @@ import { UserAreaComponent } from './user-area/user-area.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
+import { SkillSearchComponent } from './user-area/skill-search/skill-search.component';
 import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user-profile.component';
 
 
@@ -55,6 +56,7 @@ import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user
     UnauthorizedComponent,
     AdminUserPageComponent,
     AdminNavComponent,
+    SkillSearchComponent,
     AdminUserProfileComponent,
   ],
   imports: [

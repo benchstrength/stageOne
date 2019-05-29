@@ -7,7 +7,9 @@ let router = Express.Router();
 module.exports = (db) => {
 
     const Op = db.Sequelize.Op;
+
     // router.use((req, res, next) => {
+    //     console.log(req.headers.permissions);
     //     db.User.findOne({
     //         where: {
     //             email: req.headers.permissions
@@ -32,6 +34,7 @@ module.exports = (db) => {
                 model: db.User,
             }]
         }).then(result => {
+            console.log(result);
             res.json(result);
         });
     });
@@ -44,7 +47,7 @@ module.exports = (db) => {
             include: [{
                 model: db.Skill,
                 where: {
-                    name: {
+                    id: {
                         [Op.or]: req.body.skills
                     }
                 }
@@ -68,22 +71,36 @@ module.exports = (db) => {
     });
 
     router.post('/api/newUser', (req, res) => {
-        db.User.create({email: req.body.email}).then(result => res.send(result));
+        db.User.create({
+            email: req.body.email,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            isEmployee: req.body.isEmployee,
+            role: req.body.role    
+        }).then(user => res.json(user));
     });
 
     router.post ('/api/add-skill', function (req, res) {
-            // res.json({message: "Add Skill endpoint reached!"});
-        db.user_skill.create({
-            where: 
-            {
-            self_rating: req.body.skillSelfRating,
-            interest: req.body.skillInterest,
-            SkillId: req.body.skillName, 
-            //skillName is string and SkillId is an integer (Not getting SkillId from Skills table as of yet)
+        console.log(req.body);
+        db.User.findOne({
+            where: {
+                email: req.body.userEmail
             }
-            
-            }).then(result => res.send(result));
-            console.log(req.sentForm);
+        }).then(user => {
+            db.Skill.findOne({
+                where: {id: req.body.skillId}
+            }).then(skill => {
+                user.addSkill(skill, {through: 
+                    {
+                        self_rating: req.body.skillSelfRating,
+                        interest: req.body.skillInterest
+                    }
+                }).then(response => res.json(response));
+            })
+            // res.json(user);
+        });
+        // user.adduser_skills(req.body)
+        //     .then(result => res.send(result));
             //Need to get data from add skills form and use this to post to db
     });
 
@@ -96,6 +113,12 @@ module.exports = (db) => {
         }).then(result => res.json(result));
     });
 
+    /* takes object
+    {
+        skillId: id of skill to assign to programming areas
+        areaIds: ids of programming areas to add skill to
+    }
+    */
     router.patch('/api/addprogrammingareastoskill', (req, res) => {
 
         db.Skill.findOne({
@@ -118,6 +141,12 @@ module.exports = (db) => {
         });
     });
 
+    /* takes object 
+    {
+        areaId: id of programming area,
+        skillIds: array of skill ids to be added to referenced programming area
+    }
+    */
     router.patch('/api/addskillstoprogrammingarea', (req, res) => {
 
         db.ProgrammingArea.findOne({
@@ -137,6 +166,16 @@ module.exports = (db) => {
                     });
             });
         });
+    });
+
+    router.get('/api/searchterms/:fragment', (req, res) => {
+        db.Skill.findAll({
+            where: {
+                name: {
+                    [Op.substring]: req.params.fragment
+                }
+            }
+        }).then(data => res.json(data));
     });
 
     router.patch('/api/authuser', (req, res) => {

@@ -15,13 +15,15 @@ export class UserDashCardComponent implements OnInit {
   
   constructor(private auth: AuthService) { }
 
-  @Input() adminData: object;
-  
-// adminData = {
-//   name: "",
-//   email: "",
-//   picture: ""
-// };
+  @Input() adminData: {
+    name:string, 
+    email:string, 
+    picture:string
+  } = {
+    name: "",
+    email: "",
+    picture: ""
+  };
 
  userInfo = {
    name: "",
