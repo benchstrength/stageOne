@@ -8,7 +8,7 @@
           </div> -->
       <!-- </div>
     </div> -->
-    <div class='table-responsive' >
+    <div class='table-responsive userTable' >
         <table class='table'>
           <thead>
             <tr>
@@ -33,29 +33,25 @@
                 </div>
               </td>
               <td>
-                  <!-- <button *ngIf="!viewData.includes(user.email)" (click)="showData( user.email )">Show All</button>
-                  <button *ngIf="viewData.includes(user.email)" (click)="hideData( user.email )">Hide All</button> -->
+
                   <div *ngIf="viewData.includes( user.email )">
                     <p class="text-center"  *ngFor="let skill of user.Skills">
-                     {{ skill.user_skill.self_rating }}
+                     {{ abilities[skill.user_skill.self_rating] }}
                     </p>
                 </div>
               </td>
               <td>
-                  <!-- <button *ngIf="!viewData.includes(user.email)" (click)="showData( user.email )">Show All</button>
-                  <button *ngIf="viewData.includes(user.email)" (click)="hideData( user.email )">Hide All</button> -->
+
                   <div *ngIf="viewData.includes( user.email )">
                   <p class="text-center"  *ngFor="let skill of user.Skills">
-                      {{ skill.user_skill.employer_rating }}
+                      {{ abilities[skill.user_skill.employer_rating] }}
                   </p>
                   </div>
               </td>
               <td>
-                  <!-- <button *ngIf="!viewData.includes(user.email)" (click)="showData( user.email )">Show All</button>
-                  <button *ngIf="viewData.includes(user.email)" (click)="hideData( user.email )">Hide All</button> -->
                   <div *ngIf="viewData.includes( user.email )">
                   <p class="text-center"  *ngFor="let skill of user.Skills">
-                    {{ skill.user_skill.interest }}
+                    {{ interests[skill.user_skill.interest] }}
                   </p>
                   </div>
               </td>

@@ -2,3 +2,9 @@ td > button {
     background-color: #34A5DA;
     color: white;
 }
+
+.userTable {
+    overflow: scroll;
+    max-height: 70vh;
+    // border: black
+}

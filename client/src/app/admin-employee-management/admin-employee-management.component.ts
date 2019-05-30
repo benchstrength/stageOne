@@ -14,6 +14,9 @@ export class AdminEmployeeManagementComponent implements OnInit {
 users: any;
 viewData = []
 
+interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
+abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
+
   ngOnInit() {
 
     this.data.getAllUsers("all").then(users => {
