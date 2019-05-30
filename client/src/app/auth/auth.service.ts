@@ -101,9 +101,9 @@ export class AuthService {
         lastName: decoded.name.split(" ")[1],
         imageUrl: decoded.picture
       }
-      this.data.authUser(user).then(added => {
-        console.log(added)
-      })
+      // this.data.authUser(user).then(added => {
+      //   console.log(added)
+      // })
     }
 
   }
@@ -126,7 +126,7 @@ export class AuthService {
     this._expiresAt = 0;
     sessionStorage.clear();
     this._auth0.logout({
-      returnTo: "http://localhost:4200/login"
+      returnTo: window.location.origin + "/login"
     });
   }
 

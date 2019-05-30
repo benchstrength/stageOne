@@ -15,9 +15,18 @@ interface UserData {
 })
 export class UserAssessmentComponent implements OnInit {
 skills;
+private _adminData;
   constructor(private data: GetDataService) { }
   
-@Input() adminData: UserData;
+@Input()
+set adminData(adminData: any) {
+  console.log('prev value: ', this._adminData);
+  console.log('got name: ', adminData);
+  this._adminData = adminData;
+}
+get adminData() {
+return this._adminData;
+}
 
   userFilter() {
     //######## NEED to add this next line for Session storage match
@@ -37,11 +46,14 @@ skills;
         // switch statement to 
         console.log(data)
         });
+        console.log(this.adminData);
     }
  
   ngOnInit() {
+   
     this.userFilter();
   }
+  
 // public sendData() {
 //   console.log("Send Data!")
 //   this.___("/api/add-user", {

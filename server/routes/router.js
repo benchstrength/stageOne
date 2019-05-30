@@ -178,7 +178,7 @@ module.exports = (db) => {
         }).then(data => res.json(data));
     });
 
-    router.patch('/api/authuser', (req, res) => {
+    router.post('/api/authuser', (req, res) => {
         //add/update user here please
     });
 
