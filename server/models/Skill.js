@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
 
         Skill.belongsToMany(Skill, { as: 'reliesOn', through: 'SkillReliesOn'});
 
-        Skill.belongsToMany(models.ProgrammingArea, {through: 'Skill_ProgrammingArea'});
+        Skill.belongsToMany(models.ProgrammingArea, {through: models.Skill_ProgrammingArea});
     }
 
     return Skill;
