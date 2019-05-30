@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Skill_Programmingarea', {
+    return queryInterface.createTable('Skill_ProgrammingArea', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -35,6 +35,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Skill_Programmingarea');
+    return queryInterface.dropTable('Skill_ProgrammingArea');
   }
 };

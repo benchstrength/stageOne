@@ -1,32 +1,19 @@
-<nav class="row justify-content-center align-items-center">
-    <div class="col text-center">
-      <a routerLink="/admin/users" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-          <h2 class="linkButton">BENCH</h2>
-      </a>
-    </div>
-    <div class="col text-center">
-        <div class="row justify-content-center align-items-center" routerLinkActive="activeRoute">
-            <div class="col">
-                <a routerLink="/admin" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-                    <h2 class="linkButton">STRENGTH</h2>
+<nav >
+    <div class="row"> 
+        <div class="col text-center align-items-center" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/admin/users" >
+                    <h2 class="linkButton ">BENCH</h2>
                 </a>
-            </div>
-            <div class="col">
-                <button  class="btn btn-light mr-5" (click)="auth.logout()">Log out</button>
-            </div>
+        </div>
+        <div class="col text-center" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/admin" >
+                <h2 class="linkButton">STRENGTH</h2>
+            </a>
+        </div>
+        <div class="col-1 text-center logoutDiv">
+            <a>
+                <button class=" btn btn-sm logoutBtn" (click)="auth.logout()">Log out</button>
+            </a>
         </div>
     </div>
 </nav>
-
-<!-- <nav class="navbar">
-    <span class="navbar-text text-center">
-        <a routerLink="/admin/users" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-            BENCH
-        </a>
-    </span>
-    <span class="navbar-text text-center">
-        <a routerLink="/admin" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
-            STRENGTH
-        </a>
-    </span>
-</nav> -->
