@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  class skill_programmingarea extends sequelize.Sequelize.Model {}
+  class Skill_ProgrammingArea extends sequelize.Sequelize.Model {}
   
-  skill_programmingarea.init({
+  Skill_ProgrammingArea.init({
     ProgrammingAreaId: {
       type: DataTypes.STRING,
       allowNull: false
@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, { sequelize });
-  skill_programmingarea.associate = function(models) {
+  Skill_ProgrammingArea.associate = function(models) {
     // associations can be defined here
   };
-  return skill_programmingarea;
+  return Skill_ProgrammingArea;
 };

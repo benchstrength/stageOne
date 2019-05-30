@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('skill_programmingarea', [{"id":1, "ProgrammingAreaId":1, "SkillId":1, "createdAt":"2019-05-23 19:14:37", "updatedAt":"2019-05-23 19:14:37"},
+    return queryInterface.bulkInsert('Skill_ProgrammingArea', [{"id":1, "ProgrammingAreaId":1, "SkillId":1, "createdAt":"2019-05-23 19:14:37", "updatedAt":"2019-05-23 19:14:37"},
     {"id":2, "ProgrammingAreaId":1, "SkillId":2, "createdAt":"2019-05-23 19:19:10", "updatedAt":"2019-05-23 19:19:10"},
     {"id":3, "ProgrammingAreaId":1, "SkillId":3, "createdAt":"2019-05-23 19:19:10", "updatedAt":"2019-05-23 19:19:10"},
     {"id":4, "ProgrammingAreaId":1, "SkillId":5, "createdAt":"2019-05-23 19:19:10", "updatedAt":"2019-05-23 19:19:10"},

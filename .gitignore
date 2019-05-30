@@ -12,6 +12,7 @@
 # dependencies
 /client/node_modules
 /server/node_modules
+/client/dist
 /client/package-lock.json
 /server/package-lock.json
 # profiling files

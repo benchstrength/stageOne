@@ -27,7 +27,8 @@ set adminData(adminData: any) {
 get adminData() {
 return this._adminData;
 }
-
+interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
+abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
   userFilter() {
     //######## NEED to add this next line for Session storage match
     // let email = sessionStorage.getItem("userEmail") 
@@ -43,6 +44,7 @@ return this._adminData;
     this.data.getOneUser({ email: email }).then(data => {
       console.log(email)  
         this.skills = data;
+        
         // switch statement to 
         console.log(data)
         });
