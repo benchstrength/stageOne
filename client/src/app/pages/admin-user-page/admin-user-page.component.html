@@ -23,8 +23,15 @@
   <div class="col">
     <h1 class="text-center mt-5 title">Employee Management</h1>
     <hr>
-    <app-user-area class="userList" searchType="users"></app-user-area>
+    <app-admin-employee-management></app-admin-employee-management>
   </div>
+</div>
+
+<div class="row justify-content-center">
+  <button
+  *ngIf="!showForm" 
+  (click)="toggleForm()" 
+  class="btn btn-lg btn-primary my-5">Add User</button>
 </div>
 
 <div 
@@ -32,7 +39,17 @@
 class="row align-items-center justify-content-center">
   <div class="col">
 <div class="container">
-    <h2>Add User</h2>
+  <div class="row container align-items-center">
+    <div class="col-1 offset-9">
+      <button 
+      class="close "
+      *ngIf="showForm"
+      (click)="toggleForm()">
+      x
+    </button>
+  </div>
+  </div>
+    <h2 class="text-center">Add User</h2>
     <div class="row align-items-center justify-content-center">
       <div class="col-6">
 
@@ -56,21 +73,11 @@ class="row align-items-center justify-content-center">
     </div>
   <div class="row justify-content-center">
     <div class="col">
-      <div>
+      <div class="text-center">
         <button (click)="sendForm()" class="btn btn-primary">Send</button>
       </div>
     </div>
   </div>
   </div>
 </div>
-</div>
-<div class="row justify-content-center">
-    <button
-    *ngIf="!showForm" 
-    (click)="toggleForm()" 
-    class="btn btn-lg btn-primary my-5">Add User</button>
-    <button
-    *ngIf="showForm" 
-    (click)="toggleForm()" 
-    class="btn btn-lg btn-dark mb-5">Close</button>
 </div>

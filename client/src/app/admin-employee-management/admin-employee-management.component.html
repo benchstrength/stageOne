@@ -1,0 +1,102 @@
+<!-- Table for users searched by skills -->
+<div class="container">
+    <!-- <div class='card-body'>
+      <div class='row'> -->
+          <!-- Search Box for skills -->
+          <!-- <div class='col-md-4'>
+            <app-skill-search (addSearchTerm)="expandSearch($event)"></app-skill-search>
+          </div> -->
+      <!-- </div>
+    </div> -->
+    <div class='table-responsive' >
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Skill</th>
+              <th class="text-center">Perceived</th>
+              <th class="text-center">Accurate</th>
+              <th class="text-center">Interest</th>
+              <th>View Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let user of users'>
+              <td><a [routerLink]="[ user.email ]">{{ user.firstName }} {{ user.lastName }}</a></td>
+              <td class="text-center" >{{ user.email }}</td>
+              <td>
+                  <div *ngIf="viewData.includes( user.email )">
+                    <p class="text-center" *ngFor="let skill of user.Skills">
+                    {{ skill.name }}
+                  </p>
+                </div>
+              </td>
+              <td>
+                  <!-- <button *ngIf="!viewData.includes(user.email)" (click)="showData( user.email )">Show All</button>
+                  <button *ngIf="viewData.includes(user.email)" (click)="hideData( user.email )">Hide All</button> -->
+                  <div *ngIf="viewData.includes( user.email )">
+                    <p class="text-center"  *ngFor="let skill of user.Skills">
+                     {{ skill.user_skill.self_rating }}
+                    </p>
+                </div>
+              </td>
+              <td>
+                  <!-- <button *ngIf="!viewData.includes(user.email)" (click)="showData( user.email )">Show All</button>
+                  <button *ngIf="viewData.includes(user.email)" (click)="hideData( user.email )">Hide All</button> -->
+                  <div *ngIf="viewData.includes( user.email )">
+                  <p class="text-center"  *ngFor="let skill of user.Skills">
+                      {{ skill.user_skill.employer_rating }}
+                  </p>
+                  </div>
+              </td>
+              <td>
+                  <!-- <button *ngIf="!viewData.includes(user.email)" (click)="showData( user.email )">Show All</button>
+                  <button *ngIf="viewData.includes(user.email)" (click)="hideData( user.email )">Hide All</button> -->
+                  <div *ngIf="viewData.includes( user.email )">
+                  <p class="text-center"  *ngFor="let skill of user.Skills">
+                    {{ skill.user_skill.interest }}
+                  </p>
+                  </div>
+              </td>
+              <td>
+                  <button 
+                    class="btn btn-sm" 
+                    *ngIf="!viewData.includes(user.email)" 
+                    (click)="showData( user.email )">
+                    Show {{ user.firstName }}'s Skills
+                  </button>
+                  <button 
+                    class="btn btn-sm" 
+                    *ngIf="viewData.includes(user.email)" 
+                    (click)="hideData( user.email )">
+                    Hide {{ user.firstName }}'s Skills
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <!-- Table for users searched by user name -->
+  <div class="container"  *ngIf="searchType === 'users' ">
+      <div class='table-responsive'>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th class="text-center">Email</th>
+                <!-- <th class="text-center">Perceived</th>
+                <th class="text-center">Accurate</th>
+                <th class="text-center">Interest</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let user of filteredList'>
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td class="text-center">{{ user.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>   
