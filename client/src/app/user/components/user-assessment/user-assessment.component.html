@@ -18,8 +18,8 @@
       <th scope="row"></th>
       <td >{{ skill.name }}</td>
       
-      <td>{{ skill.user_skill.interest }}</td>
-      <td>{{ skill.user_skill.self_rating }}</td>
+      <td >{{ interests [skill.user_skill.interest -1] }}</td>
+      <td>{{ abilities [skill.user_skill.self_rating -1] }}</td>
     </tr>
 
     <!-- Need to convert skill interests and self_ratings to strings from integers -->

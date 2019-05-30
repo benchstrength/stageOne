@@ -8,6 +8,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./user-addskill.component.scss']
 })
 export class UserAddskillComponent implements OnInit {
+  interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
+  abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
 
   skillId = new FormControl('');
   skillInterest = new FormControl('');

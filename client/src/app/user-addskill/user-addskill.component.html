@@ -15,11 +15,8 @@
     <label for="subType"> Interest Level:</label>
     
     <select class="form-control" id="subType" [formControl]="skillInterest" >
-      <option [ngValue]="undefined" disabled >Select:</option>
-      <option [ngValue]="1">Not Interested</option>
-      <option [ngValue]="2">A Little Interested</option>
-      <option [ngValue]="3">Interested</option>
-      <option [ngValue]="4">Very Interested</option>
+      <option [ngValue]="undefined"  ></option>
+      <option *ngFor="let interest of interests; index as i" [ngValue]="i+1" >{{interest}}</option>
     </select>
   </div>
 
@@ -27,11 +24,8 @@
     <label for="subType"> Ability Level: </label>
 
     <select class="form-control" id="subType" [formControl]="skillSelfRating">
-      <option [ngValue]="undefined" disabled >Select:</option>
-      <option [ngValue]="1">Familiar</option>
-      <option [ngValue]="2">Beginner/Intermediate</option>
-      <option [ngValue]="3">Advanced</option>
-      <option [ngValue]="4">Master/Teacher</option>
+      <option [ngValue]="undefined" disabled ></option>
+      <option *ngFor="let ability of abilities; index as i" [ngValue]="i+1" >{{ability}}</option>
     </select>
   </div>
 </div>
