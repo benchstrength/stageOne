@@ -16,7 +16,8 @@ interface UserData {
 export class UserAssessmentComponent implements OnInit {
 skills;
   constructor(private data: GetDataService) { }
-  
+interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
+abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
 @Input() adminData: UserData;
 
   userFilter() {
@@ -34,6 +35,7 @@ skills;
     this.data.getOneUser({ email: email }).then(data => {
       console.log(email)  
         this.skills = data;
+        
         // switch statement to 
         console.log(data)
         });
