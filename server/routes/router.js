@@ -34,7 +34,6 @@ module.exports = (db) => {
                 model: db.User,
             }]
         }).then(result => {
-            console.log(result);
             res.json(result);
         });
     });

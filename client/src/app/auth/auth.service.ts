@@ -126,7 +126,7 @@ export class AuthService {
     this._expiresAt = 0;
     sessionStorage.clear();
     this._auth0.logout({
-      returnTo: "http://localhost:4200/login"
+      returnTo: window.location.origin + "/login"
     });
   }
 
