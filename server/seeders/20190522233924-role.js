@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('roles', [
+    return queryInterface.bulkInsert('Roles', [
       {
         name: "super-admin",
         createdAt: new Date(),

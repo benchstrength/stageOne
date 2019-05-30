@@ -31,7 +31,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
-    "ng2-charts": "^2.2.3",
+    "ng2-charts": "^2.2.0",
     "passport": "^0.4.0",
     "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
