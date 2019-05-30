@@ -36,7 +36,7 @@
 
                   <div *ngIf="viewData.includes( user.email )">
                     <p class="text-center"  *ngFor="let skill of user.Skills">
-                     {{ abilities[skill.user_skill.self_rating] }}
+                     {{ abilities[skill.user_skill.self_rating -1] }}
                     </p>
                 </div>
               </td>
@@ -44,14 +44,14 @@
 
                   <div *ngIf="viewData.includes( user.email )">
                   <p class="text-center"  *ngFor="let skill of user.Skills">
-                      {{ abilities[skill.user_skill.employer_rating] }}
+                      {{ abilities[skill.user_skill.employer_rating -1] }}
                   </p>
                   </div>
               </td>
               <td>
                   <div *ngIf="viewData.includes( user.email )">
                   <p class="text-center"  *ngFor="let skill of user.Skills">
-                    {{ interests[skill.user_skill.interest] }}
+                    {{ interests[skill.user_skill.interest -1] }}
                   </p>
                   </div>
               </td>
