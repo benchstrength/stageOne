@@ -12,18 +12,19 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./user-dash-card.component.scss']
 })
 export class UserDashCardComponent implements OnInit {
-  
+  private _adminData;
   constructor(private auth: AuthService) { }
 
-  @Input() adminData: {
-    name:string, 
-    email:string, 
-    picture:string
-  } = {
-    name: "",
-    email: "",
-    picture: ""
-  };
+  @Input()
+set adminData(adminData: any) {
+    console.log('prev value: ', this._adminData);
+    console.log('got name: ', adminData);
+    this._adminData = adminData;
+  }
+get adminData() {
+  return this._adminData;
+}
+  // specialData = this.adminData;
 
  userInfo = {
    name: "",
@@ -32,9 +33,8 @@ export class UserDashCardComponent implements OnInit {
  };
 
   ngOnInit() {
-    
+    console.log(this._adminData);
     // load user data if it exists
-    console.log(this.userInfo)
   if (sessionStorage.getItem('userEmail')) {
     this.userInfo = {
       name: sessionStorage.getItem('userName'),
