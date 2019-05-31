@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('skill_programmingarea', {
+    return queryInterface.createTable('Skill_ProgrammingArea', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'programmingareas',
+          model: 'ProgrammingAreas',
           key: 'id'
         }
       },
@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'skills',
+          model: 'Skills',
           key: 'id'
         }
       },
@@ -35,6 +35,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('skill_programmingarea');
+    return queryInterface.dropTable('Skill_ProgrammingArea');
   }
 };

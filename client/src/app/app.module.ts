@@ -31,6 +31,8 @@ import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { SkillSearchComponent } from './user-area/skill-search/skill-search.component';
 import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user-profile.component';
 import { Stage4Component } from './stage4/stage4.component';
+import { AdminEmployeeManagementComponent } from './admin-employee-management/admin-employee-management.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { Stage4Component } from './stage4/stage4.component';
     SkillSearchComponent,
     AdminUserProfileComponent,
     Stage4Component,
+    AdminEmployeeManagementComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
 import * as jwt_decode from 'jwt-decode';
 import { GetDataService } from '../dataService/get-data.service';
+import { PlatformLocation } from '@angular/common';
 
 interface UserInfo {
   nickname: string,
@@ -21,7 +22,6 @@ export class AuthService {
   private _idToken: string;
   private _accessToken: string;
   private _expiresAt: number;
-
   private _auth0;
 
   constructor(public router: Router,
@@ -101,9 +101,9 @@ export class AuthService {
         lastName: decoded.name.split(" ")[1],
         imageUrl: decoded.picture
       }
-      this.data.authUser(user).then(added => {
-        console.log(added)
-      })
+      // this.data.authUser(user).then(added => {
+      //   console.log(added)
+      // })
     }
 
   }
@@ -126,7 +126,7 @@ export class AuthService {
     this._expiresAt = 0;
     sessionStorage.clear();
     this._auth0.logout({
-      returnTo: "http://localhost:4200/login"
+      returnTo: window.location.origin + "/login"
     });
   }
 

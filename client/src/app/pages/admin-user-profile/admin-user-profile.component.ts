@@ -10,6 +10,12 @@ email: string,
 picture: string
 }
 
+interface AdminData {
+  name: string,
+  email: string,
+  picture: string,
+}
+
 @Component({
   selector: 'app-admin-user-profile',
   templateUrl: './admin-user-profile.component.html',
@@ -21,11 +27,7 @@ export class AdminUserProfileComponent implements OnInit {
               private route: ActivatedRoute) { }
 
 
-adminData = {
-  name: "",
-  email: "",
-  picture: ""
-}
+adminData: AdminData;
 
   ngOnInit() {
     let email;

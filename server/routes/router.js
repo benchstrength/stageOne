@@ -34,7 +34,6 @@ module.exports = (db) => {
                 model: db.User,
             }]
         }).then(result => {
-            console.log(result);
             res.json(result);
         });
     });
@@ -178,7 +177,7 @@ module.exports = (db) => {
         }).then(data => res.json(data));
     });
 
-    router.patch('/api/authuser', (req, res) => {
+    router.post('/api/authuser', (req, res) => {
         //add/update user here please
     });
 

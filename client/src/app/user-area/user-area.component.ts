@@ -18,7 +18,7 @@ export class UserAreaComponent implements OnInit {
     skillName: string
   }[] = [];
 
-  search: IUser;
+  search: IUser[];
   
   constructor(private data: GetDataService) { }
 
@@ -27,14 +27,17 @@ export class UserAreaComponent implements OnInit {
     this.data.getUserBySkill({
       skills: this.skillsArray.map(skill => skill.skillId)
     }).subscribe(data => {
-      this.search = data as IUser;
+      console.log(data);
+      this.search = data as IUser[];
     });
   }
 
 
 
   ngOnInit() {
-    this.data.getAllUsers("all");
+    this.data.getAllUsers("all").then(users => {
+      console.log(users);
+    });
   };
 
 }
