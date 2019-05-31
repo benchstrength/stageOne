@@ -1,3 +1,249 @@
-<p>
-  bruh
-</p>
+<nav class="nav flxrow">
+    <div class="settings">
+        <i class="fas fa-sliders-h icon" (click)="theme()"></i>
+    </div>
+    <div class="title">
+        <h2 class="">BENCH STRENGTH</h2>
+    </div>
+    <div class="logout">
+        <i class="fas fa-sign-out-alt icon" (click)="auth.logout()"></i>
+    </div>
+</nav>
+
+
+<div class="newCon flxrow">
+    <div class="one">
+        <img *ngIf="userInfo.picture" src='{{ userInfo.picture }}' class="cardImg" alt="...">
+        <div class="wrapper">
+            <p class="name">{{ userInfo?.name }}</p>
+            <button class="emailbtn" ><i class="far fa-paper-plane"></i> seamusmurchadh</button>
+            <br>
+            <!-- {{ userInfo?.email }} - also, regex to drop everything starting form '@'-->
+            <button class="gitbtn" target="_blank" href="https://github.com/turntShramp"><i class="fab fa-github"></i> turntShramp</button>
+            <!-- {{ userInfo?.github }} - where be dis? -->
+        </div>
+    </div>
+    <div class="two">
+      <div class="three">
+        <div class="card">
+          <div class="card-body">
+            <div class="new-skills">
+              <div class="new-skill flxrow">
+                <div (click)="selectSkill()" class="skill-name new-blub">
+                  <div class="flxrow">
+                      <h6 class="text">Skill</h6>
+                      <div class="space"></div>
+                      <i class="fas fa-sort-down arrow"></i>
+                  </div>
+                </div>
+                <div (click)="selectProficiency()" class="skill-proficiency new-blub">
+                  <div class="flxrow">
+                      <h6>Proficiency</h6>
+                      <div class="space"></div>
+                      <i class="fas fa-sort-down arrow"></i>
+                  </div>              
+                </div>
+                <div (click)="selectInterest()" class="skill-interest new-blub">
+                  <div class="flxrow">
+                      <h6>Interest</h6>
+                      <div class="space"></div>
+                      <i class="fas fa-sort-down arrow"></i>
+                  </div>              
+                </div>
+                <div (click)="add-skill()" class="add-skill new-blub">
+                  <h6>Add SKill</h6>
+                </div>
+              </div>
+            </div>
+            <div class="skills-area">
+              <div class="existing-skills scroll">
+  
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>HTML/CSS</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                    <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Angular</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                    <h6>Delete</h6>
+                  </div>
+                </div>
+                  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>React</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Node</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Vue</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+                  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Jave</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>HTML/CSS</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Intermediate</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Angular</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+                  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>React</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Node</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Vue</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+                  
+                <div class="skill flxrow">
+                  <div class="skill-name blub">
+                    <h6>Jave</h6>
+                  </div>
+                  <div class="skill-proficiency blub">
+                    <h6>Beginner</h6>
+                  </div>
+                  <div class="skill-interest blub">
+                    <h6>Interested</h6>
+                  </div>
+                  <div (click)="delete-skill()" class="delete-skill blub">
+                      <h6>Delete</h6>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
