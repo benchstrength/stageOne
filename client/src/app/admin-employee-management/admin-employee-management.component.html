@@ -14,11 +14,8 @@
             <tr>
               <th>Name</th>
               <th class="text-center">Email</th>
-              <th class="text-center">Skill</th>
-              <th class="text-center">Perceived</th>
-              <th class="text-center">Accurate</th>
-              <th class="text-center">Interest</th>
-              <th>View Options</th>
+              <th class="text-center"></th>
+              <th class="text-center">Skills</th>
             </tr>
           </thead>
           <tbody>
@@ -26,36 +23,55 @@
               <td><a [routerLink]="[ user.email ]">{{ user.firstName }} {{ user.lastName }}</a></td>
               <td class="text-center" >{{ user.email }}</td>
               <td>
-                  <div *ngIf="viewData.includes( user.email )">
-                    <p class="text-center" *ngFor="let skill of user.Skills">
-                    {{ skill.name }}
-                  </p>
-                </div>
+                  <table *ngIf="viewData.includes( user.email )" class="nestedTable">
+                    <thead>
+                      <tr>
+                        <th class="text-center">Skill</th>
+                        <th class="text-center">Perceived</th>
+                        <th class="text-center">Accurate</th>
+                        <th class="text-center">Interest</th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let skill of user.Skills">
+                      <td class="text-center" >
+                        {{ skill.name }}
+                      </td>
+                      <td class="text-center"  >
+                        {{ abilities[skill.user_skill.self_rating -1] }}
+                      </td>
+                      <td class="text-center"  >
+                        {{ abilities[skill.user_skill.employer_rating -1] }}
+                      </td>
+                      <td class="text-center"  >
+                        {{ interests[skill.user_skill.interest -1] }}
+                      </td>
+                    </tr>
+                </table>
+              </td>
+              <!-- <td >
+
+                  <table *ngIf="viewData.includes( user.email )">
+                    <tr *ngFor="let skill of user.Skills">
+                    
+                    </tr>
+                </table>
               </td>
               <td>
 
-                  <div *ngIf="viewData.includes( user.email )">
-                    <p class="text-center"  *ngFor="let skill of user.Skills">
-                     {{ abilities[skill.user_skill.self_rating -1] }}
-                    </p>
-                </div>
+                  <table *ngIf="viewData.includes( user.email )">
+                    <tr *ngFor="let skill of user.Skills">
+                      
+                    </tr>
+                  </table>
               </td>
               <td>
-
-                  <div *ngIf="viewData.includes( user.email )">
-                  <p class="text-center"  *ngFor="let skill of user.Skills">
-                      {{ abilities[skill.user_skill.employer_rating -1] }}
-                  </p>
-                  </div>
-              </td>
-              <td>
-                  <div *ngIf="viewData.includes( user.email )">
-                  <p class="text-center"  *ngFor="let skill of user.Skills">
-                    {{ interests[skill.user_skill.interest -1] }}
-                  </p>
-                  </div>
-              </td>
-              <td>
+                  <table *ngIf="viewData.includes( user.email )">
+                    <tr *ngFor="let skill of user.Skills">
+                     
+                    </tr>
+                  </table>
+              </td> -->
+              <td class="text-center">
                   <button 
                     class="btn btn-sm" 
                     *ngIf="!viewData.includes(user.email)" 

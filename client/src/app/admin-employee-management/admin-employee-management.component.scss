@@ -8,3 +8,7 @@ td > button {
     max-height: 70vh;
     // border: black
 }
+
+.nestedTable > table {
+    border-top: none;
+}

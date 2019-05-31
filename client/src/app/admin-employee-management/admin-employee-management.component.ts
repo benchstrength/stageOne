@@ -12,7 +12,7 @@ export class AdminEmployeeManagementComponent implements OnInit {
 
 
 users: any;
-viewData = []
+viewData: string[] = []
 
 interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
 abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
@@ -30,10 +30,12 @@ abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
     this.viewData.push(email);
   }
 
-  hideData(email) {
-   this.viewData = this.viewData.filter(elem => {
-    elem != email;
-   });
+  hideData(email: string) {
+   let filtered = this.viewData.filter(elem => {
+    return elem != email;
+
+  });
+  this.viewData = filtered
   }
 
 }
