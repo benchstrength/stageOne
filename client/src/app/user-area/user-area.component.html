@@ -20,7 +20,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let user of search'>
+          <tr *ngFor='let user of search' routerLink='users/{{ user.email }}'
+           class="routePointer">
             <td>{{ user.firstName }} {{ user.lastName }}</td>
             <td>
                 <p *ngFor="let skill of user.Skills">
