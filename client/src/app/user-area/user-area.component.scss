@@ -15,6 +15,13 @@ td > p {
     text-align:center;
 }
 
+.routePointer {
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(235, 235, 235);
+    }
+}
+
 // .sticky {
 //     position: sticky;
 //     top: 0;
