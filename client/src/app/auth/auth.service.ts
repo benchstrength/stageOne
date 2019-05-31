@@ -101,9 +101,9 @@ export class AuthService {
         lastName: decoded.name.split(" ")[1],
         imageUrl: decoded.picture
       }
-      this.data.authUser(user).then(added => {
-        console.log(added)
-      })
+      // this.data.authUser(user).then(added => {
+      //   console.log(added)
+      // })
     }
 
   }

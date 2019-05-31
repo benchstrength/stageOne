@@ -11,15 +11,16 @@
         <th scope="col">Skill: </th>
         <th scope="col">Interest Level: </th>
         <th scope="col">Ability Level: </th>
+        <th scope="col" *ngIf="adminData">Actual Level</th>
       </tr>
     </thead>
     <tbody>
     <tr *ngFor="let skill of skills.Skills">
       <th scope="row"></th>
       <td >{{ skill.name }}</td>
-      
-      <td >{{ interests [skill.user_skill.interest -1] }}</td>
-      <td>{{ abilities [skill.user_skill.self_rating -1] }}</td>
+      <td>{{ skill.user_skill.interest }}</td>
+      <td>{{ skill.user_skill.self_rating }}</td>
+      <td *ngIf="adminData">{{ skill.user_skill.employer_rating }}</td>
     </tr>
 
     <!-- Need to convert skill interests and self_ratings to strings from integers -->

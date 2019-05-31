@@ -33,6 +33,7 @@ import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { SkillSearchComponent } from './user-area/skill-search/skill-search.component';
 import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user-profile.component';
+import { AdminEmployeeManagementComponent } from './admin-employee-management/admin-employee-management.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user
     AdminNavComponent,
     SkillSearchComponent,
     AdminUserProfileComponent,
+    AdminEmployeeManagementComponent,
   ],
   imports: [
     BrowserModule,

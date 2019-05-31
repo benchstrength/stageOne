@@ -34,7 +34,9 @@ export class UserAreaComponent implements OnInit {
 
 
   ngOnInit() {
-    this.data.getAllUsers("all");
+    this.data.getAllUsers("all").then(users => {
+      console.log(users);
+    });
   };
 
 }
