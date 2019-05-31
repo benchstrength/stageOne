@@ -5,6 +5,7 @@ import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
 import * as jwt_decode from 'jwt-decode';
 import { GetDataService } from '../dataService/get-data.service';
+import { PlatformLocation } from '@angular/common';
 
 interface UserInfo {
   nickname: string,
@@ -21,7 +22,6 @@ export class AuthService {
   private _idToken: string;
   private _accessToken: string;
   private _expiresAt: number;
-
   private _auth0;
 
   constructor(public router: Router,
