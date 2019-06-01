@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-// import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserAssessmentComponent } from './user/components/user-assessment/user-assessment.component';
 import { LoginComponent } from './login/login.component';
@@ -25,14 +24,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 // import { FlexLayoutModule } from '@angular/flex-layout'
 import { UserAddskillComponent } from './user-addskill/user-addskill.component';
 import { AdminGraphComponent } from './admin/components/graphs/admin-graph.component';
-import { SearchbarComponent } from './admin/components/searchbar/searchbar.component';
-import { FiltersComponent } from './admin/components/filters/filters.component';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AdminUserPageComponent } from './pages/admin-user-page/admin-user-page.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { SkillSearchComponent } from './user-area/skill-search/skill-search.component';
 import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user-profile.component';
+import { Stage4Component } from './stage4/stage4.component';
 import { AdminEmployeeManagementComponent } from './admin-employee-management/admin-employee-management.component';
 
 
@@ -51,14 +49,13 @@ import { AdminEmployeeManagementComponent } from './admin-employee-management/ad
     MatGridTile,
     UserAddskillComponent,
     AdminGraphComponent,
-    SearchbarComponent,
-    FiltersComponent,
     UserAreaComponent,
     UnauthorizedComponent,
     AdminUserPageComponent,
     AdminNavComponent,
     SkillSearchComponent,
     AdminUserProfileComponent,
+    Stage4Component,
     AdminEmployeeManagementComponent,
   ],
   imports: [
