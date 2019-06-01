@@ -20,4 +20,9 @@ export class UserPageComponent implements OnInit {
     this.showSkills = !this.showSkills;
   }
 
+  theme() {
+    var element = document.getElementById("myDIV");
+    element.classList.toggle("mystyle");
+  }
+
 }
