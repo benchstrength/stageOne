@@ -29,7 +29,9 @@ html, body {
 }
 
 button {
-    color: #34A5DA;
+    &.logOut {
+        color: rgb(52, 165, 218);
+    }
     font-weight: 00;
 }
 
