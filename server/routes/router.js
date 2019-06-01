@@ -92,12 +92,12 @@ module.exports = (db) => {
             db.Skill.findOne({
                 where: {id: req.body.skillId}
             }).then(skill => {
-                user.addSkill(skill, {through: 
+                user.addSkill(skill, { through: 
                     {
                         self_rating: req.body.skillSelfRating,
                         interest: req.body.skillInterest
                     }
-                }).then(response => res.json(response));
+                }).then(response => res.json({skill, user_skill: response[0]}));
             })
             // res.json(user);
         });

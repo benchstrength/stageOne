@@ -1,3 +1,5 @@
+import { ISkill } from './skill.model';
+
 export interface IUser {
     email: string,
     firstName: string,
@@ -7,4 +9,5 @@ export interface IUser {
     img_url: string,
     startTOD: string,
     endTOD: string,
+    Skills: ISkill[]
 }

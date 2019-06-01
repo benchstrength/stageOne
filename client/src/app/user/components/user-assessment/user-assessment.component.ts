@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
+import { ISkill } from 'models/skill.model';
 
 interface UserData {
   firstName: string,
@@ -13,47 +14,36 @@ interface UserData {
   templateUrl: './user-assessment.component.html',
   styleUrls: ['./user-assessment.component.scss']
 })
-export class UserAssessmentComponent implements OnInit {
-skills;
-private _adminData;
-  constructor(private data: GetDataService) { }
+export class UserAssessmentComponent implements OnInit, OnChanges {
   
-@Input()
-set adminData(adminData: any) {
-  console.log('prev value: ', this._adminData);
-  console.log('got name: ', adminData);
-  this._adminData = adminData;
-}
-get adminData() {
-return this._adminData;
-}
-interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
-abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
-  userFilter() {
-    //######## NEED to add this next line for Session storage match
-    // let email = sessionStorage.getItem("userEmail") 
-    //###### Need to put in:  ({email: email}) as well
-    let email: string;
-    if (this.adminData) {
-      email = this.adminData.email
-      console.log(email)  
-    } else {
-      email = sessionStorage.getItem("userEmail")
-      console.log(email)  
-    }
-    this.data.getOneUser({ email: email }).then(data => {
-      console.log(email)  
-        this.skills = data;
-        
-        // switch statement to 
-        console.log(data)
-        });
-        console.log(this.adminData);
-    }
+  private _adminData: any;
+
+  @Input() 
+  private userSkills: ISkill[];
+
+
+  constructor() { }
+    
+  @Input()
+  set adminData(adminData: any) {
+    console.log('prev value: ', this._adminData);
+    console.log('got name: ', adminData);
+    this._adminData = adminData;
+  }
+
+  get adminData() {
+    return this._adminData;
+  }
+
+  interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
+  abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
  
   ngOnInit() {
-   
-    this.userFilter();
+    // this.userFilter();
+  }
+
+  ngOnChanges() {
+    console.log(this.userSkills);
   }
   
 // public sendData() {
