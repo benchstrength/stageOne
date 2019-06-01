@@ -31,6 +31,8 @@ nav h2 button{
 button {
     color: #34A5DA;
     font-weight: 00;
+    background-color: white;
+    border: none;
 }
 
 .navbar > div.col.text-center {
@@ -50,8 +52,9 @@ button {
     margin: 0
 }
 
-.close {
-    padding-right: 15%;
+button.close {
+    margin-right: 15%;
+    background-color: transparent;
 }
 /******************************************************/
 

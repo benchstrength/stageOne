@@ -1,6 +1,8 @@
 .user  {
     text-align: center;
     padding: 2em;
+    background-color: transparent;
+    border: none;
 }
 .card-image {
     height: 50px;
@@ -16,4 +18,11 @@
 .cardText {
     margin: 1em 1em;
     max-width: 300px;
+}
+.cardTitle {
+    color: whitesmoke;
+}
+
+.card-body {
+    margin-top: 2em;
 }

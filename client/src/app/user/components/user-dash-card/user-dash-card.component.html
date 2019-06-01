@@ -3,8 +3,8 @@
 
 
 <div class="user card ">
-  <div class="card-header">
-      <h5> Your Information: </h5>
+  <div>
+      <h5 class="cardTitle"> Your Information: </h5>
   </div>
 <!-- load for user view -->
 <div class="card" *ngIf="adminData == undefined">
@@ -15,14 +15,12 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text">Name: {{ userInfo?.name }}</p>
-            <p class="card-text"><small class="text-muted">Email: {{ userInfo?.email }}</small></p>
+            <h4>Name: {{ userInfo?.name }}</h4>
+            <p class="card-text">Email: {{ userInfo?.email }}</p>
         </div>
     </div>
   </div>
 </div>
-  <div class="card-header"><button  class="btn btn-dark" (click)="auth.logout()">Log out</button></div>
 
 <!-- load for admin view -->
 <div class="card" *ngIf="adminData !== undefined">
