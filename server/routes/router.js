@@ -8,19 +8,19 @@ module.exports = (db) => {
 
     const Op = db.Sequelize.Op;
 
-    // router.use((req, res, next) => {
-    //     console.log(req.headers.permissions);
-    //     db.User.findOne({
-    //         where: {
-    //             email: req.headers.permissions
-    //         },
-    //         include: [ db.Role ]
+    router.use((req, res, next) => {
+        console.log(req.headers.permissions);
+        db.User.findOne({
+            where: {
+                email: req.headers.permissions
+            },
+            include: [ db.Role ]
                         
-    //     }).then(result => {
-    //         req.role = result.role;
-    //         next();
-    //     });
-    // });
+        }).then(result => {
+            req.role = result.role;
+            next();
+        });
+    });
 
     router.get('/api/private-scoped', auth.checkJwt, auth.checkScopes, function(req, res) {
         res.json({

@@ -10,9 +10,10 @@ export class UserPageComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
-showSkills = false;
+  showSkills: boolean = false;
 
   ngOnInit() {
+    
   }
 
   showForm() {
