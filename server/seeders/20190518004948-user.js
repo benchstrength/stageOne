@@ -14,7 +14,7 @@ module.exports = {
         img_url: "https://i0.wp.com/blog.amal.net/wp-content/uploads/2009/07/How-I-Met-Your-Mother-tv-21.jpg",
         startTOD: "8:00",
         endTOD: "17:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -27,7 +27,7 @@ module.exports = {
         img_url: "https://vignette.wikia.nocookie.net/p__/images/7/75/MarshallMain.jpg/revision/latest?cb=20121126135126&path-prefix=protagonist",
         startTOD: "8:00",
         endTOD: "17:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -40,7 +40,7 @@ module.exports = {
         img_url: "https://vignette.wikia.nocookie.net/p__/images/a/a1/LilyAldrin.jpg/revision/latest?cb=20130201001620&path-prefix=protagonist",
         startTOD: "7:30",
         endTOD: "14:30",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -53,7 +53,7 @@ module.exports = {
         img_url: "https://media.gq.com/photos/55828b3f1177d66d68d5287c/master/w_1600,c_limit/blogs-the-feed-how-i-met-your-mother-barney-stinson.jpg",
         startTOD: "8:30",
         endTOD: "17:30",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -66,7 +66,7 @@ module.exports = {
         img_url: "https://vignette.wikia.nocookie.net/loveinterest/images/4/48/Robin-robin-scherbatsky-29437383-1920-2560-600x800.jpg/revision/latest?cb=20121115061619",
         startTOD: "8:00",
         endTOD: "17:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -79,7 +79,7 @@ module.exports = {
         img_url: "https://cc-media-foxit.fichub.com/image/fox-it-mondofox/5b9bc6f2-f403-4561-abaa-ae59351605a3/ranjit-lautista-di-how-i-met-your-mother-maxw-1280.jpg",
         startTOD: "16:00",
         endTOD: "02:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -92,7 +92,7 @@ module.exports = {
         img_url: "https://vignette.wikia.nocookie.net/himym/images/d/db/TugboatLandmarks.jpg/revision/latest?cb=20111211122247",
         startTOD: "8:00",
         endTOD: "17:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -105,7 +105,7 @@ module.exports = {
         img_url: "http://3.bp.blogspot.com/-R22xS4BN570/Uyjo1mZcumI/AAAAAAAAA1E/6U--9weAZkc/s1600/Untitled-4.jpg",
         startTOD: "10:00",
         endTOD: "18:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -118,7 +118,7 @@ module.exports = {
         img_url: "http://s3cf.recapguide.com/img/tv/23/8x20/How-I-Met-Your-Mother-Season-8-Episode-20-34-90d5.jpg",
         startTOD: "8:00",
         endTOD: "16:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -131,7 +131,7 @@ module.exports = {
         img_url: "https://iv1.lisimg.com/image/14186885/640full-marvin-eriksen-sr..jpg",
         startTOD: "8:00",
         endTOD: "16:00",
-        userRole: 3
+        roleId: 3
       },
       {
         createdAt: new Date(),
@@ -143,7 +143,7 @@ module.exports = {
         isActive: true,
         startTOD: "8:00",
         endTOD: "16:00",
-        userRole: 2
+        roleId: 2
       },
       {
         createdAt: new Date(),
@@ -155,7 +155,7 @@ module.exports = {
         isActive: true,
         startTOD: "8:00",
         endTOD: "16:00",
-        userRole: 2
+        roleId: 2
       },
       {
         createdAt: new Date(),
@@ -167,7 +167,7 @@ module.exports = {
         isActive: true,
         startTOD: "8:00",
         endTOD: "16:00",
-        userRole: 2
+        roleId: 2
       },
       {
         createdAt: new Date(),
@@ -179,7 +179,7 @@ module.exports = {
         isActive: true,
         startTOD: "8:00",
         endTOD: "16:00",
-        userRole: 2
+        roleId: 2
       },
     ])
   },
