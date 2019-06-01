@@ -33,6 +33,11 @@ button {
         color: rgb(52, 165, 218);
     }
     font-weight: 00;
+    background-color: white;
+    border: none;
+}
+.addSkillButton {
+    color: rgb(52, 165, 218);
 }
 
 .navbar > div.col.text-center {
@@ -52,8 +57,9 @@ button {
     margin: 0
 }
 
-.close {
-    padding-right: 15%;
+button.close {
+    margin-right: 15%;
+    background-color: transparent;
 }
 /******************************************************/
 

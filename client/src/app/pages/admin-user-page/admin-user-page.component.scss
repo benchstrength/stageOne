@@ -29,4 +29,15 @@ button {
 
 .addUserForm {
     margin-bottom: 4em;
+    margin-top: 2em;
+    .container {
+        background-color: white;
+    }
+}
+
+.addUserButton {        
+    color: rgb(52, 165, 218);
+    font-weight: 00;
+    background-color: white;
+    border: none;
 }
