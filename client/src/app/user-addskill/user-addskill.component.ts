@@ -59,7 +59,7 @@ sendForm() {
     skillId: parseInt(this.skillId.value),
     skillInterest: parseInt(this.skillInterest.value),
     skillSelfRating: parseInt(this.skillSelfRating.value)
-
+  
   }
   //Capture Data and post to DB.... /api/add-skill
   this.data.addSkill(formData)
