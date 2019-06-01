@@ -21,9 +21,9 @@ module.exports = {
           defaultValue: true,
           allowNull: false
       },
-        createdAt: {
-          allowNull: false,
-          type: Sequelize.DATE
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
