@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         User.belongsToMany(models.Skill, {
             through: models.user_skill
         });
-        User.hasOne(models.Role);
+        User.belongsTo(models.Role);
     }
 
     return User;

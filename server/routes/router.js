@@ -17,7 +17,10 @@ module.exports = (db) => {
             include: [ db.Role ]
                         
         }).then(result => {
-            req.role = result.role;
+            if(result.dataValues) {
+                req.role = result.dataValues.Role.dataValues.name;
+                console.log(req.role);
+            }
             next();
         });
     });
