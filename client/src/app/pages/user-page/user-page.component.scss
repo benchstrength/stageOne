@@ -19,9 +19,9 @@ html, body {
     border-radius: none;
 }
 
-// nav h2 button{
-//     background-color: #34A5DA
-// }
+nav h2 button{
+    background-color: #34A5DA
+}
 
 .navbar.col.text-center {
     padding: 0;
@@ -38,19 +38,36 @@ button {
     margin: 0;
 }
 
-// .navbar > button {
-//     background-color:#34A5DA;
-//     color: white;
-// }
+.navbar > button {
+    background-color:#34A5DA;
+    color: white;
+}
 
 .navbar > div > h2 {
     color: white;
     background-color:#34A5DA;
     padding: 0.25em 0;
     margin: 0
-    
 }
 
 .close {
-    margin-right: 15%;
+    padding-right: 15%;
 }
+/******************************************************/
+
+// .nav {
+//     justify-content: space-around;
+//     margin: 0;
+//     padding: 3rem 2rem 1rem 2rem;
+//     background-image: linear-gradient(to bottom, #212121, rgba(255,0,0,0));
+//     color: white;
+// }
+// .icon {
+//     font-size: 30px;
+//     cursor: pointer;
+//     color: #3ba5d8;
+// }
+
+// .close {
+//     margin-right: 15%;
+// }

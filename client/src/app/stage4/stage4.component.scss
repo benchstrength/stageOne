@@ -1,0 +1,159 @@
+body { 
+    background:  linear-gradient(#212121, #3ba5d8) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.nav {
+    justify-content: space-around;
+    margin: 0;
+    padding: 3rem 2rem 1rem 2rem;
+    background-image: linear-gradient(to bottom, #212121, rgba(255,0,0,0));
+    color: white;
+}
+.icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #3ba5d8;
+}
+
+.close {
+    margin-right: 15%;
+}
+.user  {
+    text-align: center;
+    padding: 2em;
+}
+.card-image {
+    height: 50px;
+    width: 50px;
+}
+.cardImg {
+    max-height: 300px;
+    max-width: 300px;
+    margin: 2em;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+.newCon {
+    background: transparent;
+    margin:  2rem 2rem;
+    border: none;
+    border-radius: 5px;
+}
+.wrapper {
+    margin: 1rem 2rem;
+}
+.name {
+    font-size: 30px;
+    max-width: 300px;
+    margin-bottom: 0;
+    color: white;
+}
+.email {
+    font-size: 22px;
+    max-width: 300px;
+    margin-bottom: 0;
+}
+.gitbtn {
+    background-color: #ffffff;
+    color: #23282d;
+    border: solid 1px #ffffff;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 10px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.emailbtn {
+    background-color: #41a6d6;
+    border: solid 1px #41a6d6; 
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 10px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.one {
+    background: rgba(232, 232, 232, 0.379);
+    margin-right: 1rem;
+    border-radius: 5px;
+
+}
+.two {
+    background: rgba(232, 232, 232, 0.379);
+    flex-grow: 2;
+    border-radius: 5px;
+
+}
+.three {
+    background: transparent;
+    margin-left: 2rem;
+}
+.card {
+    margin-top: 2rem;
+    margin-right: 2rem;
+    border: none;
+    background: transparent;
+}
+.card-header {
+    background-color: #222a2e;
+    color: white;
+}
+.card-body {
+    margin-bottom: 2rem;
+}
+.scroll {
+    max-height: 325px;
+    overflow-y: auto;
+}
+.skill {
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.blub {
+    background: #41a6d6;
+    margin: 0;
+    padding: 10px 20px 3px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    color: white;
+    width: 150px;
+    text-align: center;
+}
+.delete-skill {
+    color: #fff;
+    background-color: #dc3545;
+    cursor: pointer;
+}
+.new-skill {
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.new-blub {
+    background: gray;
+    margin: 0;
+    padding: 10px 20px 3px 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+    color: white;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+.add-skill {
+    color: #fff;
+    background-color: #30a54a;
+    cursor: pointer;
+}
+.text {
+    flex-grow: 1;
+}
+.space {
+    flex-grow: 5;
+}
+.arrow {
+    flex-grow: 1;
+}
