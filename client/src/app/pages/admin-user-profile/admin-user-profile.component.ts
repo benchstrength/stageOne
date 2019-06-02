@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -28,23 +28,31 @@ export class AdminUserProfileComponent implements OnInit {
 
 
 adminData: AdminData;
+// email;
 
   ngOnInit() {
-    let email;
     this.route.params.subscribe(params => {
-      email = params.id;
+      let email = params.id;
+      console.log(email);
+      this.data.getOneUser({email: email}).then((userData: UserData) => {
+        this.adminData ={
+          name: `${userData.firstName}  ${userData.lastName}`,
+          email: userData.email,
+          picture: userData.picture
+        } 
+      })
     })
-if (email) {
-  this.data.getOneUser({email: email}).then((userData: UserData) => {
-    this.adminData ={
-      name: `${userData.firstName}  ${userData.lastName}`,
-      email: userData.email,
-      picture: userData.picture
-    } 
-  })
-console.log(email)
-}
+// if (this.email) {
+//   this.data.getOneUser({email: this.email}).then((userData: UserData) => {
+//     this.adminData ={
+//       name: `${userData.firstName}  ${userData.lastName}`,
+//       email: userData.email,
+//       picture: userData.picture
+//     } 
+//   })
+// console.log(this.email)
+// }
 
-  }
+  };
 
 }

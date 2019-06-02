@@ -12,11 +12,12 @@ import { PermissionGuard } from '../guards/permission.guard';
 import { AdminUserPageComponent } from '../pages/admin-user-page/admin-user-page.component';
 import { AdminUserProfileComponent } from '../pages/admin-user-profile/admin-user-profile.component';
 import { Stage4Component } from '../stage4/stage4.component'
+import { CallbackComponent } from '../callback/callback.component';
  //AuthGuard only allows authenticated users onto the site.
 export const Routes = [
     {path: '',component: LoginPageComponent},
     {path: 'admin', canActivate: [AuthGuard], component: AdminPageComponent},
-    {path: 'callback', component: UserPageComponent},
+    {path: 'callback', component: CallbackComponent},
     {path: 'home', canActivate: [AuthGuard], component: AdminGraphComponent},
     {path: 'login', component: LoginPageComponent},
     {path: 'user', canActivate: [AuthGuard], component: UserPageComponent},

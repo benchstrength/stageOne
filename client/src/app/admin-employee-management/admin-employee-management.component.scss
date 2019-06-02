@@ -1,32 +1,33 @@
-td > button {
-    background-color: whitesmoke;
-    color: #34A5DA;
-    font-weight: 500;
-}
-
 .userTable {
     overflow: scroll;
     max-height: 70vh;
     // border: black
 }
 
-table {
+td, thead {
     color: whitesmoke;
-    > a {
-        color: whitesmoke;
+    // td > a {
+    //     color: whitesmoke;
+    // }
+    // td > button {
+    //     background-color: whitesmoke;
+    //     color: #34A5DA;
+    //     font-weight: 500;
+    // }
+    th {
+        border-top: none;
     }
+
 }
 
 .nestedTable > table {
     border-top: none;
 }
 
-.routePointer {
+tbody > tr > td.routePointer {
     cursor: pointer;
     &:hover {
-        background-color: rgb(235, 235, 235);
-        > a {
+            background-color: rgb(235, 235, 235);
             color: black;
         }
     }
-}
