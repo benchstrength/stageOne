@@ -30,6 +30,7 @@ export class UserAssessmentComponent implements OnInit, OnChanges {
     console.log('prev value: ', this._adminData);
     console.log('got name: ', adminData);
     this._adminData = adminData;
+    this.userSkills = adminData.skills;
   }
 
   get adminData() {

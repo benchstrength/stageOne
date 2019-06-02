@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'models/user.model';
+import { ISkill } from 'models/skill.model';
 
 
 interface UserData {
@@ -14,6 +16,7 @@ interface AdminData {
   name: string,
   email: string,
   picture: string,
+  skills?: ISkill[]
 }
 
 @Component({
