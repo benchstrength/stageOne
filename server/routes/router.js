@@ -8,6 +8,16 @@ module.exports = (db) => {
 
     const Op = db.Sequelize.Op;
 
+    router.get('/api/searchterms/:fragment', (req, res) => {
+      db.Skill.findAll({
+          where: {
+              name: {
+                  [Op.substring]: req.params.fragment
+              }
+          }
+      }).then(data => res.json(data));
+    });
+
     router.use((req, res, next) => {
         console.log(req.headers.permissions);
         db.User.findOne({
@@ -92,12 +102,12 @@ module.exports = (db) => {
             db.Skill.findOne({
                 where: {id: req.body.skillId}
             }).then(skill => {
-                user.addSkill(skill, {through: 
+                user.addSkill(skill, { through: 
                     {
                         self_rating: req.body.skillSelfRating,
                         interest: req.body.skillInterest
                     }
-                }).then(response => res.json(response));
+                }).then(response => res.json({skill, user_skill: response[0]}));
             })
             // res.json(user);
         });
@@ -168,16 +178,6 @@ module.exports = (db) => {
                     });
             });
         });
-    });
-
-    router.get('/api/searchterms/:fragment', (req, res) => {
-        db.Skill.findAll({
-            where: {
-                name: {
-                    [Op.substring]: req.params.fragment
-                }
-            }
-        }).then(data => res.json(data));
     });
 
     router.post('/api/authuser', (req, res) => {
