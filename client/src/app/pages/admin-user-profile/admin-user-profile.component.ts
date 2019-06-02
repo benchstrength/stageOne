@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'models/user.model';
+import { ISkill } from 'models/skill.model';
 
 
 interface UserData {
@@ -14,6 +16,7 @@ interface AdminData {
   name: string,
   email: string,
   picture: string,
+  skills: ISkill[]
 }
 
 @Component({
@@ -34,15 +37,16 @@ adminData: AdminData;
     this.route.params.subscribe(params => {
       email = params.id;
     })
-if (email) {
-  this.data.getOneUser({email: email}).then((userData: UserData) => {
-    this.adminData ={
-      name: `${userData.firstName}  ${userData.lastName}`,
-      email: userData.email,
-      picture: userData.picture
-    } 
+  if (email) {
+    this.data.getOneUser({email: email}).then((userData: IUser) => {
+      console.log(userData);
+      this.adminData ={
+        name: `${userData.firstName}  ${userData.lastName}`,
+        email: userData.email,
+        picture: userData.img_url,
+        skills: userData.Skills
+      } 
   })
-console.log(email)
 }
 
   }
