@@ -28,9 +28,9 @@ export class AdminUserProfileComponent implements OnInit {
 
 
 adminData: AdminData;
-// email;
 
   ngOnInit() {
+    //Gets and updates page based on email in route
     this.route.params.subscribe(params => {
       let email = params.id;
       console.log(email);
@@ -42,17 +42,6 @@ adminData: AdminData;
         } 
       })
     })
-// if (this.email) {
-//   this.data.getOneUser({email: this.email}).then((userData: UserData) => {
-//     this.adminData ={
-//       name: `${userData.firstName}  ${userData.lastName}`,
-//       email: userData.email,
-//       picture: userData.picture
-//     } 
-//   })
-// console.log(this.email)
-// }
-
   };
 
 }
