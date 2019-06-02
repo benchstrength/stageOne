@@ -1,6 +1,7 @@
 td > button {
-    background-color: #34A5DA;
-    color: white;
+    background-color: whitesmoke;
+    color: #34A5DA;
+    font-weight: 500;
 }
 
 .userTable {
@@ -11,8 +12,21 @@ td > button {
 
 table {
     color: whitesmoke;
+    > a {
+        color: whitesmoke;
+    }
 }
 
 .nestedTable > table {
     border-top: none;
+}
+
+.routePointer {
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(235, 235, 235);
+        > a {
+            color: black;
+        }
+    }
 }

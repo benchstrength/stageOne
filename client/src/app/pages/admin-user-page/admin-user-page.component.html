@@ -19,66 +19,69 @@
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col">
-    <h1 class="text-center mt-5 title">Employee Management</h1>
-    <hr>
-    <app-admin-employee-management></app-admin-employee-management>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mt-5 title">Employee Management</h1>
+      <hr>
+      <app-admin-employee-management></app-admin-employee-management>
+    </div>
   </div>
 </div>
 
-<div class="row justify-content-center">
-  <button
-  *ngIf="!showForm" 
-  (click)="toggleForm()" 
-  class="btn btn-lg my-5 addUserButton">Add User</button>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <button
+    *ngIf="!showForm" 
+    (click)="toggleForm()" 
+    class="btn btn-lg my-5 addUserButton">Add User</button>
+  </div>
 </div>
 
 <div 
 *ngIf="showForm"
 class="row align-items-center justify-content-center addUserForm">
   <div class="col">
-<div class="container">
-  <div class="row align-items-center">
-    <div class="col-1 offset-9">
-      <button 
-      class="close "
-      *ngIf="showForm"
-      (click)="toggleForm()">
-      x
-    </button>
-  </div>
-  </div>
-    <h2 class="text-center">Add User</h2>
-    <div class="row align-items-center justify-content-center">
-      <div class="col-6">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-1 offset-9">
+          <button 
+          class="close "
+          *ngIf="showForm"
+          (click)="toggleForm()">
+          x
+        </button>
+      </div>
+      </div>
+        <h2 class="text-center">Add User</h2>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-6">
 
-        <form>
-          <div class="form-group">
-            <label> First Name </label>
-            <input name="name" class="form-control"  [formControl]="firstName"/>
-            <label > Last Name </label>
-            <input name="name" class="form-control"  [formControl]="lastName"/>
-            <label for="name"> Github Email</label>
-            <input id="name" name="name" class="form-control"  [formControl]="email"/>
-            <label>Employee or Contractor</label>
-            <select class="form-control" [formControl]="isEmployee">
-              <option>Please select</option>
-              <option>Employee</option>
-              <option>Contractor</option>
-            </select>
+            <form>
+              <div class="form-group">
+                <label> First Name </label>
+                <input name="name" class="form-control"  [formControl]="firstName"/>
+                <label > Last Name </label>
+                <input name="name" class="form-control"  [formControl]="lastName"/>
+                <label for="name"> Github Email</label>
+                <input id="name" name="name" class="form-control"  [formControl]="email"/>
+                <label>Employee or Contractor</label>
+                <select class="form-control" [formControl]="isEmployee">
+                  <option>Please select</option>
+                  <option>Employee</option>
+                  <option>Contractor</option>
+                </select>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
-  <div class="row justify-content-center">
-    <div class="col">
-      <div class="text-center">
-        <button (click)="sendForm()" class="btn btn-primary">Send</button>
+        </div>
+      <div class="row justify-content-center">
+        <div class="col">
+          <div class="text-center">
+            <button (click)="sendForm()" class="btn btn-primary">Send</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-</div>
 </div>

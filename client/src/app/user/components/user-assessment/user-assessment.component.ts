@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
 import { ISkill } from 'models/skill.model';
+import { LevelsService } from 'src/app/dataService/levels.service';
 
 interface UserData {
   firstName: string,
@@ -22,7 +23,7 @@ export class UserAssessmentComponent implements OnInit, OnChanges {
   private userSkills: ISkill[];
 
 
-  constructor() { }
+  constructor(private levels: LevelsService) { }
     
   @Input()
   set adminData(adminData: any) {
@@ -35,8 +36,8 @@ export class UserAssessmentComponent implements OnInit, OnChanges {
     return this._adminData;
   }
 
-  interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
-  abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
+  interests = this.levels.interests;
+  abilities = this.levels.abilities;
  
   ngOnInit() {
     // this.userFilter();

@@ -20,7 +20,7 @@
           </thead>
           <tbody>
             <tr *ngFor='let user of users'>
-              <td><a [routerLink]="[ user.email ]">{{ user.firstName }} {{ user.lastName }}</a></td>
+              <td class="routePointer"><a [routerLink]="[ user.email ]">{{ user.firstName }} {{ user.lastName }}</a></td>
               <td class="text-center" >{{ user.email }}</td>
               <td>
                   <table *ngIf="viewData.includes( user.email )" class="nestedTable">

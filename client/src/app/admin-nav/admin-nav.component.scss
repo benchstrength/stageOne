@@ -5,9 +5,13 @@
     margin-top: 0.25em; 
 }
 
-nav {
+nav > div {
+    .row {
+        padding-right: 0;
+    }
     background-color: white;
     box-shadow: 0 0 2em -0.5em #34A5DA;
+    // max-width: 100vh;
 }
 
 .col, .col-1 {
@@ -26,12 +30,11 @@ a {
 }
 
 .activeRoute {
+    > a {
+        color: white
+    }
     color: white;
     background-color:#34A5DA;
-}
-
-.activeRoute > a {
-    color: white
 }
 
 .link {

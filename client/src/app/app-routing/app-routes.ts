@@ -14,7 +14,7 @@ import { AdminUserProfileComponent } from '../pages/admin-user-profile/admin-use
 import { Stage4Component } from '../stage4/stage4.component'
  //AuthGuard only allows authenticated users onto the site.
 export const Routes = [
-    {path: '',component: AdminGraphComponent},
+    {path: '',component: LoginPageComponent},
     {path: 'admin', canActivate: [AuthGuard], component: AdminPageComponent},
     {path: 'callback', component: UserPageComponent},
     {path: 'home', canActivate: [AuthGuard], component: AdminGraphComponent},
