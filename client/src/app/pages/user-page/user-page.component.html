@@ -1,41 +1,12 @@
-<!-- 
-<nav class="nav flxrow">
-    <div class="settings">
-        <i class="fas fa-sliders-h icon" (click)="theme()"></i>
-    </div>
-    <div class="title">
-        <h2 class="">BENCH STRENGTH</h2>
-    </div>
-    <div class="logout">
-        <i class="fas fa-sign-out-alt icon" (click)="auth.logout()"></i>
-    </div>
-</nav>
-
-<app-user-dash-card></app-user-dash-card>
-
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<nav class="row justify-content-center align-items-center navbar">
+    <nav class="row justify-content-center align-items-center navbar">
         <div class="col text-center">
-              <h2 class="linkButton">BENCH STRENGTH</h2>
+            <h2 class="linkButton">BENCH STRENGTH</h2>
         </div>
         <button  class="btn btn-light mr-5 logOut" (click)="auth.logout()">Log out</button>
-</nav>
+    </nav>
 
 
-<div class="content">
+<div class="content container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 ">
             <app-user-dash-card [adminData]="adminData"></app-user-dash-card>

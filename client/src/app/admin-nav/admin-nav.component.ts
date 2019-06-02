@@ -10,6 +10,8 @@ export class AdminNavComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
+profile = sessionStorage.getItem('userEmail');
+
   ngOnInit() {
   }
 

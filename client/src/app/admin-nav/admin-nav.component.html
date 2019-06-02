@@ -1,16 +1,21 @@
-<nav >
+<nav class="container-fluid">
     <div class="row"> 
-        <div class="col text-center align-items-center" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+        <div class="col-lg col-md-6 text-center align-items-center" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="/admin/users" >
                     <h2 class="linkButton ">BENCH</h2>
                 </a>
         </div>
-        <div class="col text-center" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
+        <div class="col-lg col-md-6 text-center" routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact: true}">
             <a routerLink="/admin" >
                 <h2 class="linkButton">STRENGTH</h2>
             </a>
         </div>
-        <div class="col-1 text-center logoutDiv">
+        <div class="col-lg-1 col-md-6 text-center logoutDiv">
+            <a [routerLink]="['/admin/users/',profile]">
+                <button class=" btn btn-sm logoutBtn">Profile</button>
+            </a>
+        </div>
+        <div class="col-lg-1 col-md-6 text-center logoutDiv">
             <a>
                 <button class=" btn btn-sm logoutBtn" (click)="auth.logout()">Log out</button>
             </a>
