@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../dataService/get-data.service';
+import { LevelsService } from '../dataService/levels.service';
 
 @Component({
   selector: 'app-admin-employee-management',
@@ -8,14 +9,15 @@ import { GetDataService } from '../dataService/get-data.service';
 })
 export class AdminEmployeeManagementComponent implements OnInit {
 
-  constructor(private data: GetDataService) { }
+  constructor(private data: GetDataService,
+              private levels: LevelsService) { }
 
 
 users: any;
 viewData: string[] = []
 
-interests = ["Not Interested", "A Little Interested", "Interested", "Very Interested"];
-abilities = ["Familiar", "Beginner/Intermediate", "Advanced", "Master/Teacher"];
+interests = this.levels.interests;
+abilities = this.levels.abilities;
 
   ngOnInit() {
 
