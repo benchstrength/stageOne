@@ -127,6 +127,7 @@ public addSkill(sendBody: AddSkill) {
 };
 
 public checkPermissions() {
+  console.log(this.addHeader());
   return this.http.post(checkPermsUrl, {}, {headers: this.addHeader()}).toPromise();
 }
 

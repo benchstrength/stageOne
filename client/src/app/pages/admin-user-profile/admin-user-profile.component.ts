@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 import { GetDataService } from 'src/app/dataService/get-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { IUser } from 'models/user.model';
@@ -16,7 +16,7 @@ interface AdminData {
   name: string,
   email: string,
   picture: string,
-  skills: ISkill[]
+  skills?: ISkill[]
 }
 
 @Component({
@@ -33,22 +33,18 @@ export class AdminUserProfileComponent implements OnInit {
 adminData: AdminData;
 
   ngOnInit() {
-    let email;
+    //Gets and updates page based on email in route
     this.route.params.subscribe(params => {
-      email = params.id;
+      let email = params.id;
+      console.log(email);
+      this.data.getOneUser({email: email}).then((userData: UserData) => {
+        this.adminData ={
+          name: `${userData.firstName}  ${userData.lastName}`,
+          email: userData.email,
+          picture: userData.picture
+        } 
+      })
     })
-  if (email) {
-    this.data.getOneUser({email: email}).then((userData: IUser) => {
-      console.log(userData);
-      this.adminData ={
-        name: `${userData.firstName}  ${userData.lastName}`,
-        email: userData.email,
-        picture: userData.img_url,
-        skills: userData.Skills
-      } 
-  })
-}
-
-  }
+  };
 
 }

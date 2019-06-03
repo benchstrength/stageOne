@@ -70,14 +70,17 @@ export class AuthService {
     this._auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.localLogin(authResult);
-        this.data.checkPermissions().then((perm: any) => {
-          if (perm.role == 'admin'|| 'super-admin') {
-            this.router.navigate(['/admin']);
-          } else if (perm.role == 'user') {
-            this.router.navigate(['/user']);
-          }
-          console.log(perm.role)
-        });
+        this.router.navigate(['/callback'])
+        // this.data.checkPermissions().then((perm: any) => {
+        //   console.log(perm)
+        //   if (perm.role == 'admin'|| 'super-admin') {
+        //     this.router.navigate(['/admin']);
+        //   } else if (perm.role == 'user') {
+        //     this.router.navigate(['/user']);
+        //   } else {
+        //     this.router.navigate(['/login']);        
+        //   }
+        // });
       } else if (err) {
         this.router.navigate(['/login']);
         // console.log(err);

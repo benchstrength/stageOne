@@ -20,7 +20,7 @@
           </thead>
           <tbody>
             <tr *ngFor='let user of users'>
-              <td class="routePointer"><a [routerLink]="[ user.email ]">{{ user.firstName }} {{ user.lastName }}</a></td>
+              <td [routerLink]="[ user.email ]" class="routePointer">{{ user.firstName }} {{ user.lastName }}</td>
               <td class="text-center" >{{ user.email }}</td>
               <td>
                   <table *ngIf="viewData.includes( user.email )" class="nestedTable">
@@ -71,19 +71,16 @@
                     </tr>
                   </table>
               </td> -->
-              <td class="text-center">
-                  <button 
-                    class="btn btn-sm" 
+              <td class="text-center routePointer"
                     *ngIf="!viewData.includes(user.email)" 
                     (click)="showData( user.email )">
                     Show {{ user.firstName }}'s Skills
-                  </button>
-                  <button 
-                    class="btn btn-sm" 
-                    *ngIf="viewData.includes(user.email)" 
-                    (click)="hideData( user.email )">
-                    Hide {{ user.firstName }}'s Skills
-                  </button>
+              </td>
+              <td 
+                class="text-center routePointer" 
+                *ngIf="viewData.includes(user.email)" 
+                (click)="hideData( user.email )">
+                Hide {{ user.firstName }}'s Skills
               </td>
             </tr>
           </tbody>
