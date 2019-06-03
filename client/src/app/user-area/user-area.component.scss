@@ -14,10 +14,14 @@ td > p {
     // padding-left: 2em;
     text-align:center;
 }
+table {
+    color: whitesmoke;
+}
 
 .routePointer {
     cursor: pointer;
     &:hover {
         background-color: rgb(235, 235, 235);
+        color: black;
     }
 }

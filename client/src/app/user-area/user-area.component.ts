@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
  
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { IUser } from 'models/user.model';
+import { LevelsService } from '../dataService/levels.service';
 
 @Component({
   selector: 'app-user-area',
@@ -20,7 +21,12 @@ export class UserAreaComponent implements OnInit {
 
   search: IUser[];
   
-  constructor(private data: GetDataService) { }
+  constructor(private data: GetDataService,
+              private levels: LevelsService) { }
+
+  abilities = this.levels.abilities;
+  interests = this.levels.interests;
+
 
   expandSearch(eventObj) {
     this.skillsArray.push(eventObj);
