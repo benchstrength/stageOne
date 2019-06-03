@@ -1,4 +1,5 @@
 const Express = require('express');
+const path = require('path');
 
 const auth = require('./authentication');
 
@@ -18,8 +19,14 @@ module.exports = (db) => {
       }).then(data => res.json(data));
     });
 
+    router.get('/callback', (req, res) => {
+        res.sendFile(path.join(__dirname, "../../client/dist/bench-strength/index.html"));
+    })
+
     router.use((req, res, next) => {
-        console.log(req.url);
+        console.log("param list: " + JSON.stringify(req.params, null, 2));
+        console.log("request type: " + req.method);
+        console.log("route request: " + req.url);
         console.log(req.headers.permissions);
         db.User.findOne({
             where: {

@@ -15,7 +15,7 @@ import { Stage4Component } from '../stage4/stage4.component'
 import { CallbackComponent } from '../callback/callback.component';
  //AuthGuard only allows authenticated users onto the site.
 export const Routes = [
-    {path: '',component: LoginPageComponent},
+    {path: '', component: LoginPageComponent},
     {path: 'admin', canActivate: [AuthGuard], component: AdminPageComponent},
     {path: 'callback', component: CallbackComponent},
     {path: 'home', canActivate: [AuthGuard], component: AdminGraphComponent},

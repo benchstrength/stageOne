@@ -69,8 +69,9 @@ export class AuthService {
   public handleAuthentication(): void {
     this._auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        this.localLogin(authResult);
-        this.router.navigate(['/callback'])
+        this.localLogin(authResult).then(() => {
+          this.router.navigate(['/callback'])
+        });
         // this.data.checkPermissions().then((perm: any) => {
         //   console.log(perm)
         //   if (perm.role == 'admin'|| 'super-admin') {
@@ -89,33 +90,35 @@ export class AuthService {
     });
   }
 
-  private localLogin(authResult): void {
-    // Set the time that the access token will expire at
-    const expiresAt = (authResult.expiresIn * 1000) + Date.now();
-    this._accessToken = authResult.accessToken;
-    this._idToken = authResult.idToken;
-    this._expiresAt = expiresAt;
+  private localLogin(authResult): Promise<void> {
+    return new Promise((resolve, reject) => {
+      // Set the time that the access token will expire at
+      const expiresAt = (authResult.expiresIn * 1000) + Date.now();
+      this._accessToken = authResult.accessToken;
+      this._idToken = authResult.idToken;
+      this._expiresAt = expiresAt;
 
-    sessionStorage.setItem("accessToken", authResult.accessToken);
-    sessionStorage.setItem("idToken", authResult.idToken);
-    sessionStorage.setItem("expiresAt", expiresAt.toString());
+      sessionStorage.setItem("accessToken", authResult.accessToken);
+      sessionStorage.setItem("idToken", authResult.idToken);
+      sessionStorage.setItem("expiresAt", expiresAt.toString());
 
-    let decoded: UserInfo = jwt_decode(authResult.idToken);
-    if (decoded.nickname) {
-      sessionStorage.setItem('userName', decoded.name);
-      sessionStorage.setItem('userEmail', decoded.email);
-      sessionStorage.setItem('userPicture', decoded.picture);
-      let user = {
-        email: decoded.email,
-        firstName: decoded.name.split(" ")[0],
-        lastName: decoded.name.split(" ")[1],
-        imageUrl: decoded.picture
+      let decoded: UserInfo = jwt_decode(authResult.idToken);
+      if (decoded.nickname) {
+        sessionStorage.setItem('userName', decoded.name);
+        sessionStorage.setItem('userEmail', decoded.email);
+        sessionStorage.setItem('userPicture', decoded.picture);
+        let user = {
+          email: decoded.email,
+          firstName: decoded.name.split(" ")[0],
+          lastName: decoded.name.split(" ")[1],
+          imageUrl: decoded.picture
+        }
+        // this.data.authUser(user).then(added => {
+        //   console.log(added)
+        // })
       }
-      // this.data.authUser(user).then(added => {
-      //   console.log(added)
-      // })
-    }
-
+      resolve();
+    });
   }
 
   public renewTokens(): void {
