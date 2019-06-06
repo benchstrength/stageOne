@@ -2,12 +2,12 @@
   <h4><label for="search-box">Developer Search</label></h4>
 
   <input #searchBox id="search-box" (input)="search(searchBox.value)"
-        class="form-control"
+        class="form-control" [(ngModel)]="searchValue"
         (focus)="focused=true" (focusout)="delayUnfocus()" />
 
-  <ul class="search-result">
+  <ul class="search-result" *ngIf="displayResults">
     <li *ngFor="let developer of developers$ | async">
-      <a (click)="findDeveloper($event.target.id)" id={{skill.id}}>
+      <a (click)="findDeveloper($event.target.id)" id={{developer.email}}>
         {{developer.firstName}} {{developer.lastName}}
       </a>
     </li>

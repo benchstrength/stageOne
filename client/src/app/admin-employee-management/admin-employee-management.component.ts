@@ -35,6 +35,11 @@ abilities = this.levels.abilities;
     this.viewData.push(email);
   }
 
+  filterList(developerEmail) {
+    this.users = this.developers.filter(
+      developer => developer.email === developerEmail)
+  }
+
   hideData(email: string) {
    let filtered = this.viewData.filter(elem => {
     return elem != email;

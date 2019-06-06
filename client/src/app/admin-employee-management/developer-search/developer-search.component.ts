@@ -17,11 +17,13 @@ export class DeveloperSearchComponent implements OnInit {
 
   @Output() foundDeveloper = new EventEmitter();
 
+  displayResults = false;
   searchValue: string = '';
 
   constructor() { }
 
   search(term: string): void {
+    this.displayResults = term.trim() ? true : false;
     this.searchTerms.next(term);
   }
 
@@ -34,8 +36,28 @@ export class DeveloperSearchComponent implements OnInit {
       switchMap((term: string) => {
         term = term.trim().toLowerCase();
         console.log(this.developers.filter(developer => developer.firstName.toLowerCase().startsWith(term.toLowerCase()) || developer.lastName.toLowerCase().startsWith(term.toLowerCase())));
-        return this.developers.filter(developer => developer.firstName.toLowerCase().startsWith(term) || developer.lastName.toLowerCase().startsWith(term))
+        return new Observable(subscriber => {
+          if(term) {
+            subscriber.next(this.developers.filter(
+              developer => developer.firstName.toLowerCase().startsWith(term) || 
+              developer.lastName.toLowerCase().startsWith(term) ||
+              developer.email.toLowerCase().startsWith(term)));
+          }
+          else
+            subscriber.next([]);
+          subscriber.complete();
+        });
     }));
+  }
+
+  findDeveloper(developerId) {
+
+    console.log(developerId);
+
+    this.searchValue = '';
+    this.displayResults = false;
+
+    this.foundDeveloper.emit(developerId);
   }
 
 }

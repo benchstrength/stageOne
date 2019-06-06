@@ -1,6 +1,6 @@
 <!-- Table for users searched by skills -->
 <div class="container">
-  <app-developer-search [(developers)]="developers"></app-developer-search>
+  <app-developer-search (foundDeveloper)="filterList($event)" [developers]="developers"></app-developer-search>
     <!-- <div class='card-body'>
       <div class='row'> -->
           <!-- Search Box for skills -->
