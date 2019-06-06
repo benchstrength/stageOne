@@ -9,103 +9,107 @@
       <!-- </div>
     </div> -->
     <div class='table-responsive userTable' >
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Employment Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+            class="routePointer" 
+            [routerLink]="[ user.email ]" 
+            *ngFor='let user of users'>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td class="text-center" >{{ user.email }}</td>
+            <td *ngIf="user.isEmployee">
+              In-House
+                <!-- <table *ngIf="viewData.includes( user.email )" class="nestedTable">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Skill</th>
+                      <th class="text-center">Perceived</th>
+                      <th class="text-center">Accurate</th>
+                      <th class="text-center">Interest</th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let skill of user.Skills">
+                    <td class="text-center" >
+                      {{ skill.name }}
+                    </td>
+                    <td class="text-center"  >
+                      {{ abilities[skill.user_skill.self_rating -1] }}
+                    </td>
+                    <td class="text-center"  >
+                      {{ abilities[skill.user_skill.employer_rating -1] }}
+                    </td>
+                    <td class="text-center"  >
+                      {{ interests[skill.user_skill.interest -1] }}
+                    </td>
+                  </tr>
+                </table> -->
+            </td>
+            <td *ngIf="!user.isEmployee">
+              Contractor
+            </td>
+            <!-- <td >
+                <table *ngIf="viewData.includes( user.email )">
+                  <tr *ngFor="let skill of user.Skills">
+                  
+                  </tr>
+              </table>
+            </td>
+            <td>
+                <table *ngIf="viewData.includes( user.email )">
+                  <tr *ngFor="let skill of user.Skills">
+                    
+                  </tr>
+                </table>
+            </td>
+            <td>
+                <table *ngIf="viewData.includes( user.email )">
+                  <tr *ngFor="let skill of user.Skills">
+                   
+                  </tr>
+                </table>
+            </td> -->
+            <!-- <td class="text-center routePointer"
+                  *ngIf="!viewData.includes(user.email)" 
+                  (click)="showData( user.email )">
+                  Show {{ user.firstName }}'s Skills
+            </td>
+            <td 
+              class="text-center routePointer" 
+              *ngIf="viewData.includes(user.email)" 
+              (click)="hideData( user.email )">
+              Hide {{ user.firstName }}'s Skills
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<!-- Table for users searched by user name -->
+<div class="container"  *ngIf="searchType === 'users' ">
+    <div class='table-responsive'>
         <table class='table'>
           <thead>
             <tr>
               <th>Name</th>
               <th class="text-center">Email</th>
-              <th class="text-center"></th>
-              <th class="text-center">Skills</th>
+              <!-- <th class="text-center">Perceived</th>
+              <th class="text-center">Accurate</th>
+              <th class="text-center">Interest</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let user of users'>
-              <td [routerLink]="[ user.email ]" class="routePointer">{{ user.firstName }} {{ user.lastName }}</td>
-              <td class="text-center" >{{ user.email }}</td>
-              <td>
-                  <table *ngIf="viewData.includes( user.email )" class="nestedTable">
-                    <thead>
-                      <tr>
-                        <th class="text-center">Skill</th>
-                        <th class="text-center">Perceived</th>
-                        <th class="text-center">Accurate</th>
-                        <th class="text-center">Interest</th>
-                      </tr>
-                    </thead>
-                    <tr *ngFor="let skill of user.Skills">
-                      <td class="text-center" >
-                        {{ skill.name }}
-                      </td>
-                      <td class="text-center"  >
-                        {{ abilities[skill.user_skill.self_rating -1] }}
-                      </td>
-                      <td class="text-center"  >
-                        {{ abilities[skill.user_skill.employer_rating -1] }}
-                      </td>
-                      <td class="text-center"  >
-                        {{ interests[skill.user_skill.interest -1] }}
-                      </td>
-                    </tr>
-                </table>
-              </td>
-              <!-- <td >
-
-                  <table *ngIf="viewData.includes( user.email )">
-                    <tr *ngFor="let skill of user.Skills">
-                    
-                    </tr>
-                </table>
-              </td>
-              <td>
-
-                  <table *ngIf="viewData.includes( user.email )">
-                    <tr *ngFor="let skill of user.Skills">
-                      
-                    </tr>
-                  </table>
-              </td>
-              <td>
-                  <table *ngIf="viewData.includes( user.email )">
-                    <tr *ngFor="let skill of user.Skills">
-                     
-                    </tr>
-                  </table>
-              </td> -->
-              <td class="text-center routePointer"
-                    *ngIf="!viewData.includes(user.email)" 
-                    (click)="showData( user.email )">
-                    Show {{ user.firstName }}'s Skills
-              </td>
-              <td 
-                class="text-center routePointer" 
-                *ngIf="viewData.includes(user.email)" 
-                (click)="hideData( user.email )">
-                Hide {{ user.firstName }}'s Skills
-              </td>
+            <tr *ngFor='let user of filteredList'>
+              <td>{{ user.firstName }} {{ user.lastName }}</td>
+              <td class="text-center">{{ user.email }}</td>
             </tr>
           </tbody>
         </table>
       </div>
-  </div>
-  <!-- Table for users searched by user name -->
-  <div class="container"  *ngIf="searchType === 'users' ">
-      <div class='table-responsive'>
-          <table class='table'>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th class="text-center">Email</th>
-                <!-- <th class="text-center">Perceived</th>
-                <th class="text-center">Accurate</th>
-                <th class="text-center">Interest</th> -->
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor='let user of filteredList'>
-                <td>{{ user.firstName }} {{ user.lastName }}</td>
-                <td class="text-center">{{ user.email }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-  </div>   
+</div>  

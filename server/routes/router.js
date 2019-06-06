@@ -24,10 +24,9 @@ module.exports = (db) => {
     })
 
     router.use((req, res, next) => {
-        console.log("param list: " + JSON.stringify(req.params, null, 2));
-        console.log("request type: " + req.method);
-        console.log("route request: " + req.url);
-        console.log(req.headers.permissions);
+        if(!req.headers.permissions) {
+            res.redirect(req.baseUrl + '/');
+        }
         db.User.findOne({
             where: {
                 email: req.headers.permissions

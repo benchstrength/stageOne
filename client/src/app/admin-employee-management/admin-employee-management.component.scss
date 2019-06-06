@@ -24,10 +24,12 @@ td, thead {
     border-top: none;
 }
 
-tbody > tr > td.routePointer {
+tbody > tr.routePointer {
     cursor: pointer;
     &:hover {
             background-color: rgb(235, 235, 235);
-            color: black;
+            td {
+                color: black;
+            }
         }
     }
