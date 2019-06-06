@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../dataService/get-data.service';
 import { LevelsService } from '../dataService/levels.service';
+import { IUser } from 'models/user.model';
 
 @Component({
   selector: 'app-admin-employee-management',
@@ -13,8 +14,9 @@ export class AdminEmployeeManagementComponent implements OnInit {
               private levels: LevelsService) { }
 
 
-users: any;
-viewData: string[] = []
+users: IUser[];
+viewData: string[] = [];
+developers: IUser[];
 
 interests = this.levels.interests;
 abilities = this.levels.abilities;
@@ -23,13 +25,19 @@ abilities = this.levels.abilities;
 
     this.data.getAllUsers("all").then(users => {
       console.log(users);
-      this.users = users;
+      this.users = users as IUser[];
+      this.developers = this.users;
     })
 
   }
 
   showData(email) {
     this.viewData.push(email);
+  }
+
+  filterList(developerEmail) {
+    this.users = this.developers.filter(
+      developer => developer.email === developerEmail)
   }
 
   hideData(email: string) {

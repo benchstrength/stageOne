@@ -1,5 +1,6 @@
 <!-- Table for users searched by skills -->
 <div class="container">
+  <app-developer-search (foundDeveloper)="filterList($event)" [developers]="developers"></app-developer-search>
     <!-- <div class='card-body'>
       <div class='row'> -->
           <!-- Search Box for skills -->
@@ -14,16 +15,19 @@
             <tr>
               <th>Name</th>
               <th class="text-center">Email</th>
-              <th class="text-center"></th>
-              <th class="text-center">Skills</th>
+              <th class="text-center">Employment Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let user of users'>
-              <td [routerLink]="[ user.email ]" class="routePointer">{{ user.firstName }} {{ user.lastName }}</td>
+            <tr 
+              class="routePointer" 
+              [routerLink]="[ user.email ]" 
+              *ngFor='let user of users'>
+              <td>{{ user.firstName }} {{ user.lastName }}</td>
               <td class="text-center" >{{ user.email }}</td>
-              <td>
-                  <table *ngIf="viewData.includes( user.email )" class="nestedTable">
+              <td *ngIf="user.isEmployee">
+                In-House
+                  <!-- <table *ngIf="viewData.includes( user.email )" class="nestedTable">
                     <thead>
                       <tr>
                         <th class="text-center">Skill</th>
@@ -46,7 +50,10 @@
                         {{ interests[skill.user_skill.interest -1] }}
                       </td>
                     </tr>
-                </table>
+                  </table> -->
+              </td>
+              <td *ngIf="!user.isEmployee">
+                Contractor
               </td>
               <!-- <td >
 
@@ -71,7 +78,7 @@
                     </tr>
                   </table>
               </td> -->
-              <td class="text-center routePointer"
+              <!-- <td class="text-center routePointer"
                     *ngIf="!viewData.includes(user.email)" 
                     (click)="showData( user.email )">
                     Show {{ user.firstName }}'s Skills
@@ -81,7 +88,7 @@
                 *ngIf="viewData.includes(user.email)" 
                 (click)="hideData( user.email )">
                 Hide {{ user.firstName }}'s Skills
-              </td>
+              </td> -->
             </tr>
           </tbody>
         </table>

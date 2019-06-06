@@ -33,6 +33,7 @@ import { AdminUserProfileComponent } from './pages/admin-user-profile/admin-user
 import { Stage4Component } from './stage4/stage4.component';
 import { AdminEmployeeManagementComponent } from './admin-employee-management/admin-employee-management.component';
 import { CallbackComponent } from './callback/callback.component';
+import { DeveloperSearchComponent } from './admin-employee-management/developer-search/developer-search.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { CallbackComponent } from './callback/callback.component';
     Stage4Component,
     AdminEmployeeManagementComponent,
     CallbackComponent,
+    DeveloperSearchComponent,
   ],
   imports: [
     BrowserModule,
